@@ -3,14 +3,16 @@ using Cinema.WebApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.WebApi.Migrations
 {
     [DbContext(typeof(PlayingMovieContext))]
-    partial class MovieContextModelSnapshot : ModelSnapshot
+    [Migration("20200329215425_MovieUpdte")]
+    partial class MovieUpdte
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,7 +61,7 @@ namespace Cinema.WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlayingMovies");
+                    b.ToTable("Movies");
 
                     b.HasData(
                         new

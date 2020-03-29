@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200329220737_newOne.cs" />
+    <Compile Remove="Migrations\20200329220737_newOne.Designer.cs" />
+    <Compile Remove="Migrations\Announced\20200329220748_AnnouncedMNew.cs" />
+    <Compile Remove="Migrations\Announced\20200329220748_AnnouncedMNew.Designer.cs" />
+    <Compile Remove="Migrations\Repertory\20200329220828_Rep.cs" />
+    <Compile Remove="Migrations\Repertory\20200329220828_Rep.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>

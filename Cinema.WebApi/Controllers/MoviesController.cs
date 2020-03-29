@@ -1,16 +1,18 @@
 ﻿using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.WebApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("MyPolicy")]
     [ApiController]
     public class MoviesController : ControllerBase
     {
-        private readonly IDataRepository<Movie> _dataRepository;
+        private readonly IDataRepository<PlayingMovie> _dataRepository;
 
-        public MoviesController(IDataRepository<Movie> dataRepository)
+        public MoviesController(IDataRepository<PlayingMovie> dataRepository)
         {
             _dataRepository = dataRepository;
         }
@@ -31,7 +33,7 @@ namespace Cinema.WebApi.Controllers
 
         // POST: api/Movies
         [HttpPost]
-        public IActionResult Post([FromBody] Movie value)
+        public IActionResult Post([FromBody] PlayingMovie value)
         {
             if (!ModelState.IsValid)
             {
@@ -45,7 +47,7 @@ namespace Cinema.WebApi.Controllers
 
         // PUT: api/Movies
         [HttpPut]
-        public IActionResult Put([FromBody] Movie value)
+        public IActionResult Put([FromBody] PlayingMovie value)
         {
             if (!ModelState.IsValid)
             {

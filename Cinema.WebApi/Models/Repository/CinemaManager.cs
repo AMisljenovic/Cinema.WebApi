@@ -5,44 +5,44 @@ using System.Threading.Tasks;
 
 namespace Cinema.WebApi.Models.Repository
 {
-    public class CinemaManager : IDataRepository<Movie>
+    public class CinemaManager : IDataRepository<PlayingMovie>
     {
-        private readonly MovieContext _movieContext;
+        private readonly PlayingMovieContext _movieContext;
 
-        public CinemaManager(MovieContext movieContext)
+        public CinemaManager(PlayingMovieContext movieContext)
         {
             _movieContext = movieContext;
         }
 
-        public async Task Add(Movie entity)
+        public async Task Add(PlayingMovie entity)
         {
             entity.Id = Guid.NewGuid().ToString();
-            _movieContext.Movies.Add(entity);
+            _movieContext.PlayingMovies.Add(entity);
 
            await _movieContext.SaveChangesAsync();
         }
 
         public async Task Delete(string id)
         {
-            var dbEntity = _movieContext.Movies.First(movie => movie.Id == id);
-            _movieContext.Movies.Remove(dbEntity);
+            var dbEntity = _movieContext.PlayingMovies.First(movie => movie.Id == id);
+            _movieContext.PlayingMovies.Remove(dbEntity);
 
             await _movieContext.SaveChangesAsync();
         }
 
-        public Movie Get(string id)
+        public PlayingMovie Get(string id)
         {
-            return _movieContext.Movies.FirstOrDefault(movie => movie.Id == id);
+            return _movieContext.PlayingMovies.FirstOrDefault(movie => movie.Id == id);
         }
 
-        public IEnumerable<Movie> GetAll()
+        public IEnumerable<PlayingMovie> GetAll()
         {
-            return _movieContext.Movies;
+            return _movieContext.PlayingMovies;
         }
 
-        public async Task Update(Movie entity)
+        public async Task Update(PlayingMovie entity)
         {
-            var dbEntity = _movieContext.Movies.FirstOrDefault(movie => movie.Id == entity.Id);
+            var dbEntity = _movieContext.PlayingMovies.FirstOrDefault(movie => movie.Id == entity.Id);
             
             if (dbEntity != null)
             {
@@ -57,7 +57,7 @@ namespace Cinema.WebApi.Models.Repository
                 dbEntity.Actors = entity.Actors;
                 dbEntity.Genre = entity.Genre;
 
-                _movieContext.Movies.Update(dbEntity);
+                _movieContext.PlayingMovies.Update(dbEntity);
                 await _movieContext.SaveChangesAsync();
             }
         }

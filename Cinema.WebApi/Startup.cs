@@ -21,9 +21,20 @@ namespace Cinema.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MovieContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
-            services.AddScoped<IDataRepository<Movie>, CinemaManager>();
+            services.AddDbContext<PlayingMovieContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddDbContext<AnnouncedContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddDbContext<RepertoryContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddScoped<IDataRepository<PlayingMovie>, CinemaManager>();
             services.AddControllers();
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+            services.AddMvc()
+                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1)
+                .AddMvcOptions(option => option.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,10 +51,14 @@ namespace Cinema.WebApi
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseCors("MyPolicy");
+
+            app.UseMvc();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllers();
+            //});
         }
     }
 }

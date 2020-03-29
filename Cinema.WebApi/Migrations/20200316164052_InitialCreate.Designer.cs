@@ -3,14 +3,16 @@ using Cinema.WebApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.WebApi.Migrations
 {
     [DbContext(typeof(PlayingMovieContext))]
-    partial class MovieContextModelSnapshot : ModelSnapshot
+    [Migration("20200316164052_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -18,7 +20,7 @@ namespace Cinema.WebApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Cinema.WebApi.Models.PlayingMovie", b =>
+            modelBuilder.Entity("Cinema.WebApi.Models.Movie", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,12 +61,12 @@ namespace Cinema.WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlayingMovies");
+                    b.ToTable("Movies");
 
                     b.HasData(
                         new
                         {
-                            Id = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            Id = "7c3b2b57-b4fc-425c-ac5f-d069c420ac5c",
                             Actors = "Hrithik Roshan, Tiger Shroff, Vaani Kapoor, Ashutosh Rana",
                             Country = "India",
                             Genre = "Action, Thriller",
@@ -79,7 +81,7 @@ namespace Cinema.WebApi.Migrations
                         },
                         new
                         {
-                            Id = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            Id = "8967fd39-d728-40ed-a167-2cb93782e629",
                             Actors = "Alban Lenoir, Olga Kurylenko, Sébastien Lalanne, David Murgia",
                             Country = "France, Belgium",
                             Genre = "Action, Drama, History, War",
@@ -94,7 +96,7 @@ namespace Cinema.WebApi.Migrations
                         },
                         new
                         {
-                            Id = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            Id = "e930637e-3066-440b-8466-7315ef11174c",
                             Actors = "Darcie Lincoln, Peter Cosgrove, Victor Toth, Georgia Wood",
                             Country = "UK",
                             Genre = "History",
@@ -109,7 +111,7 @@ namespace Cinema.WebApi.Migrations
                         },
                         new
                         {
-                            Id = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            Id = "97629fdc-c820-4712-a289-7be6aad65618",
                             Actors = "Karra Elejalde, Eduard Fernández, Santi Prego, Luis Bermejo",
                             Country = "Spain, Argentina",
                             Genre = "Drama, History, War",
@@ -124,7 +126,7 @@ namespace Cinema.WebApi.Migrations
                         },
                         new
                         {
-                            Id = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            Id = "250e62ef-70f1-4457-8b6d-5cd1825f1a3f",
                             Actors = "Michael Roark, Trace Adkins, Ali Afshar, Allison Paige",
                             Country = "USA",
                             Genre = "Sport",
@@ -139,22 +141,22 @@ namespace Cinema.WebApi.Migrations
                         },
                         new
                         {
-                            Id = "9f855797-11d1-4634-b489-1ae58211ee98",
-                            Actors = "Nia Vardalos, Mike Dopud, Chanelle Peloso, Genea Charpentier",
+                            Id = "cefddc01-1483-46c8-9a03-1443355e7374",
+                            Actors = "Robert De Niro, Uma Thurman, Christopher Walken, Jane Seymour",
                             Country = "USA",
-                            Genre = "Drama",
-                            Plot = "Stacey Ruth Castor weathered the storm of her first husband's death and managed to find love again with her boss, David. But when David is discovered dead of an apparent suicide, the police...",
-                            Poster = "https://m.media-amazon.com/images/M/MV5BODA0ZDE1YTYtOTRjYS00OWQ0LWI5NzgtZjg1ZDY5YTc1MmY4XkEyXkFqcGdeQXVyNTM0MDc1ODE@._V1_SX300.jpg",
-                            Rated = "TV-14",
-                            Released = "01 Feb 2020",
-                            Runtime = "N/A",
-                            Title = "Poisoned Love: The Stacey Castor Story",
-                            Writer = "Peter Hunziker, Cynthia Riddle, Michael Vickerman",
-                            Year = "2020"
+                            Genre = "Comedy, Family",
+                            Plot = "Upset that he has to share the room he loves with his grandfather, Peter decides to declare war in an attempt to get it back.",
+                            Poster = "https://m.media-amazon.com/images/M/MV5BZjU0MDRmMjAtZGU2Ny00ODkxLThiMDUtMmI1MDJhNDc5YTZkXkEyXkFqcGdeQXVyMzgxOTMzOTA@._V1_SX300.jpg",
+                            Rated = "PG",
+                            Released = "27 Dec 2018",
+                            Runtime = "141 min",
+                            Title = "The War with Grandpa",
+                            Writer = "Tom J. Astle (screenplay by), Matt Ember (screenplay by), Robert Kimmel Smith (based on the book by)",
+                            Year = "2019"
                         },
                         new
                         {
-                            Id = "22469aab-0419-475e-a64a-ecfc335c7321",
+                            Id = "91d36fb2-19fb-43f4-948c-4038685ee63a",
                             Actors = "Sven Schelker, Charlotte Heinimann, Daniel Ludwig, Matthew Crowley",
                             Country = "Switzerland, Austria",
                             Genre = "Drama",
@@ -169,7 +171,7 @@ namespace Cinema.WebApi.Migrations
                         },
                         new
                         {
-                            Id = "26ba6b32-be90-443f-8ba2-890f14551457",
+                            Id = "a5eb1b8d-8204-405d-b088-ff628d86a5e3",
                             Actors = "Christina Milian, Adam Demos, Jeffrey Bowyer-Chapman, Anna Jullienne",
                             Country = "USA",
                             Genre = "Comedy, Romance",
