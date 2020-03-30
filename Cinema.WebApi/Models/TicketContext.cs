@@ -24,14 +24,33 @@ namespace Cinema.WebApi.Models
 
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
             {
-                for (int y = 0; y < 7; y++)
+                for (int y = 1; y < 8; y++)
                 {
                     tickets.Add(new Ticket
                     {
                         Id = Guid.NewGuid().ToString(),
-                        HallId = Constants.HallIds[y % 2].ToString(),
+                        HallId = Constants.HallIds[i].ToString(),
                         MoveId = Constants.PlayingMovieIds[i].ToString(),
-                        PlayTime = $"{random.Next(0, 23).ToString()}:00"
+                        PlayTime = $"{random.Next(0,8)}:00",
+                        Day = y
+                    });
+
+                    tickets.Add(new Ticket
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        HallId = Constants.HallIds[i].ToString(),
+                        MoveId = Constants.PlayingMovieIds[i].ToString(),
+                        PlayTime = $"{random.Next(9, 15)}:00",
+                        Day = y
+                    });
+
+                    tickets.Add(new Ticket
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        HallId = Constants.HallIds[i].ToString(),
+                        MoveId = Constants.PlayingMovieIds[i].ToString(),
+                        PlayTime = $"{random.Next(16, 23)}:00",
+                        Day = y
                     });
                 }
             }

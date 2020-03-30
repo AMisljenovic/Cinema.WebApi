@@ -34,6 +34,27 @@ namespace Cinema.WebApi.Models
                     Name = "A2",
                     Cloumns = Constants.HallColumns,
                     Rows = Constants.HallRows
+                },
+                new Hall
+                {
+                    Id = Constants.HallIds[2].ToString(),
+                    Name = "B1",
+                    Cloumns = Constants.HallColumns,
+                    Rows = Constants.HallRows
+                },
+                new Hall
+                {
+                    Id = Constants.HallIds[3].ToString(),
+                    Name = "B2",
+                    Cloumns = Constants.HallColumns,
+                    Rows = Constants.HallRows
+                },
+                new Hall
+                {
+                    Id = Constants.HallIds[4].ToString(),
+                    Name = "C",
+                    Cloumns = Constants.HallColumns,
+                    Rows = Constants.HallRows
                 }
             };
 
