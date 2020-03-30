@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.WebApi.Migrations.Repertory
 {
-    [DbContext(typeof(RepertoryContext))]
+    [DbContext(typeof(TicketContext))]
     [Migration("20200329221303_Rep")]
     partial class Rep
     {

@@ -23,7 +23,8 @@ namespace Cinema.WebApi
         {
             services.AddDbContext<PlayingMovieContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<AnnouncedContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
-            services.AddDbContext<RepertoryContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddDbContext<TicketContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddDbContext<HallContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddScoped<IDataRepository<PlayingMovie>, CinemaManager>();
             services.AddControllers();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
@@ -54,11 +55,6 @@ namespace Cinema.WebApi
             app.UseCors("MyPolicy");
 
             app.UseMvc();
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllers();
-            //});
         }
     }
 }

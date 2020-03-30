@@ -4,14 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cinema.WebApi.Models
 {
-    public class Repertory
+    public class Ticket
+
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
         public string MoveId { get; set; }
-        public DateTime Time{ get; set; }
-        public int AvailableTickets { get; set; }
-        public int SoldTickets { get; set; }
-
+        public string HallId { get; set; }
+        public string PlayTime { get; set; }
     }
 }

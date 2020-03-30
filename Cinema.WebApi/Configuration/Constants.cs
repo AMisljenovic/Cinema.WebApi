@@ -25,5 +25,15 @@ namespace Cinema.WebApi.Configuration
             Guid.Parse("0fe4656a-4598-4f6f-9e7c-3f9347153a10"),
             Guid.Parse("3a1a1424-20d5-469b-b39f-9012da50a71a")
         };
+
+        public static Guid[] HallIds = new Guid[2]
+        {
+            Guid.Parse("b43eba05-74e4-45ea-bf32-0ca5b8f85003"),
+            Guid.Parse("d0cdd288-de39-4a5d-9c7b-aac041e49414")
+        };
+
+
+        public static int HallRows = 5;
+        public static int HallColumns = 5;
     }
 }
