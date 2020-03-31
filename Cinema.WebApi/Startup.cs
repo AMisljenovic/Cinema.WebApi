@@ -28,7 +28,7 @@ namespace Cinema.WebApi
             services.AddScoped<IDataRepository<PlayingMovie>, CinemaManager>();
             services.AddScoped<IDataRepository<AnnouncedMovie>, AnnouncedMovieManager>();
             services.AddScoped<IDataRepository<Hall>, HallManager>();
-            services.AddScoped<IDataRepository<Seat>, SeatManager>();
+            services.AddScoped<ISeatRepository<Seat>, SeatManager>();
             services.AddScoped<ITicketRepository<Ticket>, TicketManager>();
 
             services.AddControllers();

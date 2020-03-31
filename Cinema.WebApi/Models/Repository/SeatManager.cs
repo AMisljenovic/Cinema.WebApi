@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.WebApi.Models.Repository
 {
-    public class SeatManager : IDataRepository<Seat>
+    public class SeatManager : ISeatRepository<Seat>
     {
         private readonly HallContext _hallContext;
 
@@ -34,9 +34,9 @@ namespace Cinema.WebApi.Models.Repository
             await _hallContext.SaveChangesAsync();
         }
 
-        public async Task<Seat> Get(string id)
+        public async Task<IEnumerable<Seat>> Get(string id)
         {
-            return await _hallContext.Seats.FirstOrDefaultAsync(s => s.HallId == id);
+            return await _hallContext.Seats.Where(s => s.HallId == id).ToListAsync();
         }
 
         public async Task<IEnumerable<Seat>> GetAll()
