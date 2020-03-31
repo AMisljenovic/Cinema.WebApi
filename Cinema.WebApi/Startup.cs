@@ -25,11 +25,13 @@ namespace Cinema.WebApi
             services.AddDbContext<AnnouncedContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<TicketContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<HallContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddDbContext<UserContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddScoped<IDataRepository<PlayingMovie>, CinemaManager>();
             services.AddScoped<IDataRepository<AnnouncedMovie>, AnnouncedMovieManager>();
             services.AddScoped<IDataRepository<Hall>, HallManager>();
             services.AddScoped<ISeatRepository<Seat>, SeatManager>();
             services.AddScoped<ITicketRepository<Ticket>, TicketManager>();
+            services.AddScoped<IUsersRepository<User>, UserManager>();
 
             services.AddControllers();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
