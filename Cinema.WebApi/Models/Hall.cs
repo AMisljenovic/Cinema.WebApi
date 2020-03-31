@@ -9,6 +9,6 @@ namespace Cinema.WebApi.Models
         public string Id { get; set; }
         public string Name { get; set; }
         public int Rows { get; set; }
-        public int Cloumns { get; set; }
+        public int Columns { get; set; }
     }
 }

@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Cinema.WebApi.Migrations.Repertory
+namespace Cinema.WebApi.Migrations.Ticket
 {
     [DbContext(typeof(TicketContext))]
-    partial class RepertoryContextModelSnapshot : ModelSnapshot
+    partial class TicketContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -43,135 +43,135 @@ namespace Cinema.WebApi.Migrations.Repertory
                     b.HasData(
                         new
                         {
-                            Id = "aabc048b-1890-43f8-ae6d-f789a8c2078f",
+                            Id = "aa16e7c6-fdcd-4dcb-bae7-9c8e91905a6f",
                             Day = 1,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "4:00"
-                        },
-                        new
-                        {
-                            Id = "77b4c09f-5a94-43f9-a6f3-1191c89b8e31",
-                            Day = 1,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "10:00"
-                        },
-                        new
-                        {
-                            Id = "611629d4-dc21-4da5-9d2c-b49e44f14fab",
-                            Day = 1,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "19:00"
-                        },
-                        new
-                        {
-                            Id = "22bf5f0f-5f94-48a8-8770-d997b01ab340",
-                            Day = 2,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "6:00"
-                        },
-                        new
-                        {
-                            Id = "75a1df85-02cb-427f-9241-b26bde288ee1",
-                            Day = 2,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "14:00"
-                        },
-                        new
-                        {
-                            Id = "fb4194d4-3f89-4c10-8174-b3952dd3ae17",
-                            Day = 2,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "18:00"
-                        },
-                        new
-                        {
-                            Id = "1152ab8a-9b4e-46dd-b534-662eb40149fa",
-                            Day = 3,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
                             PlayTime = "5:00"
                         },
                         new
                         {
-                            Id = "e0683326-8a77-43c4-a1c0-75b34008adc7",
-                            Day = 3,
+                            Id = "0f2dc950-797a-4503-b50e-fb0597c66ce8",
+                            Day = 1,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
                             PlayTime = "10:00"
                         },
                         new
                         {
-                            Id = "29096bff-c5c5-455a-a280-ea36dcb044c7",
-                            Day = 3,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "21:00"
-                        },
-                        new
-                        {
-                            Id = "c2daff91-11cb-4580-9031-ca84b7d15b3a",
-                            Day = 4,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "3:00"
-                        },
-                        new
-                        {
-                            Id = "16324b0f-729e-4634-919a-612742b5f009",
-                            Day = 4,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "12:00"
-                        },
-                        new
-                        {
-                            Id = "12407d97-b193-4f60-b0d7-b5c534345d53",
-                            Day = 4,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "17:00"
-                        },
-                        new
-                        {
-                            Id = "8da046bc-807d-4124-bead-9339a03f0d7d",
-                            Day = 5,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "0:00"
-                        },
-                        new
-                        {
-                            Id = "a930c92d-8bc0-43c1-b2b4-8b0a61d32498",
-                            Day = 5,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "14:00"
-                        },
-                        new
-                        {
-                            Id = "5dbd00a7-6ed1-48ad-9a3f-649da83c019f",
-                            Day = 5,
+                            Id = "5caa1a49-e65b-414a-9b2a-6f7645cc6f39",
+                            Day = 1,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
                             PlayTime = "22:00"
                         },
                         new
                         {
-                            Id = "cdce2cbb-2d11-426c-bcc7-2916cdc89d1d",
-                            Day = 6,
+                            Id = "d1ff748e-649d-47c9-bb8d-92533314c4e1",
+                            Day = 2,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "1:00"
+                            PlayTime = "6:00"
                         },
                         new
                         {
-                            Id = "9db788ae-7840-4f0c-8635-e0c2ace1066f",
+                            Id = "76300db9-9fd0-4836-8395-46ddea9b1d9f",
+                            Day = 2,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "10:00"
+                        },
+                        new
+                        {
+                            Id = "41020870-f9f9-44b5-bf06-1a759b341416",
+                            Day = 2,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "16:00"
+                        },
+                        new
+                        {
+                            Id = "60fccb0b-a096-4522-a1c2-e271d2be43cc",
+                            Day = 3,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "3:00"
+                        },
+                        new
+                        {
+                            Id = "4d9791c3-2b58-4c0c-a416-fa3396ed6ba6",
+                            Day = 3,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "13:00"
+                        },
+                        new
+                        {
+                            Id = "df7ce33c-bbc3-4873-a0a6-d9a66913e974",
+                            Day = 3,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "22:00"
+                        },
+                        new
+                        {
+                            Id = "8e8ead1b-75a1-4f07-8c31-714c59dc93b1",
+                            Day = 4,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "0:00"
+                        },
+                        new
+                        {
+                            Id = "395f9682-5f30-4254-8017-9160966898a6",
+                            Day = 4,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "14:00"
+                        },
+                        new
+                        {
+                            Id = "3c85405c-3d62-4113-ab4e-e86692d1a78e",
+                            Day = 4,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "18:00"
+                        },
+                        new
+                        {
+                            Id = "87b52bed-d1fa-4e54-a04e-0a995dfdc187",
+                            Day = 5,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "5:00"
+                        },
+                        new
+                        {
+                            Id = "5b68bd4e-333f-40d2-9dee-046f46d0c54d",
+                            Day = 5,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "12:00"
+                        },
+                        new
+                        {
+                            Id = "3534994f-c85d-4134-bde3-3cf9de339bbc",
+                            Day = 5,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "16:00"
+                        },
+                        new
+                        {
+                            Id = "07cd04f3-0b0f-4200-b05f-35c13e686fbe",
+                            Day = 6,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "5:00"
+                        },
+                        new
+                        {
+                            Id = "2c0ef586-5304-47f7-9cec-15fccf7b0391",
                             Day = 6,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
@@ -179,31 +179,31 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "1e934d60-60eb-40f1-a3f8-1872bca3cda4",
+                            Id = "e82b3982-ab57-4555-8a7d-8572057aacf1",
                             Day = 6,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "17:00"
+                            PlayTime = "22:00"
                         },
                         new
                         {
-                            Id = "8c67d156-88de-44e8-9a33-ec3e1ea68cca",
+                            Id = "862b687c-9c20-4918-bec6-f8fee6999c56",
                             Day = 7,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "6:00"
+                            PlayTime = "4:00"
                         },
                         new
                         {
-                            Id = "af72e6fd-2513-4471-9c09-14b21c57ef7b",
+                            Id = "9860ea07-5105-4a69-9199-b60e7ac533b0",
                             Day = 7,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "11:00"
+                            PlayTime = "10:00"
                         },
                         new
                         {
-                            Id = "50cc5130-3b3a-4aca-bb96-cbb07c268e5f",
+                            Id = "2da20f11-1192-47bd-b241-f0e61c7366d5",
                             Day = 7,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
@@ -211,143 +211,143 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "e1a7eb4d-a6db-4088-9b70-61db5c32c9be",
+                            Id = "440b75c3-0009-48b5-8723-4f929d17e42e",
                             Day = 1,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "6:00"
+                        },
+                        new
+                        {
+                            Id = "e706b4f0-d916-41c2-87f0-a2a54ca41bc1",
+                            Day = 1,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "10:00"
+                        },
+                        new
+                        {
+                            Id = "822a0f0a-29fe-42cd-8502-329ae95f484f",
+                            Day = 1,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "18:00"
+                        },
+                        new
+                        {
+                            Id = "329eaae6-3bdd-45c6-a373-f73cff72a607",
+                            Day = 2,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "1:00"
+                        },
+                        new
+                        {
+                            Id = "604082af-8ad0-4366-85b7-dd40e7d1c486",
+                            Day = 2,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "9:00"
+                        },
+                        new
+                        {
+                            Id = "08416e9a-453a-45f3-ba08-16a01524def1",
+                            Day = 2,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "16:00"
+                        },
+                        new
+                        {
+                            Id = "74aebd1c-5143-40ff-ad89-7255461e460b",
+                            Day = 3,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "7:00"
+                        },
+                        new
+                        {
+                            Id = "77652be9-ae8f-4121-b67c-b4cfe82ff676",
+                            Day = 3,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "9:00"
+                        },
+                        new
+                        {
+                            Id = "600ce3d7-b0df-4b34-9ebd-1f2f426483e6",
+                            Day = 3,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "17:00"
+                        },
+                        new
+                        {
+                            Id = "b9ca768b-2325-4d1f-ac70-81dae8547a6c",
+                            Day = 4,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "1:00"
+                        },
+                        new
+                        {
+                            Id = "88e496c8-c21c-4db7-bbbd-2d69fdc749a9",
+                            Day = 4,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "12:00"
+                        },
+                        new
+                        {
+                            Id = "450d1f95-3a39-4dbe-8c54-322c26e3644e",
+                            Day = 4,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "20:00"
+                        },
+                        new
+                        {
+                            Id = "8ccb5cc0-6c36-41f5-9335-dc2ccfeba311",
+                            Day = 5,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "2:00"
                         },
                         new
                         {
-                            Id = "e07d06f6-b28f-4f2c-bcfa-9676864e32e0",
-                            Day = 1,
+                            Id = "019594ee-0c2a-44fe-abb2-eec58be9da73",
+                            Day = 5,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "12:00"
                         },
                         new
                         {
-                            Id = "3c7d7e37-1b2c-41c7-b39a-d25e2691034a",
-                            Day = 1,
+                            Id = "70759c44-dea6-487b-a52c-dfc960b54450",
+                            Day = 5,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "22:00"
+                            PlayTime = "21:00"
                         },
                         new
                         {
-                            Id = "b6f38842-f3e6-47cc-bcac-599c69118200",
-                            Day = 2,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "0:00"
-                        },
-                        new
-                        {
-                            Id = "3b05bcf7-3e17-4b0a-b51c-2c59252d61d6",
-                            Day = 2,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "14:00"
-                        },
-                        new
-                        {
-                            Id = "e6879f15-0ce7-4814-81d7-b07fa738a238",
-                            Day = 2,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "20:00"
-                        },
-                        new
-                        {
-                            Id = "37c61c3e-e78d-49ad-a50c-048744ca72d0",
-                            Day = 3,
+                            Id = "61122448-9815-476c-a071-0dfce3d1507c",
+                            Day = 6,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "1:00"
                         },
                         new
                         {
-                            Id = "1dc6415a-7ca3-4936-a998-8b8278f7b074",
-                            Day = 3,
+                            Id = "5931ffe6-fbbb-4887-b726-c78b2c191fa6",
+                            Day = 6,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "9:00"
                         },
                         new
                         {
-                            Id = "4d0440fb-790e-4503-bf78-83e3d1b97d46",
-                            Day = 3,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "17:00"
-                        },
-                        new
-                        {
-                            Id = "757b74f3-9417-44fd-9fdb-83d29ced5ee0",
-                            Day = 4,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "3:00"
-                        },
-                        new
-                        {
-                            Id = "3990fc9b-f84c-4caa-a8a6-0db87a408552",
-                            Day = 4,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "13:00"
-                        },
-                        new
-                        {
-                            Id = "a342625a-211d-4b66-9dcd-efe53f79aac1",
-                            Day = 4,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "17:00"
-                        },
-                        new
-                        {
-                            Id = "0fa1ee06-e7d6-4729-b0be-39db5c6e6f6c",
-                            Day = 5,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "7:00"
-                        },
-                        new
-                        {
-                            Id = "88f7a6a8-0fcd-4557-b308-b26b53c6fad5",
-                            Day = 5,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "14:00"
-                        },
-                        new
-                        {
-                            Id = "a3793749-2917-47bf-8b48-cb6d486b859c",
-                            Day = 5,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "19:00"
-                        },
-                        new
-                        {
-                            Id = "a6ccdab4-70b5-4a0f-9fa4-0d4cec325bb7",
-                            Day = 6,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "4:00"
-                        },
-                        new
-                        {
-                            Id = "fc4e9a15-b4e2-4050-80a6-83ab7e2b568e",
-                            Day = 6,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "12:00"
-                        },
-                        new
-                        {
-                            Id = "73337cfc-4c82-4f37-8c75-6fcf53e800d8",
+                            Id = "98df3920-5638-4ec2-8d07-fcba934a4adf",
                             Day = 6,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
@@ -355,7 +355,7 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "099747dd-d694-40f3-a8e3-af42caf20f88",
+                            Id = "9df3b3d4-870c-4f94-8782-9bbbb0296c3b",
                             Day = 7,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
@@ -363,119 +363,119 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "fe1c5a1d-1bec-48f3-ae7a-a654777ba46d",
+                            Id = "be92fd76-75ec-4e45-8c95-64f1aeb61f5f",
                             Day = 7,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "13:00"
+                            PlayTime = "11:00"
                         },
                         new
                         {
-                            Id = "e38ddbbd-1ec5-4634-b0a6-3eb7e021f9cf",
+                            Id = "8c75e4ef-5864-4bc3-9a98-8125f3562cae",
                             Day = 7,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "17:00"
+                            PlayTime = "19:00"
                         },
                         new
                         {
-                            Id = "8eb3c35d-35b3-486d-b84c-fe9764af6eb5",
+                            Id = "a35f36cd-0015-4df7-9e6f-ba364893cd01",
                             Day = 1,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "6:00"
+                            PlayTime = "7:00"
                         },
                         new
                         {
-                            Id = "9fb19e33-f161-459b-8dbf-8b11a5e111d4",
+                            Id = "edcd31a4-3aef-4e15-9dc2-3bccf13cc635",
                             Day = 1,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "9:00"
+                        },
+                        new
+                        {
+                            Id = "a3e46762-53a4-4f21-8595-c2d90091da69",
+                            Day = 1,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "21:00"
+                        },
+                        new
+                        {
+                            Id = "7e483667-6cbc-4d46-8de6-747206d2b346",
+                            Day = 2,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "7:00"
+                        },
+                        new
+                        {
+                            Id = "ba20f388-bd6e-4cc7-99b4-474f62449318",
+                            Day = 2,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "11:00"
                         },
                         new
                         {
-                            Id = "7e520888-ce46-4394-8a27-0758423d7a96",
-                            Day = 1,
+                            Id = "769eab81-30f8-48d4-a718-1f7dde004b9d",
+                            Day = 2,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "19:00"
+                        },
+                        new
+                        {
+                            Id = "ae2df8b5-b3a3-4920-982b-9d3ba8f539d6",
+                            Day = 3,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "2:00"
+                        },
+                        new
+                        {
+                            Id = "371b4735-fa0f-4eda-8f2e-f472966f8434",
+                            Day = 3,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "13:00"
+                        },
+                        new
+                        {
+                            Id = "6687dbf1-aa8c-48ca-963e-2ae5bd62d1fd",
+                            Day = 3,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "18:00"
                         },
                         new
                         {
-                            Id = "da90c4b9-2d48-4f88-86e1-c7ad859058db",
-                            Day = 2,
+                            Id = "8ae9ca78-4a2b-4c59-8d2e-d344822c14a7",
+                            Day = 4,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "4:00"
+                            PlayTime = "3:00"
                         },
                         new
                         {
-                            Id = "9f334b52-a440-4bfc-81c0-e39993b4634c",
-                            Day = 2,
+                            Id = "6bab114d-69e7-427a-86c0-97fc226f79e1",
+                            Day = 4,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "11:00"
                         },
                         new
                         {
-                            Id = "5f3d99b6-a862-446b-b81e-394492872088",
-                            Day = 2,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "22:00"
-                        },
-                        new
-                        {
-                            Id = "81155cec-e2ba-4918-bba4-8f08e744e5e5",
-                            Day = 3,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "3:00"
-                        },
-                        new
-                        {
-                            Id = "5361c735-2852-439e-b82f-91545f22d313",
-                            Day = 3,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "10:00"
-                        },
-                        new
-                        {
-                            Id = "baca5723-a06f-4423-8947-a27483b9758c",
-                            Day = 3,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "20:00"
-                        },
-                        new
-                        {
-                            Id = "6f24d6db-3012-4384-bdb6-01541543d08f",
+                            Id = "adfaa075-0309-4254-ae44-5363cedb6d36",
                             Day = 4,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "3:00"
+                            PlayTime = "17:00"
                         },
                         new
                         {
-                            Id = "57693730-8246-44f6-b9b5-4ab932bd19f3",
-                            Day = 4,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "12:00"
-                        },
-                        new
-                        {
-                            Id = "2fee9393-7c8c-4ce8-a0d3-02f5ea49e85c",
-                            Day = 4,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "19:00"
-                        },
-                        new
-                        {
-                            Id = "a37226ae-0054-420b-9692-a3fcfba22643",
+                            Id = "6bdb862b-855f-46b0-bc11-24ce3140a7ba",
                             Day = 5,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
@@ -483,111 +483,111 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "eb20dec5-6a81-463a-9c09-2250b439e0e9",
+                            Id = "1165c044-70ab-450d-a29c-f1c7801e9a01",
                             Day = 5,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "10:00"
-                        },
-                        new
-                        {
-                            Id = "cdc77f8c-ed49-4c55-bb16-276d318bdfd4",
-                            Day = 5,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "20:00"
-                        },
-                        new
-                        {
-                            Id = "221b7c31-0da6-4529-93e0-7f51151be390",
-                            Day = 6,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "4:00"
-                        },
-                        new
-                        {
-                            Id = "73c50cc9-5649-4460-846a-5a93f4419625",
-                            Day = 6,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "13:00"
                         },
                         new
                         {
-                            Id = "9675e413-ca27-452c-960f-b258eba3eea4",
-                            Day = 6,
+                            Id = "7161d9ec-5b3f-447e-b245-ed5f263f6a2e",
+                            Day = 5,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "22:00"
                         },
                         new
                         {
-                            Id = "c7aa4591-8700-42fe-8f16-4a23eb7411c4",
-                            Day = 7,
+                            Id = "e6e5c60b-71da-4ce8-9017-029c86065416",
+                            Day = 6,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "4:00"
                         },
                         new
                         {
-                            Id = "ca0eeb89-ba11-4bec-b0e3-d03c5e1aab77",
-                            Day = 7,
+                            Id = "efd85fc1-91a6-4f83-b283-858db241dfd3",
+                            Day = 6,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "11:00"
+                            PlayTime = "12:00"
                         },
                         new
                         {
-                            Id = "2ca98fcc-7b5f-4e04-bd16-d23f662cf9a6",
-                            Day = 7,
+                            Id = "87468e4b-173b-4211-b83f-71ee5b4cdc5d",
+                            Day = 6,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "17:00"
                         },
                         new
                         {
-                            Id = "4b883093-0a75-43bf-ab25-cc8c86e23eb1",
-                            Day = 1,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "3:00"
+                            Id = "db50cd25-64a1-40cc-8be8-7343f2c94ab0",
+                            Day = 7,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "0:00"
                         },
                         new
                         {
-                            Id = "096b2597-51f7-49ea-952f-385aa717bf5d",
-                            Day = 1,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "9:00"
+                            Id = "1a0f98e6-abfc-4c0c-bbb7-5409dc357c85",
+                            Day = 7,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "12:00"
                         },
                         new
                         {
-                            Id = "f95ceab0-0e03-4a5e-980f-23a46127569c",
-                            Day = 1,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            Id = "a6616812-b117-4c43-95dd-d7a805c9342d",
+                            Day = 7,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "21:00"
                         },
                         new
                         {
-                            Id = "1b925354-5e1c-4354-8112-7163f3d44344",
-                            Day = 2,
+                            Id = "5da17b26-a115-4e3c-8e7a-dcf95c28713b",
+                            Day = 1,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "7:00"
+                            PlayTime = "6:00"
                         },
                         new
                         {
-                            Id = "f648a553-7f0e-4156-8de3-334807b016c1",
-                            Day = 2,
+                            Id = "3cda0236-7ea3-4bb3-b23d-6be25275fa9b",
+                            Day = 1,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "9:00"
+                            PlayTime = "13:00"
                         },
                         new
                         {
-                            Id = "c0142927-bcaa-45c0-8d6d-de59e7fb9809",
+                            Id = "7ad5dd34-fd3c-4875-ab89-a8de463df46a",
+                            Day = 1,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "18:00"
+                        },
+                        new
+                        {
+                            Id = "5953feed-6ba9-44d6-8af5-14ec6baa6d8d",
+                            Day = 2,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "5:00"
+                        },
+                        new
+                        {
+                            Id = "9b9d6e3d-2c6e-4ed3-83a8-e7630d2f1f04",
+                            Day = 2,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "11:00"
+                        },
+                        new
+                        {
+                            Id = "6e35995d-35ec-488f-a985-80190f3c2020",
                             Day = 2,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
@@ -595,7 +595,7 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "374557ba-cc78-4a70-8e15-dd17c2582708",
+                            Id = "c7734607-bd36-49f8-9465-ea9e3b6a6c0e",
                             Day = 3,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
@@ -603,7 +603,7 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "38b19545-c46d-49b1-add7-9dd0f8dc3243",
+                            Id = "b11bf793-6d82-4165-bb39-e9f99bac7d2b",
                             Day = 3,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
@@ -611,55 +611,55 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "c012d3c2-2f9f-4d15-8501-1c68e520ae0c",
+                            Id = "12d92d1e-2ac4-4d6a-98dc-f684d4074cda",
                             Day = 3,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "19:00"
+                            PlayTime = "16:00"
                         },
                         new
                         {
-                            Id = "3b6fb65a-9759-47fb-81b5-076a57a391e5",
+                            Id = "3e7e45be-36c3-4401-997d-fb90755b7a0b",
                             Day = 4,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "1:00"
+                            PlayTime = "0:00"
                         },
                         new
                         {
-                            Id = "2d28a6e5-a847-41f5-a26e-61c519c46638",
+                            Id = "783994c4-a7ef-403d-8838-5466ce9bc4c7",
                             Day = 4,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "10:00"
+                            PlayTime = "9:00"
                         },
                         new
                         {
-                            Id = "36d1e85a-32a9-485a-b663-de49fc6296b9",
+                            Id = "e3a92e97-ca60-41db-bd0e-a127ef1a352c",
                             Day = 4,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "20:00"
+                            PlayTime = "22:00"
                         },
                         new
                         {
-                            Id = "d3beb717-cce6-4aef-bad0-1b529a2f0af6",
+                            Id = "3b148e97-30df-48ae-9175-24b418ae427e",
                             Day = 5,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "3:00"
+                            PlayTime = "2:00"
                         },
                         new
                         {
-                            Id = "30c1a87a-e1ce-4d58-a477-23046480a06e",
+                            Id = "81f8676f-202b-468f-935f-cf6c0d207010",
                             Day = 5,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "11:00"
+                            PlayTime = "14:00"
                         },
                         new
                         {
-                            Id = "a9dcf04c-6291-4a31-82a5-55613cf2f515",
+                            Id = "94a7b01e-8feb-40db-bf16-bae3e1805185",
                             Day = 5,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
@@ -667,219 +667,219 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "b1868539-efe0-447e-a810-b6bb6f6d4b30",
+                            Id = "b2260cfe-9942-464a-8477-cb1fc03449b8",
                             Day = 6,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "5:00"
+                            PlayTime = "4:00"
                         },
                         new
                         {
-                            Id = "189ae52d-11d3-41bf-a71f-18da618b1549",
+                            Id = "ac62415d-35e9-441e-b297-e8531f067389",
                             Day = 6,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "12:00"
+                            PlayTime = "11:00"
                         },
                         new
                         {
-                            Id = "5b86dc72-f807-4dd3-8c57-45bf17624dbb",
+                            Id = "5be09b77-0ede-469b-99d0-e9a09cf9afb9",
                             Day = 6,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "20:00"
-                        },
-                        new
-                        {
-                            Id = "6adf6f67-6a8f-4a28-9525-6bd4cc6209d8",
-                            Day = 7,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "6:00"
-                        },
-                        new
-                        {
-                            Id = "d391fd2a-9da9-41f2-8c86-5453df96730b",
-                            Day = 7,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "13:00"
-                        },
-                        new
-                        {
-                            Id = "686a80c3-9290-4af3-a551-ef85a55e2bb0",
-                            Day = 7,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
                             PlayTime = "21:00"
                         },
                         new
                         {
-                            Id = "2331a7f0-909a-4dd4-a04a-abc9e5f87cfa",
-                            Day = 1,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "4:00"
-                        },
-                        new
-                        {
-                            Id = "c574d7a8-e62c-4732-98bb-e0cd0e6b4095",
-                            Day = 1,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "14:00"
-                        },
-                        new
-                        {
-                            Id = "172427d5-76ac-4491-93d6-fa429133b7e6",
-                            Day = 1,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "17:00"
-                        },
-                        new
-                        {
-                            Id = "c2cb0d83-cc3a-4a4a-8c89-07ce44568b61",
-                            Day = 2,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            Id = "0b205732-048c-436b-a44c-c52e99db3077",
+                            Day = 7,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
                             PlayTime = "5:00"
                         },
                         new
                         {
-                            Id = "ab825ad8-831c-4f53-9d9c-bccb45f21c64",
-                            Day = 2,
+                            Id = "68e4a997-616c-4d56-b3de-d03e15e954b4",
+                            Day = 7,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "12:00"
+                        },
+                        new
+                        {
+                            Id = "1831841e-563e-45a1-a464-b6ee61f69311",
+                            Day = 7,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "18:00"
+                        },
+                        new
+                        {
+                            Id = "8a2cd08d-aa5f-486a-bb6d-35aa351db7b3",
+                            Day = 1,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "6:00"
+                        },
+                        new
+                        {
+                            Id = "a8c814ac-6691-4f03-9106-bb7b7ea2c923",
+                            Day = 1,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "13:00"
                         },
                         new
                         {
-                            Id = "f4caac23-414c-450a-ac97-105a990c75d6",
-                            Day = 2,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "20:00"
-                        },
-                        new
-                        {
-                            Id = "bac4e2f6-ea63-4bcc-8107-83c243e30ba2",
-                            Day = 3,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "6:00"
-                        },
-                        new
-                        {
-                            Id = "f24d7444-7ac7-450f-900a-4820a5005b6f",
-                            Day = 3,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "9:00"
-                        },
-                        new
-                        {
-                            Id = "3c100549-d478-4a3e-8447-61338e1b27d9",
-                            Day = 3,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "22:00"
-                        },
-                        new
-                        {
-                            Id = "0a25e3d0-1907-4318-8de2-e027be54759e",
-                            Day = 4,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "0:00"
-                        },
-                        new
-                        {
-                            Id = "2730c554-99f9-4f22-ad9c-7e5dc8209ac5",
-                            Day = 4,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "14:00"
-                        },
-                        new
-                        {
-                            Id = "ffb9aeb1-56a0-4dc6-b23b-7065af480e2d",
-                            Day = 4,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "18:00"
-                        },
-                        new
-                        {
-                            Id = "b17292c8-7947-4fb2-8a99-0def08ebc82e",
-                            Day = 5,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "0:00"
-                        },
-                        new
-                        {
-                            Id = "7844ea80-0858-4660-94bc-e436f65fea40",
-                            Day = 5,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "11:00"
-                        },
-                        new
-                        {
-                            Id = "983be40f-01d0-41ac-86c6-7d03fabd1f82",
-                            Day = 5,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "18:00"
-                        },
-                        new
-                        {
-                            Id = "cc48b29d-6b01-4b96-bbdb-d2c1e374ae68",
-                            Day = 6,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "4:00"
-                        },
-                        new
-                        {
-                            Id = "21d2b031-bf29-4ba7-8bad-7517cebc405d",
-                            Day = 6,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "12:00"
-                        },
-                        new
-                        {
-                            Id = "49ce0cf9-8bf9-4231-a78f-1c140e65c833",
-                            Day = 6,
+                            Id = "2f4b998f-4954-49df-b089-51a147cd6f48",
+                            Day = 1,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "17:00"
                         },
                         new
                         {
-                            Id = "49334e39-24e4-4999-b6dd-4564da9e545e",
-                            Day = 7,
+                            Id = "7a5fde9a-b898-41e2-bd47-9ac56e13ca7e",
+                            Day = 2,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "6:00"
+                            PlayTime = "3:00"
                         },
                         new
                         {
-                            Id = "836e2b1f-4ba2-45f0-8889-ff32c61f3c77",
-                            Day = 7,
+                            Id = "c190abaf-73ee-4445-9114-3f291f105974",
+                            Day = 2,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "9:00"
                         },
                         new
                         {
-                            Id = "12e191d4-0945-4760-b53d-9fcbe9c6a912",
+                            Id = "9f8db7ea-d94d-453f-bf58-725ac87a8f27",
+                            Day = 2,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "21:00"
+                        },
+                        new
+                        {
+                            Id = "b177ff2e-6135-43cb-83e1-0438d9bf741c",
+                            Day = 3,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "5:00"
+                        },
+                        new
+                        {
+                            Id = "5b44d714-f77a-411d-b3b8-8741a69362a0",
+                            Day = 3,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "12:00"
+                        },
+                        new
+                        {
+                            Id = "936027ea-938f-44f5-a145-e2c8f1972fe5",
+                            Day = 3,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "19:00"
+                        },
+                        new
+                        {
+                            Id = "16d482ad-04ac-4fa8-a2df-606269a63447",
+                            Day = 4,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "5:00"
+                        },
+                        new
+                        {
+                            Id = "6940d3ea-6e67-468d-a270-250d81f98735",
+                            Day = 4,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "11:00"
+                        },
+                        new
+                        {
+                            Id = "1d01283b-2d6f-442b-89e9-89186e2f7e66",
+                            Day = 4,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "21:00"
+                        },
+                        new
+                        {
+                            Id = "fae6fd39-1d37-49d2-8565-b5ea1fcaf9d6",
+                            Day = 5,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "5:00"
+                        },
+                        new
+                        {
+                            Id = "9356a851-ea6f-4bbf-942d-e260a89ffeff",
+                            Day = 5,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "9:00"
+                        },
+                        new
+                        {
+                            Id = "7a2de723-dcfe-4a81-aa50-068f85525382",
+                            Day = 5,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "17:00"
+                        },
+                        new
+                        {
+                            Id = "ee2ee7bf-3109-4f28-b2fb-7bec1ec917bf",
+                            Day = 6,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "3:00"
+                        },
+                        new
+                        {
+                            Id = "9d597ca1-3be3-4b0a-b43c-59dc471b43f1",
+                            Day = 6,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "9:00"
+                        },
+                        new
+                        {
+                            Id = "4fb3b53d-0740-4fc1-86b6-b10bd60b9330",
+                            Day = 6,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "22:00"
+                        },
+                        new
+                        {
+                            Id = "6e772ae5-7f5b-4ea5-8e0d-6a9c36622545",
                             Day = 7,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "20:00"
+                            PlayTime = "3:00"
+                        },
+                        new
+                        {
+                            Id = "c16e53d7-5bfa-428c-81ec-050d3f05b1ec",
+                            Day = 7,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "14:00"
+                        },
+                        new
+                        {
+                            Id = "7e6f198a-adf7-4e37-b72a-75e48fd8a08c",
+                            Day = 7,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "17:00"
                         });
                 });
 #pragma warning restore 612, 618

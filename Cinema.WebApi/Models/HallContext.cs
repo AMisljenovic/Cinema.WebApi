@@ -25,35 +25,35 @@ namespace Cinema.WebApi.Models
                 {
                     Id = Constants.HallIds[0].ToString(),
                     Name = "A1",
-                    Cloumns = Constants.HallColumns,
+                    Columns = Constants.HallColumns,
                     Rows = Constants.HallRows
                 },
                 new Hall
                 {
                     Id = Constants.HallIds[1].ToString(),
                     Name = "A2",
-                    Cloumns = Constants.HallColumns,
+                    Columns = Constants.HallColumns,
                     Rows = Constants.HallRows
                 },
                 new Hall
                 {
                     Id = Constants.HallIds[2].ToString(),
                     Name = "B1",
-                    Cloumns = Constants.HallColumns,
+                    Columns = Constants.HallColumns,
                     Rows = Constants.HallRows
                 },
                 new Hall
                 {
                     Id = Constants.HallIds[3].ToString(),
                     Name = "B2",
-                    Cloumns = Constants.HallColumns,
+                    Columns = Constants.HallColumns,
                     Rows = Constants.HallRows
                 },
                 new Hall
                 {
                     Id = Constants.HallIds[4].ToString(),
                     Name = "C",
-                    Cloumns = Constants.HallColumns,
+                    Columns = Constants.HallColumns,
                     Rows = Constants.HallRows
                 }
             };
@@ -70,8 +70,8 @@ namespace Cinema.WebApi.Models
                         {
                             Id = Guid.NewGuid().ToString(),
                             HallId = Constants.HallIds[i].ToString(),
-                            Rows = j,
-                            Cloumns = z,
+                            Row = j,
+                            Column = z,
                             Reserved = false
                         });
                     }

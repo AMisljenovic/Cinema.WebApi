@@ -8,8 +8,8 @@ namespace Cinema.WebApi.Models
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
         public string HallId { get; set; }
-        public int Rows { get; set; }
-        public int Cloumns { get; set; }
+        public int Row { get; set; }
+        public int Column { get; set; }
         public bool Reserved { get; set; }
     }
 }

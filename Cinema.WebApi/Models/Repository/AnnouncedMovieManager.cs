@@ -6,48 +6,48 @@ using System.Threading.Tasks;
 
 namespace Cinema.WebApi.Models.Repository
 {
-    public class CinemaManager : IDataRepository<PlayingMovie>
+    public class AnnouncedMovieManager : IDataRepository<AnnouncedMovie>
     {
-        private readonly PlayingMovieContext _movieContext;
+        private readonly AnnouncedContext _movieContext;
 
-        public CinemaManager(PlayingMovieContext movieContext)
+        public AnnouncedMovieManager(AnnouncedContext movieContext)
         {
             _movieContext = movieContext;
         }
 
-        public async Task Add(PlayingMovie entity)
+        public async Task Add(AnnouncedMovie entity)
         {
             entity.Id = Guid.NewGuid().ToString();
-            _movieContext.PlayingMovies.Add(entity);
+            _movieContext.AnnouncedMovies.Add(entity);
 
-           await _movieContext.SaveChangesAsync();
+            await _movieContext.SaveChangesAsync();
         }
 
         public async Task Delete(string id)
         {
-            var dbEntity = _movieContext.PlayingMovies.FirstOrDefault(movie => movie.Id == id);
+            var dbEntity = _movieContext.AnnouncedMovies.FirstOrDefault(movie => movie.Id == id);
             if (dbEntity != null)
             {
-                _movieContext.PlayingMovies.Remove(dbEntity);
+                _movieContext.AnnouncedMovies.Remove(dbEntity);
             }
 
             await _movieContext.SaveChangesAsync();
         }
 
-        public async Task<PlayingMovie> Get(string id)
+        public async Task<AnnouncedMovie> Get(string id)
         {
-            return await _movieContext.PlayingMovies.FirstOrDefaultAsync(movie => movie.Id == id);
+            return await _movieContext.AnnouncedMovies.FirstOrDefaultAsync(movie => movie.Id == id);
         }
 
-        public async Task<IEnumerable<PlayingMovie>> GetAll()
+        public async Task<IEnumerable<AnnouncedMovie>> GetAll()
         {
-            return await _movieContext.PlayingMovies.ToListAsync();
+            return await _movieContext.AnnouncedMovies.ToListAsync();
         }
 
-        public async Task Update(PlayingMovie entity)
+        public async Task Update(AnnouncedMovie entity)
         {
-            var dbEntity = _movieContext.PlayingMovies.FirstOrDefault(movie => movie.Id == entity.Id);
-            
+            var dbEntity = _movieContext.AnnouncedMovies.FirstOrDefault(movie => movie.Id == entity.Id);
+
             if (dbEntity != null)
             {
                 dbEntity.Plot = entity.Plot;
@@ -61,7 +61,7 @@ namespace Cinema.WebApi.Models.Repository
                 dbEntity.Actors = entity.Actors;
                 dbEntity.Genre = entity.Genre;
 
-                _movieContext.PlayingMovies.Update(dbEntity);
+                _movieContext.AnnouncedMovies.Update(dbEntity);
                 await _movieContext.SaveChangesAsync();
             }
         }

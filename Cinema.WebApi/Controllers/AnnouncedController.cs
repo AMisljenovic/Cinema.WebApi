@@ -1,41 +1,41 @@
-﻿using Cinema.WebApi.Models;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Cinema.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [EnableCors("MyPolicy")]
     [ApiController]
-    public class MoviesController : ControllerBase
+    public class AnnouncedController : ControllerBase
     {
-        private readonly IDataRepository<PlayingMovie> _dataRepository;
+        private readonly IDataRepository<AnnouncedMovie> _dataRepository;
 
-        public MoviesController(IDataRepository<PlayingMovie> dataRepository)
+        public AnnouncedController(IDataRepository<AnnouncedMovie> dataRepository)
         {
             _dataRepository = dataRepository;
         }
 
-        // GET: api/Movies
+        // GET: api/Announced
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PlayingMovie>>> Get()
+        public async Task<ActionResult<IEnumerable<AnnouncedMovie>>> Get()
         {
-            return Ok( await _dataRepository.GetAll());
+            return Ok(await _dataRepository.GetAll());
         }
 
-        // GET: api/Movies/5
-        [HttpGet("{id}", Name = "Get")]
-        public async Task<ActionResult<PlayingMovie>> Get(string id)
+        // GET: api/Announced/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<AnnouncedMovie>> Get(string id)
         {
-            return Ok( await _dataRepository.Get(id));
+            return Ok(await _dataRepository.Get(id));
         }
 
-        // POST: api/Movies
+        // POST: api/Announced
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] PlayingMovie value)
+        public async Task<IActionResult> Post([FromBody] AnnouncedMovie value)
         {
             if (!ModelState.IsValid)
             {
@@ -47,9 +47,9 @@ namespace Cinema.WebApi.Controllers
             return Ok();
         }
 
-        // PUT: api/Movies
+        // PUT: api/Announced
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] PlayingMovie value)
+        public async Task<IActionResult> Put([FromBody] AnnouncedMovie value)
         {
             if (!ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace Cinema.WebApi.Controllers
             return Ok();
         }
 
-        // DELETE: api/Movies/5
+        // DELETE: api/Announced/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
