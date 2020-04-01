@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.WebApi.Controllers
 {
@@ -20,49 +22,32 @@ namespace Cinema.WebApi.Controllers
             _dataRepository = dataRepository;
         }
 
-        // GET: api/Tickets
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
+        // GET: api/Tickets/5
+        [HttpGet("{repertoryId}")]
+        public async Task<IActionResult> Get(string repertoryId)
         {
-            return Ok(await _dataRepository.GetAll());
+            if (!Guid.TryParse(repertoryId, out var parsedId))
+            {
+                return BadRequest("Invalid repertory id");
+            }
+
+            return Ok( await _dataRepository.GetByRepertory(repertoryId));
         }
 
-        [HttpGet("{movieId}/{hallId}")]
-        public async Task<ActionResult<Ticket>> GetTicket(string movieId, string hallId)
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetByUser(string userId)
         {
-            if (!Guid.TryParse(movieId, out var parsedMovieId))
+            if (!Guid.TryParse(userId, out var parsedId))
             {
-                return BadRequest("Move id is not in valid format.");
+                return BadRequest("Invalid user id");
             }
 
-            if (!Guid.TryParse(hallId, out var parsedHallId))
-            {
-                return BadRequest("Hall id is not in valid format.");
-            }
-
-            return Ok(await _dataRepository.Get(movieId, hallId));
-        }
-
-        // PUT: api/Tickets/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut]
-        public async Task<IActionResult> PutTicket([FromBody] Ticket ticket)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            await _dataRepository.Update(ticket);
-            return Ok();
+            return Ok(await _dataRepository.GetByUser(userId));
         }
 
         // POST: api/Tickets
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<IActionResult> PostTicket(Ticket ticket)
+        public async Task<IActionResult> Post(Ticket ticket)
         {
             if (!ModelState.IsValid)
             {
@@ -74,21 +59,28 @@ namespace Cinema.WebApi.Controllers
             return Ok();
         }
 
-        // DELETE: api/Tickets/5
-        [HttpDelete("{movieId}/{hallId}")]
-        public async Task<ActionResult<Ticket>> DeleteTicket(string movieId, string hallId)
+        // PUT: api/Tickets/5
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] Ticket ticket)
         {
-            if (!Guid.TryParse(movieId, out var parsedMovieId))
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Move id is not in valid format.");
+                return BadRequest(ModelState);
             }
 
-            if (!Guid.TryParse(hallId, out var parsedHallId))
-            {
-                return BadRequest("Hall id is not in valid format.");
-            }
+            await _dataRepository.Update(ticket);
+            return Ok();
+        }
 
-            await _dataRepository.Delete(movieId, hallId);
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{repertoryId}")]
+        public async Task<IActionResult> Delete(string repertoryId)
+        {
+            if (!Guid.TryParse(repertoryId, out var parsedId))
+            {
+                return BadRequest("Invalid repertory id");
+            }
+            await _dataRepository.Delete(repertoryId);
 
             return Ok();
         }

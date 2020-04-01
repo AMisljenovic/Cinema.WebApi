@@ -1,6 +1,5 @@
 ﻿using Cinema.WebApi.Configuration;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 
 namespace Cinema.WebApi.Models
@@ -13,7 +12,6 @@ namespace Cinema.WebApi.Models
         }
 
         public DbSet<Hall> Halls { get; set; }
-        public DbSet<Seat> Seats { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -58,28 +56,7 @@ namespace Cinema.WebApi.Models
                 }
             };
 
-            var seats = new List<Seat>(50);
-
-            for (int i = 0; i < Constants.HallIds.Length; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    for (int z = 0; z < 5; z++)
-                    {
-                        seats.Add(new Seat
-                        {
-                            Id = Guid.NewGuid().ToString(),
-                            HallId = Constants.HallIds[i].ToString(),
-                            Row = j,
-                            Column = z,
-                            Reserved = false
-                        });
-                    }
-                }
-            }
-
             modelBuilder.Entity<Hall>().HasData(halls);
-            modelBuilder.Entity<Seat>().HasData(seats);
         }
     }
 }

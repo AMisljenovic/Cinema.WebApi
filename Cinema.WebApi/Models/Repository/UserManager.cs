@@ -39,12 +39,18 @@ namespace Cinema.WebApi.Models.Repository
             await _userContext.SaveChangesAsync();
         }
 
-        public async Task<bool> Get(string username, string password)
+        public async Task<User> Get(string username, string password)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(password);
             var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
+            var user = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Username == username && usr.Password == convertedPassword);
+            if (user != null)
+            {
+                user.Password = null;
+                return user;
+            }
 
-            return await _userContext.Users.AnyAsync(usr => usr.Username == username && usr.Password == convertedPassword);
+            return null;
         }
 
         public async Task UpdateRole(User entity, string username, string newRole)

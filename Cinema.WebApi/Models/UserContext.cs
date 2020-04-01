@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Cinema.WebApi.Configuration;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 
@@ -21,15 +22,39 @@ namespace Cinema.WebApi.Models
             {
                 new User
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = Constants.UserIds[0].ToString(),
+                    Name = "Petar",
+                    Surname = "Petrovic",
                     Username = "user",
                     Password = "Y2luZW1hdXNlcg==",
                     Role = "User",
                     Birthday = (new DateTime(1994,4,1)).ToShortDateString()
                 },
+                new User
+                {
+                    Id = Constants.UserIds[1].ToString(),
+                    Name = "Mile",
+                    Surname = "Mikic",
+                    Username = "user2",
+                    Password = "Y2luZW1hdXNlcjI=",
+                    Role = "User",
+                    Birthday = (new DateTime(1993,11,5)).ToShortDateString()
+                },
+                new User
+                {
+                    Id = Constants.UserIds[2].ToString(),
+                    Name = "Aleksa",
+                    Surname = "Gavric",
+                    Username = "user3",
+                    Password = "Y2luZW1hdXNlcjM=",
+                    Role = "User",
+                    Birthday = (new DateTime(1990,4,6)).ToShortDateString()
+                },
                  new User
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = Constants.UserIds[3].ToString(),
+                    Name = "Jovan",
+                    Surname = "Lukic",
                     Username = "admin",
                     Password = "Y2luZW1hYWRtaW4=",
                     Role = "Administrator",
@@ -37,7 +62,6 @@ namespace Cinema.WebApi.Models
                 }
             };
             
-
             modelBuilder.Entity<User>().HasData(users);
         }
     }

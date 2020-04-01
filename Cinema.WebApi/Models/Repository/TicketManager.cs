@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Cinema.WebApi.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,44 +20,52 @@ namespace Cinema.WebApi.Models.Repository
         public async Task Add(Ticket entity)
         {
             entity.Id = Guid.NewGuid().ToString();
+
             _ticketContext.Tickets.Add(entity);
-
-           await _ticketContext.SaveChangesAsync();
-        }
-
-        public async Task Delete(string movieId, string hallId)
-        {
-            var ticket = _ticketContext.Tickets.FirstOrDefault(t => t.MoveId == movieId && t.HallId == hallId);
-            if (ticket != null)
-            {
-                _ticketContext.Tickets.Remove(ticket);
-            }
 
             await _ticketContext.SaveChangesAsync();
         }
 
-        public async Task<Ticket> Get(string movieId, string hallId)
+        public async Task Delete(string repertoryId)
         {
-            return await _ticketContext.Tickets.FirstOrDefaultAsync(t => t.MoveId == movieId && t.HallId == hallId);
+            var ticket = await _ticketContext.Tickets.FirstOrDefaultAsync(t => t.RepertoryId == repertoryId);
+            if (ticket != null)
+            {
+                _ticketContext.Tickets.Remove(ticket);
+                await _ticketContext.SaveChangesAsync();
+            }
+
         }
 
-        public async Task<IEnumerable<Ticket>> GetAll()
+        public async Task<string> GetByRepertory(string repertoryId)
         {
-           return await _ticketContext.Tickets.ToListAsync();
+            var tickets = await _ticketContext.Tickets.Where(t => t.RepertoryId == repertoryId).ToListAsync();
+            int[,] seats = new int[Constants.HallRows, Constants.HallColumns];
+
+            foreach (var ticket in tickets)
+            {
+                seats[ticket.SeatRow, ticket.SeatColumn] = 1;
+            }
+
+            return JsonConvert.SerializeObject(seats);
+        }
+
+        public async Task<IEnumerable<Ticket>> GetByUser(string userId)
+        {
+            return await _ticketContext.Tickets.Where(t => t.UserId == userId).ToListAsync();
         }
 
         public async Task Update(Ticket entity)
         {
-            var dbEntity = _ticketContext.Tickets.FirstOrDefault(ticket => ticket.MoveId == entity.MoveId&& ticket.HallId == entity.HallId);
-
-            if (dbEntity != null)
+            var ticket = await _ticketContext.Tickets.FirstOrDefaultAsync(t => t.Id == entity.Id);
+            if (ticket != null)
             {
-                dbEntity.HallId = entity.HallId;
-                dbEntity.MoveId = entity.MoveId;
-                dbEntity.PlayTime = entity.PlayTime;
-                dbEntity.Day = entity.Day;
+                ticket.RepertoryId = entity.RepertoryId;
+                ticket.SeatRow = entity.SeatRow;
+                ticket.SeatColumn = entity.SeatColumn;
+                ticket.UserId = entity.UserId;
 
-                _ticketContext.Tickets.Update(dbEntity);
+                _ticketContext.Tickets.Update(ticket);
                 await _ticketContext.SaveChangesAsync();
             }
         }
