@@ -18,28 +18,27 @@ namespace Cinema.WebApi.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            var random = new Random((int)DateTime.Now.Ticks);
-
             var tickets = new List<Ticket>();
 
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
             {
                 for (int y = 0; y < 7; y++)
                 {
-                    //var column = random.Next(0, 4);
-                    //var row = random.Next(0, 4);
-
-                    //TODO(AM): For one we should have all seats reserved
-                    tickets.AddRange(new List<Ticket>
+                    if (i != 0)
                     {
-                        new Ticket
+                        tickets.Add(new Ticket
                         {
                             Id = Guid.NewGuid().ToString(),
                             RepertoryId = Constants.RepertoryIds[i, y, 0],
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = y % 4,
                             SeatRow = (y + 1) % 4
-                        },
+                        });
+                    }
+                    
+                    tickets.AddRange(new List<Ticket>
+                    {
+                  
                         new Ticket
                         {
                             Id = Guid.NewGuid().ToString(),
@@ -59,6 +58,24 @@ namespace Cinema.WebApi.Models
                     });
                 }              
             }
+
+
+            for (int i = 0; i < Constants.HallRows; i++)
+            {
+                for (int y = 0; y < Constants.HallColumns; y++)
+                {
+                    tickets.Add(new Ticket
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        RepertoryId = Constants.RepertoryIds[0, 0, 0],
+                        UserId = Constants.UserIds[1],
+                        SeatColumn = y,
+                        SeatRow = i
+                    });
+                }
+            }
+
+
             
             modelBuilder.Entity<Ticket>().HasData(tickets);
         }

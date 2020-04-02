@@ -39,11 +39,12 @@ namespace Cinema.WebApi.Models.Repository
             await _userContext.SaveChangesAsync();
         }
 
-        public async Task<User> Get(string username, string password)
+        public async Task<User> Get(string email, string username, string password)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(password);
             var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
-            var user = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Username == username && usr.Password == convertedPassword);
+            var user = await _userContext.Users
+                .FirstOrDefaultAsync(usr => (usr.Username == username || usr.Email == email) && usr.Password == convertedPassword);
             if (user != null)
             {
                 user.Password = null;
@@ -82,6 +83,10 @@ namespace Cinema.WebApi.Models.Repository
             if (user != null)
             {
                 user.Birthday = entity.Birthday;
+                user.Email = entity.Email;
+                user.Username = entity.Username;
+                user.Name = entity.Name;
+                user.Surname = entity.Surname;
 
                 _userContext.Users.Update(user);
                 await _userContext.SaveChangesAsync();           
