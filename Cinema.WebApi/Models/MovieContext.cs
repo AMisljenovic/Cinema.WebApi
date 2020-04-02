@@ -5,20 +5,20 @@ using System.Collections.Generic;
 
 namespace Cinema.WebApi.Models
 {
-    public class PlayingMovieContext : DbContext
+    public class MovieContext : DbContext
     {
-        public PlayingMovieContext(DbContextOptions<PlayingMovieContext> options)
+        public MovieContext(DbContextOptions<MovieContext> options)
             : base(options)
         {
         }
 
-        public DbSet<PlayingMovie> PlayingMovies { get; set; }
+        public DbSet<Movie> Movies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            var movies = new List<PlayingMovie>(8);
+            var movies = new List<Movie>(10);
             var movie =  "{\r\n  \"Title\": \"War\",\r\n  \"Year\": \"2019\",\r\n  \"Rated\": \"Not Rated\",\r\n  \"Released\": \"02 Oct 2019\",\r\n  \"Runtime\": \"154 min\",\r\n  \"Genre\": \"Action, Thriller\",\r\n  \"Director\": \"Siddharth Anand\",\r\n  \"Writer\": \"Siddharth Anand (screenplay), Siddharth Anand (story), Aditya Chopra (story), Shridhar Raghavan (screenplay), Abbas Tyrewala (dialogue)\",\r\n  \"Actors\": \"Hrithik Roshan, Tiger Shroff, Vaani Kapoor, Ashutosh Rana\",\r\n  \"Plot\": \"An Indian soldier is assigned a mission to eliminate his former mentor, who has gone rogue.\",\r\n  \"Country\": \"India\",\r\n  \"Poster\": \"https://m.media-amazon.com/images/M/MV5BNTlmNDMzOWQtYzg4Ny00OWQ0LWFhN2MtNmQ2MDczZGZhNTU5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg\"\r\n}";
             var movie1 = "{\r\n  \"Title\": \"15 Minutes of War\",\r\n  \"Year\": \"2019\",\r\n  \"Rated\": \"TV-14\",\r\n  \"Released\": \"30 Jan 2019\",\r\n  \"Runtime\": \"98 min\",\r\n  \"Genre\": \"Action, Drama, History, War\",\r\n  \"Director\": \"Fred Grivois\",\r\n  \"Writer\": \"Ileana Epsztajn (collaboration), Fred Grivois (screenplay), J\u00E9r\u00E9mie Guez (collaboration)\",\r\n  \"Actors\": \"Alban Lenoir, Olga Kurylenko, S\u00E9bastien Lalanne, David Murgia\",\r\n  \"Plot\": \"In February 1976 in Djibouti, a school bus was taken hostage at the Somali border. The GIGN is sent on the spot. After 30 hours of tension, a rescue operation is organized.\",\r\n  \"Language\": \"French, English\",\r\n  \"Country\": \"France, Belgium\",\r\n  \"Poster\": \"https://m.media-amazon.com/images/M/MV5BMDZiNDcxYzItN2JhNy00MjgxLTgyNjMtNzdiOWU1Y2MwODYxXkEyXkFqcGdeQXVyNzc0MTgzMzU@._V1_SX300.jpg\"\r\n}";
             var movie2 = "{\r\n  \"Title\": \"The Viking War\",\r\n  \"Year\": \"2019\",\r\n  \"Rated\": \"N/A\",\r\n  \"Released\": \"05 Feb 2019\",\r\n  \"Runtime\": \"103 min\",\r\n  \"Genre\": \"History\",\r\n  \"Director\": \"Louisa Warren\",\r\n  \"Writer\": \"Suzy Spade\",\r\n  \"Actors\": \"Darcie Lincoln, Peter Cosgrove, Victor Toth, Georgia Wood\",\r\n  \"Plot\": \"Ingrid and her siblings are on the run from the Beserkers who have begun invading the villages, taking over, savagely using the residents on a game where they vs a Beserker, and if they win...\",\r\n  \"Country\": \"UK\",\r\n  \"Poster\": \"https://m.media-amazon.com/images/M/MV5BYTAwNjg3ZDUtZWYxOS00MGVjLTkyYTYtYjJhOGRhNmQzODRkXkEyXkFqcGdeQXVyMjM4MTU4NjQ@._V1_SX300.jpg\"\r\n}";
@@ -32,12 +32,30 @@ namespace Cinema.WebApi.Models
 
             for (int i = 0; i < jsonMovies.Length; i++)
             {
-                var converted = JsonConvert.DeserializeObject<PlayingMovie>(jsonMovies[i]);
+                var converted = JsonConvert.DeserializeObject<Movie>(jsonMovies[i]);
                 converted.Id = Constants.PlayingMovieIds[i];
+                converted.Playing = true;
                 movies.Add(converted);
             }
 
-            modelBuilder.Entity<PlayingMovie>().HasData(movies);
+            var announcedMovie = "{\r\n    \"Title\": \"Thomas Markle: My Story\",\r\n    \"Year\": \"2020\",\r\n    \"Rated\": \"N/A\",\r\n    \"Released\": \"25 Aug 2020\",\r\n    \"Runtime\": \"90 min\",\r\n    \"Genre\": \"Documentary\",\r\n    \"Director\": \"David Modell\",\r\n    \"Writer\": \"N/A\",\r\n    \"Actors\": \"Thomas W. Markle, Meghan Markle, Doria Ragland, Prince Harry\",\r\n    \"Plot\": \"Thomas Markle details his journey from raising Meghan Markle on his own to his heart attack days before her wedding to Prince Harry, Duke of Sussex. Due to his sudden fame as the father of ...\",\r\n    \"Country\": \"UK\",\r\n    \"Poster\": \"https://m.media-amazon.com/images/M/MV5BMzdiMTZmNzYtMGQ0Ni00MGUxLTg4ZWYtZDc4MjBiOTdmZTllXkEyXkFqcGdeQXVyMDkwNTkwNg@@._V1_SX300.jpg\"\r\n}";
+            var announcedMovie1 = "{\r\n    \"Title\": \"Love in Winterland\",\r\n    \"Year\": \"2020\",\r\n    \"Rated\": \"TV-G\",\r\n    \"Released\": \"30 Aug 2020\",\r\n    \"Runtime\": \"83 min\",\r\n    \"Genre\": \"Drama, Romance\",\r\n    \"Director\": \"Pat Williams\",\r\n    \"Writer\": \"Neal H. Dobrofsky, Tippi Dobrofsky\",\r\n    \"Actors\": \"Italia Ricci, Chad Michael Murray, Jack Turner, Aliyah O'Brien\",\r\n    \"Plot\": \"Ally, a final contestant on a dating show, must face her high school sweetheart when she is chosen for the Hometown Date.\",\r\n    \"Country\": \"USA\",\r\n    \"Poster\": \"https://m.media-amazon.com/images/M/MV5BNGVhMTQ5YWYtMjYyOS00OGZiLTg1OGYtN2YyZDIwOGQwYmJiXkEyXkFqcGdeQXVyNjU0NTI0Nw@@._V1_SX300.jpg\"\r\n}";
+            var announcedMovie2 = "{\r\n    \"Title\": \"What Love Looks Like\",\r\n    \"Year\": \"2020\",\r\n    \"Rated\": \"N/A\",\r\n    \"Released\": \"19 Aug 2020\",\r\n    \"Runtime\": \"88 min\",\r\n    \"Genre\": \"Comedy, Drama, Romance\",\r\n    \"Director\": \"Alex Maga\u00F1a\",\r\n    \"Writer\": \"Alex Maga\u00F1a\",\r\n    \"Actors\": \"Josh Gilmer, Amber Pauline Magdesyan, Tevy Poe, Kate Durocher\",\r\n    \"Plot\": \"Five interwoven love stories explore the ups and downs of finding love.\",\r\n    \"Country\": \"USA\",\r\n    \"Poster\": \"https://m.media-amazon.com/images/M/MV5BMTMxYTg4M2EtMDFjMy00MDI1LThjZGUtNjQwOGJlY2FhNjkwXkEyXkFqcGdeQXVyNDQ2MjQ2Mjk@._V1_SX300.jpg\"\r\n}";
+            var announcedMovie3 = "{\r\n    \"Title\": \"Your Love Song\",\r\n    \"Year\": \"2020\",\r\n    \"Rated\": \"N/A\",\r\n    \"Released\": \"23 Aug 2020\",\r\n    \"Runtime\": \"119 min\",\r\n    \"Genre\": \"Drama, Romance\",\r\n    \"Director\": \"Andrew Chien\",\r\n    \"Writer\": \"N/A\",\r\n    \"Actors\": \"Meng-Po Fu, Chia-Yen Ko\",\r\n    \"Plot\": \"Set in 2007, the movie tells of a complicated three-way relationship between a young singer and two people who believe in him.\",\r\n    \"Country\": \"Taiwan\",\r\n    \"Poster\": \"https://m.media-amazon.com/images/M/MV5BMTkxZTAwYTctODY3OC00NzdkLTg3ZTUtNThmMjk5ZDAzYjRiXkEyXkFqcGdeQXVyMjk2NDAwMw@@._V1_SX300.jpg\"\r\n}";
+            var announcedMovie4 = "{\r\n    \"Title\": \"I Hate the Man in My Basement\",\r\n    \"Year\": \"2020\",\r\n    \"Rated\": \"N/A\",\r\n    \"Released\": \"15 Sep 2020\",\r\n    \"Runtime\": \"103 min\",\r\n    \"Genre\": \"Comedy, Drama, Romance, Thriller\",\r\n    \"Director\": \"Dustin Cook\",\r\n    \"Writer\": \"Dustin Cook\",\r\n    \"Actors\": \"Manny Montana, Nora-Jane Noone, Chris Marquette, Mary Birdsong\",\r\n    \"Plot\": \"After his wife's death, Claude struggles to appear normal while living with a Secret.\",\r\n    \"Country\": \"USA\",\r\n    \"Poster\": \"https://m.media-amazon.com/images/M/MV5BMTBmYWU0ZGYtNTRjNi00MmJkLTg0OGItNjI5M2Y2ZjY4MzhkXkEyXkFqcGdeQXVyMjM2NzM3Mjc@._V1_SX300.jpg\"\r\n}";
+            var announcedMovie5 = "{\r\n    \"Title\": \"The Last Thing He Wanted\",\r\n    \"Year\": \"2020\",\r\n    \"Rated\": \"R\",\r\n    \"Released\": \"8 Sep 2020\",\r\n    \"Runtime\": \"115 min\",\r\n    \"Genre\": \"Crime, Drama, Mystery, Thriller\",\r\n    \"Director\": \"Dee Rees\",\r\n    \"Writer\": \"Marco Villalobos (screenplay by), Dee Rees (screenplay by), Joan Didion (based on the book by)\",\r\n    \"Actors\": \"Anne Hathaway, Ben Affleck, Rosie Perez, Willem Dafoe\",\r\n    \"Plot\": \"A veteran D.C. journalist loses the thread of her own narrative when a guilt-propelled errand for her father thrusts her from byline to unwitting subject in the very story she's trying to break. Adapted from Joan Didion's namesake novel.\",\r\n    \"Country\": \"USA\",\r\n    \"Poster\": \"https://m.media-amazon.com/images/M/MV5BMWI3ODZlNjgtNWM4OC00MDFhLTg2MmYtYjk3M2I0OWJmZmE2XkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_SX300.jpg\"\r\n }";
+            var jsonAnnouncedMovies = new string[] { announcedMovie, announcedMovie1, announcedMovie2,
+                announcedMovie3, announcedMovie4, announcedMovie5 };
+
+            for (int i = 0; i < jsonAnnouncedMovies.Length; i++)
+            {
+                var converted = JsonConvert.DeserializeObject<Movie>(jsonAnnouncedMovies[i]);
+                converted.Id = Constants.AnnouncedMovieIds[i].ToString();
+                converted.Playing = false;
+                movies.Add(converted);
+            }
+
+            modelBuilder.Entity<Movie>().HasData(movies);
         }
     }
 }

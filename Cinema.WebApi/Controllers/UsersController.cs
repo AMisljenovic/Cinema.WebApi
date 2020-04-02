@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cinema.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    [EnableCors("MyPolicy")]
+    [EnableCors("CorsPolicy")]
     [ApiController]
     public class UsersController : ControllerBase
     {

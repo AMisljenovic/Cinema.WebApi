@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cinema.WebApi.Models
 {
-    public abstract class Movie
+    public class Movie
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
@@ -18,5 +18,6 @@ namespace Cinema.WebApi.Models
         public string Plot { get; set; }
         public string Country { get; set; }
         public string Poster { get; set; }
+        public bool Playing { get; set; }
     }
 }

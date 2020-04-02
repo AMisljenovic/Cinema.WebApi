@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.WebApi.Migrations
 {
-    [DbContext(typeof(PlayingMovieContext))]
+    [DbContext(typeof(MovieContext))]
     [Migration("20200316164052_InitialCreate")]
     partial class InitialCreate
     {

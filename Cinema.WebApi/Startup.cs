@@ -21,21 +21,19 @@ namespace Cinema.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PlayingMovieContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
-            services.AddDbContext<AnnouncedContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddDbContext<MovieContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<RepertoryContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<HallContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<UserContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<TicketContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
-            services.AddScoped<IDataRepository<PlayingMovie>, CinemaManager>();
-            services.AddScoped<IDataRepository<AnnouncedMovie>, AnnouncedMovieManager>();
+            services.AddScoped<IDataRepository<Movie>, MovieManager>();
             services.AddScoped<IDataRepository<Hall>, HallManager>();
             services.AddScoped<IRepertoryRepository<Repertory>, RepertoryManager>();
             services.AddScoped<IUsersRepository<User>, UserManager>();
             services.AddScoped<ITicketRepository<Ticket>, TicketManager>();
 
             services.AddControllers();
-            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
@@ -60,7 +58,7 @@ namespace Cinema.WebApi
 
             app.UseAuthorization();
 
-            app.UseCors("MyPolicy");
+            app.UseCors("CorsPolicy");
 
             app.UseMvc();
         }

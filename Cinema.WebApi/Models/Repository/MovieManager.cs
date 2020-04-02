@@ -6,47 +6,47 @@ using System.Threading.Tasks;
 
 namespace Cinema.WebApi.Models.Repository
 {
-    public class CinemaManager : IDataRepository<PlayingMovie>
+    public class MovieManager : IDataRepository<Movie>
     {
-        private readonly PlayingMovieContext _movieContext;
+        private readonly MovieContext _movieContext;
 
-        public CinemaManager(PlayingMovieContext movieContext)
+        public MovieManager(MovieContext movieContext)
         {
             _movieContext = movieContext;
         }
 
-        public async Task Add(PlayingMovie entity)
+        public async Task Add(Movie entity)
         {
             entity.Id = Guid.NewGuid().ToString();
-            _movieContext.PlayingMovies.Add(entity);
+            _movieContext.Movies.Add(entity);
 
            await _movieContext.SaveChangesAsync();
         }
 
         public async Task Delete(string id)
         {
-            var dbEntity = _movieContext.PlayingMovies.FirstOrDefault(movie => movie.Id == id);
+            var dbEntity = _movieContext.Movies.FirstOrDefault(movie => movie.Id == id);
             if (dbEntity != null)
             {
-                _movieContext.PlayingMovies.Remove(dbEntity);
+                _movieContext.Movies.Remove(dbEntity);
             }
 
             await _movieContext.SaveChangesAsync();
         }
 
-        public async Task<PlayingMovie> Get(string id)
+        public async Task<Movie> Get(string id)
         {
-            return await _movieContext.PlayingMovies.FirstOrDefaultAsync(movie => movie.Id == id);
+            return await _movieContext.Movies.FirstOrDefaultAsync(movie => movie.Id == id);
         }
 
-        public async Task<IEnumerable<PlayingMovie>> GetAll()
+        public async Task<IEnumerable<Movie>> GetAll()
         {
-            return await _movieContext.PlayingMovies.ToListAsync();
+            return await _movieContext.Movies.ToListAsync();
         }
 
-        public async Task Update(PlayingMovie entity)
+        public async Task Update(Movie entity)
         {
-            var dbEntity = _movieContext.PlayingMovies.FirstOrDefault(movie => movie.Id == entity.Id);
+            var dbEntity = _movieContext.Movies.FirstOrDefault(movie => movie.Id == entity.Id);
             
             if (dbEntity != null)
             {
@@ -60,8 +60,9 @@ namespace Cinema.WebApi.Models.Repository
                 dbEntity.Year = entity.Year;
                 dbEntity.Actors = entity.Actors;
                 dbEntity.Genre = entity.Genre;
+                dbEntity.Playing = entity.Playing;
 
-                _movieContext.PlayingMovies.Update(dbEntity);
+                _movieContext.Movies.Update(dbEntity);
                 await _movieContext.SaveChangesAsync();
             }
         }
