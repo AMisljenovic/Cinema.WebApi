@@ -23,10 +23,10 @@ namespace Cinema.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get([FromBody] User user)
         {
-            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password) &&
+            if ((string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password)) &&
                 (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password)))
             {
-                return BadRequest("Please enter username(email) and password.");
+                return BadRequest("Please enter username or email and password.");
                 
             }
 
