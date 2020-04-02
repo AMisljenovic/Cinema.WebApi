@@ -21,35 +21,35 @@ namespace Cinema.WebApi.Models
             {
                 new Hall
                 {
-                    Id = Constants.HallIds[0].ToString(),
+                    Id = Constants.HallIds[0],
                     Name = "A1",
                     Columns = Constants.HallColumns,
                     Rows = Constants.HallRows
                 },
                 new Hall
                 {
-                    Id = Constants.HallIds[1].ToString(),
+                    Id = Constants.HallIds[1],
                     Name = "A2",
                     Columns = Constants.HallColumns,
                     Rows = Constants.HallRows
                 },
                 new Hall
                 {
-                    Id = Constants.HallIds[2].ToString(),
+                    Id = Constants.HallIds[2],
                     Name = "B1",
                     Columns = Constants.HallColumns,
                     Rows = Constants.HallRows
                 },
                 new Hall
                 {
-                    Id = Constants.HallIds[3].ToString(),
+                    Id = Constants.HallIds[3],
                     Name = "B2",
                     Columns = Constants.HallColumns,
                     Rows = Constants.HallRows
                 },
                 new Hall
                 {
-                    Id = Constants.HallIds[4].ToString(),
+                    Id = Constants.HallIds[4],
                     Name = "C",
                     Columns = Constants.HallColumns,
                     Rows = Constants.HallRows

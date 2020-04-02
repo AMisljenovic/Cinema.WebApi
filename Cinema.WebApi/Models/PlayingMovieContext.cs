@@ -33,7 +33,7 @@ namespace Cinema.WebApi.Models
             for (int i = 0; i < jsonMovies.Length; i++)
             {
                 var converted = JsonConvert.DeserializeObject<PlayingMovie>(jsonMovies[i]);
-                converted.Id = Constants.PlayingMovieIds[i].ToString();
+                converted.Id = Constants.PlayingMovieIds[i];
                 movies.Add(converted);
             }
 

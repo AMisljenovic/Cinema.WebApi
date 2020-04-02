@@ -22,7 +22,7 @@ namespace Cinema.WebApi.Models
             {
                 new User
                 {
-                    Id = Constants.UserIds[0].ToString(),
+                    Id = Constants.UserIds[0],
                     Name = "Petar",
                     Surname = "Petrovic",
                     Username = "user",
@@ -32,7 +32,7 @@ namespace Cinema.WebApi.Models
                 },
                 new User
                 {
-                    Id = Constants.UserIds[1].ToString(),
+                    Id = Constants.UserIds[1],
                     Name = "Mile",
                     Surname = "Mikic",
                     Username = "user2",
@@ -42,7 +42,7 @@ namespace Cinema.WebApi.Models
                 },
                 new User
                 {
-                    Id = Constants.UserIds[2].ToString(),
+                    Id = Constants.UserIds[2],
                     Name = "Aleksa",
                     Surname = "Gavric",
                     Username = "user3",
@@ -52,7 +52,7 @@ namespace Cinema.WebApi.Models
                 },
                  new User
                 {
-                    Id = Constants.UserIds[3].ToString(),
+                    Id = Constants.UserIds[3],
                     Name = "Jovan",
                     Surname = "Lukic",
                     Username = "admin",

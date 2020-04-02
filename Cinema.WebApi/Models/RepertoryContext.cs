@@ -28,27 +28,27 @@ namespace Cinema.WebApi.Models
                 {
                     tickets.Add(new Repertory
                     {
-                        Id = Constants.RepertoryIds[i,y].ToString(),
-                        HallId = Constants.HallIds[i].ToString(),
-                        MoveId = Constants.PlayingMovieIds[i].ToString(),
+                        Id = Constants.RepertoryIds[i,y, 0],
+                        HallId = Constants.HallIds[i],
+                        MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(0,8)}:00",
                         Day = y + 1
                     });
 
                     tickets.Add(new Repertory
                     {
-                        Id = Guid.NewGuid().ToString(),
-                        HallId = Constants.HallIds[i].ToString(),
-                        MoveId = Constants.PlayingMovieIds[i].ToString(),
+                        Id = Constants.RepertoryIds[i, y, 1],
+                        HallId = Constants.HallIds[i],
+                        MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(9, 15)}:30",
                         Day = y + 1
                     });
 
                     tickets.Add(new Repertory
                     {
-                        Id = Guid.NewGuid().ToString(),
-                        HallId = Constants.HallIds[i].ToString(),
-                        MoveId = Constants.PlayingMovieIds[i].ToString(),
+                        Id = Constants.RepertoryIds[i, y, 2],
+                        HallId = Constants.HallIds[i],
+                        MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(16, 23)}:45",
                         Day = y + 1
                     });

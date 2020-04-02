@@ -26,17 +26,36 @@ namespace Cinema.WebApi.Models
             {
                 for (int y = 0; y < 7; y++)
                 {
-                    var column = random.Next(0, 4);
-                    var row = random.Next(0, 4);
+                    //var column = random.Next(0, 4);
+                    //var row = random.Next(0, 4);
 
-                    tickets.Add(
-                    new Ticket
+                    //TODO(AM): For one we should have all seats reserved
+                    tickets.AddRange(new List<Ticket>
                     {
-                        Id = Guid.NewGuid().ToString(),
-                        RepertoryId = Constants.RepertoryIds[i,y].ToString(),
-                        UserId = Constants.UserIds[y % 2].ToString(),
-                        SeatColumn = column,
-                        SeatRow = row
+                        new Ticket
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            RepertoryId = Constants.RepertoryIds[i, y, 0],
+                            UserId = Constants.UserIds[y % 2],
+                            SeatColumn = y % 4,
+                            SeatRow = (y + 1) % 4
+                        },
+                        new Ticket
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            RepertoryId = Constants.RepertoryIds[i, y, 1],
+                            UserId = Constants.UserIds[y % 2],
+                            SeatColumn = (y + 2) % 4,
+                            SeatRow = (y + 3) % 4
+                        },
+                        new Ticket
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            RepertoryId = Constants.RepertoryIds[i, y, 2],
+                            UserId = Constants.UserIds[y % 2],
+                            SeatColumn = (y + 1) % 4,
+                            SeatRow = y % 4
+                        }
                     });
                 }              
             }
