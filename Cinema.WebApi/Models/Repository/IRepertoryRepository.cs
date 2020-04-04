@@ -6,6 +6,7 @@ namespace Cinema.WebApi.Models.Repository
     public interface IRepertoryRepository<TEntity>
     {
         Task<IEnumerable<TEntity>> GetAll();
+        Task<IEnumerable<TEntity>> GetByMovie(string movieId);
         Task<TEntity> Get(string movieId, string hallId);
         Task Add(TEntity entity);
         Task Update(TEntity entity);

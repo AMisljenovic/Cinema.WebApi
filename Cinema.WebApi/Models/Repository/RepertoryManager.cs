@@ -34,6 +34,11 @@ namespace Cinema.WebApi.Models.Repository
             await _repertoryContext.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<Repertory>> GetByMovie(string movieId)
+        {
+            return await _repertoryContext.Repertoires.Where(t => t.MoveId == movieId).ToListAsync();
+        }
+
         public async Task<Repertory> Get(string movieId, string hallId)
         {
             return await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.MoveId == movieId && t.HallId == hallId);

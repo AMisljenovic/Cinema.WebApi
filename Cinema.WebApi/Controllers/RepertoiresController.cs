@@ -27,6 +27,12 @@ namespace Cinema.WebApi.Controllers
             return Ok(await _dataRepository.GetAll());
         }
 
+        [HttpGet("{movieId}")]
+        public async Task<ActionResult<IEnumerable<Repertory>>> GetByMovie(string movieId)
+        {
+            return Ok(await _dataRepository.GetByMovie(movieId));
+        }
+
         [HttpGet("{movieId}/{hallId}")]
         public async Task<ActionResult<Repertory>> Get(string movieId, string hallId)
         {

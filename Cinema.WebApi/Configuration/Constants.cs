@@ -8,10 +8,7 @@
             "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
             "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
             "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-            "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-            //Guid.Parse("9f855797-11d1-4634-b489-1ae58211ee98"),
-            //Guid.Parse("22469aab-0419-475e-a64a-ecfc335c7321"),
-            //Guid.Parse("26ba6b32-be90-443f-8ba2-890f14551457")
+            "1df1dac8-0b73-486e-b1a0-ded9d9d0849c"
         };
 
         public static string[] AnnouncedMovieIds = new string[6]
