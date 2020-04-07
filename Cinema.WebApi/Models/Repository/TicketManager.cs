@@ -50,6 +50,19 @@ namespace Cinema.WebApi.Models.Repository
             return JsonConvert.SerializeObject(seats);
         }
 
+        public async Task<string> GetByRepertoryAndUser(string repertoryId, string userId)
+        {
+            var tickets = await _ticketContext.Tickets.Where(t => t.RepertoryId == repertoryId && t.UserId == userId).ToListAsync();
+            int[,] seats = new int[Constants.HallRows, Constants.HallColumns];
+
+            foreach (var ticket in tickets)
+            {
+                seats[ticket.SeatRow, ticket.SeatColumn] = 1;
+            }
+
+            return JsonConvert.SerializeObject(seats);
+        }
+
         public async Task<IEnumerable<Ticket>> GetByUser(string userId)
         {
             return await _ticketContext.Tickets.Where(t => t.UserId == userId).ToListAsync();
