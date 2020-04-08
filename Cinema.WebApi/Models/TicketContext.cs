@@ -19,11 +19,15 @@ namespace Cinema.WebApi.Models
             base.OnModelCreating(modelBuilder);
 
             var tickets = new List<Ticket>();
+            var ticketPrice = 350;
+
 
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
             {
                 for (int y = 0; y < 7; y++)
                 {
+                    ticketPrice = y == 1 ? 200 : 350;
+
                     if (i != 0)
                     {
                         tickets.Add(new Ticket
@@ -32,7 +36,8 @@ namespace Cinema.WebApi.Models
                             RepertoryId = Constants.RepertoryIds[i, y, 0],
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = y % 4,
-                            SeatRow = (y + 1) % 4
+                            SeatRow = (y + 1) % 4,
+                            Price = ticketPrice
                         });
                     }
                     
@@ -45,7 +50,8 @@ namespace Cinema.WebApi.Models
                             RepertoryId = Constants.RepertoryIds[i, y, 1],
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = (y + 2) % 4,
-                            SeatRow = (y + 3) % 4
+                            SeatRow = (y + 3) % 4,
+                            Price = ticketPrice
                         },
                         new Ticket
                         {
@@ -53,7 +59,8 @@ namespace Cinema.WebApi.Models
                             RepertoryId = Constants.RepertoryIds[i, y, 2],
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = (y + 1) % 4,
-                            SeatRow = y % 4
+                            SeatRow = y % 4,
+                            Price = ticketPrice
                         }
                     });
                 }              
@@ -70,7 +77,8 @@ namespace Cinema.WebApi.Models
                         RepertoryId = Constants.RepertoryIds[0, 0, 0],
                         UserId = Constants.UserIds[1],
                         SeatColumn = y,
-                        SeatRow = i
+                        SeatRow = i,
+                        Price = ticketPrice
                     });
                 }
             }

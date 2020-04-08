@@ -63,14 +63,14 @@ namespace Cinema.WebApi.Controllers
 
         // POST: api/Tickets
         [HttpPost]
-        public async Task<IActionResult> Post(Ticket ticket)
+        public async Task<IActionResult> Post(List<Ticket> tickets)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await _dataRepository.Add(ticket);
+            await _dataRepository.Add(tickets);
 
             return Ok();
         }

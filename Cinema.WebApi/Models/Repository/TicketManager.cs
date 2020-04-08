@@ -17,12 +17,15 @@ namespace Cinema.WebApi.Models.Repository
             _ticketContext = ticketContext;
         }
 
-        public async Task Add(Ticket entity)
+        public async Task Add(List<Ticket> entities)
         {
-            entity.Id = Guid.NewGuid().ToString();
+            foreach (var entity in entities)
+            {
+                entity.Id = Guid.NewGuid().ToString();
 
-            _ticketContext.Tickets.Add(entity);
-
+                _ticketContext.Tickets.Add(entity);
+            }
+     
             await _ticketContext.SaveChangesAsync();
         }
 

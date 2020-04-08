@@ -11,5 +11,6 @@ namespace Cinema.WebApi.Models
         public string UserId { get; set; }
         public int SeatRow { get; set; }
         public int SeatColumn { get; set; }
+        public int Price { get; set; }
     }
 }
