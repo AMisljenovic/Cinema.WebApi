@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
+using Cinema.WebApi.Configuration;
 
 namespace Cinema.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    [EnableCors("CorsPolicy")]
+    [EnableCors(Constants.CorsPolicy)]
     [ApiController]
     public class RepertoiresController : ControllerBase
     {

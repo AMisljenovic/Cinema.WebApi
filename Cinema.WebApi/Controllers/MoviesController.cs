@@ -1,4 +1,5 @@
-﻿using Cinema.WebApi.Models;
+﻿using Cinema.WebApi.Configuration;
+using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace Cinema.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    [EnableCors("CorsPolicy")]
+    [EnableCors(Constants.CorsPolicy)]
     [ApiController]
     public class MoviesController : ControllerBase
     {

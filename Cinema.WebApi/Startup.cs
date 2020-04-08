@@ -1,3 +1,4 @@
+using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -21,6 +22,13 @@ namespace Cinema.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(Constants.CookieAuthScheme)
+                .AddCookie(Constants.CookieAuthScheme, config =>
+                {
+                    config.Cookie.Name = "Cinema.WebApi";
+                    
+                });
+
             services.AddDbContext<MovieContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<RepertoryContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<HallContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
@@ -33,7 +41,7 @@ namespace Cinema.WebApi
             services.AddScoped<ITicketRepository<Ticket>, TicketManager>();
 
             services.AddControllers();
-            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            services.AddCors(o => o.AddPolicy(Constants.CorsPolicy, builder =>
             {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
@@ -52,13 +60,15 @@ namespace Cinema.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
-            app.UseCors("CorsPolicy");
+            app.UseHttpsRedirection();
+
+            app.UseRouting();       
+
+            app.UseCors(Constants.CorsPolicy);
 
             app.UseMvc();
         }

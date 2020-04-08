@@ -47,8 +47,11 @@
             {{"eacf5f01-e97f-412e-9ae0-a627b999bdeb","9fff2c90-0b6f-4974-864c-8f54a86edb4b","a840daac-d9a9-4c16-a48a-043e43247034"},{"e4ed83ca-81a4-4ea0-a7ef-5e4062faa9fa","29fe55f5-1a1f-40ad-8db4-9b6731040db2","c6a09e5f-f947-4c64-9b18-16aac2afe1b7"},{"7fe64e0c-3586-4164-a6b5-e336b032bd4a","ad23b7ab-3357-4f0d-a134-25d7ed235ef6","a1a5cd9b-768c-44c3-9da7-c159e933da5b"},{"7b0d2ec2-e0ad-4efc-ba04-8d9453fd6353","f974f0ce-ad88-4ca0-8e1e-a0f235ebe2fd","4b0c1825-74c9-4b7c-be7e-42a25038e481"},{"a36ce8fb-2240-4440-8fb9-2e09c1a21dba","d859c610-740e-4955-878b-06fe614a1998","4282c7e6-4904-4a11-83a4-bf5278775272"},{"646458e6-6060-4dcc-9118-b14ce4c1fe28","a1c414ac-30c6-44fa-84fe-8ed9bba25611","8cf9c962-93ad-429c-9347-6fb6022a1f37"},{"0002ce82-5bf2-4b33-9d69-6c4c3f09f36a","43161eb5-a4a4-455f-b402-fb7d7c73b98a","921112c1-f48f-4d06-9ae8-81b8c663fa2a"}},
         };
 
-        public static int HallRows = 5;
-        public static int HallColumns = 5;
+        public const int HallRows = 5;
+        public const int HallColumns = 5;
+
+        public const string CookieAuthScheme = "CookieAuth";
+        public const string CorsPolicy = "CorsPolicy";
     };  
 }
 

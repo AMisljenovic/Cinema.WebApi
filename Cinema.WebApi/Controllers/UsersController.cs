@@ -1,14 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    [EnableCors("CorsPolicy")]
+    [EnableCors(Constants.CorsPolicy)]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -21,7 +25,7 @@ namespace Cinema.WebApi.Controllers
 
         // GET: api/Users/5
         [HttpGet]
-        public async Task<IActionResult> Get([FromBody] User user)
+        public async Task<IActionResult> Login([FromBody] User user)
         {
             if ((string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password)) &&
                 (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password)))
@@ -30,7 +34,27 @@ namespace Cinema.WebApi.Controllers
                 
             }
 
-            return Ok(await _dataRepository.Get(user.Email, user.Username, user.Password));
+            var dbUser = await _dataRepository.Get(user.Email, user.Username, user.Password);
+
+            if (dbUser != null)
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, dbUser.Username),
+                    new Claim(ClaimTypes.Email, dbUser.Email),
+                    new Claim(ClaimTypes.Role, dbUser.Role),
+                    new Claim(ClaimTypes.DateOfBirth, dbUser.Birthday)
+                };
+
+                var claimsIdentity = new ClaimsIdentity(claims, "User identity");
+                var userPrincipal = new ClaimsPrincipal(new[] { claimsIdentity });
+
+                await HttpContext.SignInAsync(Constants.CookieAuthScheme, userPrincipal);
+
+                return Ok();
+            }
+
+            return BadRequest("Invalid username(email) or password");
         }
 
         // POST: api/Users
@@ -63,6 +87,7 @@ namespace Cinema.WebApi.Controllers
 
         // PUT: api/Users/promote
         [HttpPut("promote")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Put([FromBody] User value, [FromQuery] string userName, [FromQuery] string newRole)
         {
             if (!ModelState.IsValid)
@@ -77,6 +102,7 @@ namespace Cinema.WebApi.Controllers
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = Constants.CookieAuthScheme)]
         public async Task<IActionResult> Delete(string id)
         {
             await _dataRepository.Delete(id);
