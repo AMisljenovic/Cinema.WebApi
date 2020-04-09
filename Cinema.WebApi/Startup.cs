@@ -1,12 +1,15 @@
 using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Threading.Tasks;
 
 namespace Cinema.WebApi
 {
@@ -22,11 +25,20 @@ namespace Cinema.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(Constants.CookieAuthScheme)
-                .AddCookie(Constants.CookieAuthScheme, config =>
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, config =>
                 {
-                    config.Cookie.Name = "Cinema.WebApi";
-                    
+                    config.Cookie.Name = "auth_cookie";
+                    config.Cookie.SameSite = SameSiteMode.None;
+                    config.Events = new CookieAuthenticationEvents
+                    {
+                        OnRedirectToLogin = redirectContext =>
+                        {
+                            redirectContext.HttpContext.Response.StatusCode = 401;
+                            return Task.CompletedTask;
+                        }
+                    };
+
                 });
 
             services.AddDbContext<MovieContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
@@ -43,9 +55,10 @@ namespace Cinema.WebApi
             services.AddControllers();
             services.AddCors(o => o.AddPolicy(Constants.CorsPolicy, builder =>
             {
-                builder.AllowAnyOrigin()
+                builder.SetIsOriginAllowed(_ => true)
                        .AllowAnyMethod()
-                       .AllowAnyHeader();
+                       .AllowAnyHeader()
+                       .AllowCredentials();
             }));
             services.AddMvc()
                 .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1)

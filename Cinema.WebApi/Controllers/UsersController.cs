@@ -5,6 +5,7 @@ using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,7 @@ namespace Cinema.WebApi.Controllers
         }
 
         // GET: api/Users/5
-        [HttpGet]
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] User user)
         {
             if ((string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password)) &&
@@ -49,12 +50,19 @@ namespace Cinema.WebApi.Controllers
                 var claimsIdentity = new ClaimsIdentity(claims, "User identity");
                 var userPrincipal = new ClaimsPrincipal(new[] { claimsIdentity });
 
-                await HttpContext.SignInAsync(Constants.CookieAuthScheme, userPrincipal);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, userPrincipal);
 
-                return Ok();
+                return NoContent();
             }
 
-            return BadRequest("Invalid username(email) or password");
+            return Unauthorized("Invalid username(email) or password");
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return NoContent();
         }
 
         // POST: api/Users
