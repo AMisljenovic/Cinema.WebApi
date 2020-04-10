@@ -13,5 +13,6 @@ namespace Cinema.WebApi.Models
         public string HallId { get; set; }
         public string PlayTime { get; set; }
         public int Day { get; set; }
+        public int Price { get; set; }
     }
 }

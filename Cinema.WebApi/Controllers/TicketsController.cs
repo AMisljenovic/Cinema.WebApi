@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Models;
 using Cinema.WebApi.Models.Repository;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,7 @@ namespace Cinema.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [EnableCors(Constants.CorsPolicy)]
-    //[Authorize(AuthenticationSchemes = Constants.CookieAuthScheme)]
+    [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
     [ApiController]
     public class TicketsController : ControllerBase
     {

@@ -18,7 +18,8 @@ namespace Cinema.WebApi.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            var tickets = new List<Repertory>();
+            var repertoires = new List<Repertory>();
+            var repertoryPrice = 350;
 
             var random = new Random((int)DateTime.Now.Ticks);
 
@@ -26,36 +27,41 @@ namespace Cinema.WebApi.Models
             {
                 for (int y = 0; y < 7; y++)
                 {
-                    tickets.Add(new Repertory
+                    repertoryPrice = y == 1 ? 200 : 350;
+
+                    repertoires.Add(new Repertory
                     {
                         Id = Constants.RepertoryIds[i,y, 0],
                         HallId = Constants.HallIds[i],
                         MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(0,8)}:00",
-                        Day = y + 1
+                        Day = y + 1,
+                        Price = repertoryPrice
                     });
 
-                    tickets.Add(new Repertory
+                    repertoires.Add(new Repertory
                     {
                         Id = Constants.RepertoryIds[i, y, 1],
                         HallId = Constants.HallIds[i],
                         MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(9, 15)}:30",
-                        Day = y + 1
+                        Day = y + 1,
+                        Price = repertoryPrice
                     });
 
-                    tickets.Add(new Repertory
+                    repertoires.Add(new Repertory
                     {
                         Id = Constants.RepertoryIds[i, y, 2],
                         HallId = Constants.HallIds[i],
                         MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(16, 23)}:45",
-                        Day = y + 1
+                        Day = y + 1,
+                        Price = repertoryPrice
                     });
                 }
             }
 
-            modelBuilder.Entity<Repertory>().HasData(tickets);
+            modelBuilder.Entity<Repertory>().HasData(repertoires);
         }
     }
 }
