@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Models;
@@ -8,7 +7,6 @@ using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.WebApi.Controllers
@@ -17,16 +15,15 @@ namespace Cinema.WebApi.Controllers
     [EnableCors(Constants.CorsPolicy)]
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
     [ApiController]
-    public class TicketsController : ControllerBase
+    public class ReservationsController : ControllerBase
     {
-        private readonly ITicketRepository<Ticket> _dataRepository;
+        private readonly IReservationRepository<Reservation> _dataRepository;
 
-        public TicketsController(ITicketRepository<Ticket> dataRepository)
+        public ReservationsController(IReservationRepository<Reservation> dataRepository)
         {
             _dataRepository = dataRepository;
         }
 
-        // GET: api/Tickets/5
         [HttpGet("{repertoryId}")]
         public async Task<IActionResult> Get(string repertoryId)
         {
@@ -65,9 +62,8 @@ namespace Cinema.WebApi.Controllers
             return Ok(await _dataRepository.GetByUser(userId));
         }
 
-        // POST: api/Tickets
         [HttpPost]
-        public async Task<IActionResult> Post(List<Ticket> tickets)
+        public async Task<IActionResult> Post(List<Reservation> tickets)
         {
             if (!ModelState.IsValid)
             {
@@ -79,9 +75,8 @@ namespace Cinema.WebApi.Controllers
             return Ok();
         }
 
-        // PUT: api/Tickets/5
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Ticket ticket)
+        public async Task<IActionResult> Put([FromBody] Reservation ticket)
         {
             if (!ModelState.IsValid)
             {
@@ -92,7 +87,6 @@ namespace Cinema.WebApi.Controllers
             return Ok();
         }
 
-        // DELETE: api/ApiWithActions/5
         [HttpDelete("{repertoryId}")]
         public async Task<IActionResult> Delete(string repertoryId)
         {

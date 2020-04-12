@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.WebApi.Migrations.Ticket
 {
-    [DbContext(typeof(TicketContext))]
+    [DbContext(typeof(ReservationContext))]
     [Migration("20200401220752_tickets")]
     partial class tickets
     {

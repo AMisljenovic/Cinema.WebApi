@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.WebApi.Migrations.Ticket
 {
-    [DbContext(typeof(TicketContext))]
+    [DbContext(typeof(ReservationContext))]
     partial class TicketContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Cinema.WebApi.Models.Ticket", b =>
+            modelBuilder.Entity("Cinema.WebApi.Models.Reservation", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,12 +38,12 @@ namespace Cinema.WebApi.Migrations.Ticket
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Reservations");
 
                     b.HasData(
                         new
                         {
-                            Id = "52991f7a-5e21-4712-ac69-1665bd5c5846",
+                            Id = "13a641a9-90de-4c87-880d-ac156634d2d1",
                             RepertoryId = "9eb6b139-02cc-4be2-b1cf-5d8145f5cfa3",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -51,7 +51,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "a24517ec-e04e-413a-9e7a-ac2e15713051",
+                            Id = "b3386b38-3138-46cc-9be5-196c1a92c012",
                             RepertoryId = "d464a27a-e837-4ea1-8881-77323dae42eb",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -59,7 +59,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7b3e4878-8a4f-457a-b4f9-d4fb2a24c10b",
+                            Id = "6eb9eb07-01e8-4609-9bb3-06b6c3d732e4",
                             RepertoryId = "c785db64-dedb-42cd-8f7a-57ade4bc38db",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -67,7 +67,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "21b0239a-80e2-4551-9958-c58657a3d538",
+                            Id = "fb1c1e77-42a4-4abb-a063-974f9084ce5d",
                             RepertoryId = "12c891d0-3a9c-40b0-93a1-e56ce23c15dd",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -75,7 +75,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "eec9e69c-8ec9-4eb8-b387-a0326b689f54",
+                            Id = "58e0c4bf-b25e-4023-98d9-e88a535eef9e",
                             RepertoryId = "e9c1a622-520c-4d6e-9447-12fd2523d40c",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -83,7 +83,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "487c7c8b-2221-471b-a80d-123ab4c9d9a7",
+                            Id = "f1f28a18-663e-41d2-a696-b83d8b3b4163",
                             RepertoryId = "fd8e5615-28bc-4996-8651-0ff52f15362d",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -91,7 +91,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "599673a0-74cb-4182-96fb-7a44413737a0",
+                            Id = "0eaffaa7-88cc-4bf5-b859-6e19bc9346f4",
                             RepertoryId = "3dd1e68e-667c-42b3-bea0-29ffcc30a0e8",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -99,7 +99,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "43bc0860-183d-423a-942f-0243937494c4",
+                            Id = "0323e943-3f91-4e64-ba28-2d29715ea200",
                             RepertoryId = "bcf9d20a-decc-4bb1-ac1e-81a053135c94",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -107,7 +107,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c7c87447-6150-4e9d-8d65-0f3fe2c3e5d0",
+                            Id = "6c587146-e674-4a6e-8174-28b0a2bb210a",
                             RepertoryId = "2a8d4b29-f39b-4812-a219-3f7661842098",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -115,7 +115,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "0f9a1f70-fd82-4dec-99bf-bb4dd6ef5cda",
+                            Id = "ef2adf6b-5a72-4d63-a92f-7c5fea200f0d",
                             RepertoryId = "f288ec62-9915-412a-8e2f-a7555e60bc49",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -123,7 +123,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "be87c4ea-03b1-4bbb-beb6-9fc040a4e067",
+                            Id = "70925b8d-6e07-498e-9724-5555105f039c",
                             RepertoryId = "d98821de-b8fd-4945-8c06-c912d2cb940a",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -131,7 +131,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "d24bade5-caa5-488a-97a8-a85668c7b00f",
+                            Id = "f1f58c49-8330-4ace-9108-6ac52ef50dea",
                             RepertoryId = "533a5c82-b0ce-4e4e-afb9-cb23a7940a05",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -139,7 +139,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5463f32a-fbbc-4441-b7d8-19394cf2f1cb",
+                            Id = "ef1879dd-1cdd-49fd-ad1c-dc02a17d72d6",
                             RepertoryId = "66fd7189-cf10-44cc-a4e5-0f16aa07bfb9",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -147,7 +147,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "1dac58c2-7f82-45c8-8847-8c7a00b28d78",
+                            Id = "a63a2d3b-4365-403d-ab78-a360fb5e2ad6",
                             RepertoryId = "b6b2c675-d629-4f0f-ae26-d0a9a23983e1",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -155,7 +155,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "57de49a9-6c3a-418d-81c5-d0651f05aa58",
+                            Id = "7d0de079-d938-4c74-b6e0-bef663859eaf",
                             RepertoryId = "4f537a29-4171-4a9e-a3db-9acc950863e2",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -163,7 +163,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "a63345e6-806e-4afe-906b-0a8f9fa4ecee",
+                            Id = "cc28b774-e9b0-440f-be0f-9e485c60a6ed",
                             RepertoryId = "d2f88961-adf9-4089-9198-17e5b4b99c3b",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -171,7 +171,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "693aeb84-c3f8-42fe-82d9-09fa74f8d179",
+                            Id = "730e74b3-bca3-43e9-871c-acc724662ee3",
                             RepertoryId = "870a16fa-a719-4491-b09a-b06ad652a1d7",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -179,7 +179,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "9a9cbd08-c17e-4aba-9c31-928227c9f36a",
+                            Id = "5d2822b2-6c73-46eb-a7e3-d2137002b6cc",
                             RepertoryId = "5f37e508-8156-4d8e-9859-d52933a64b12",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -187,7 +187,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c8f5a1d9-033d-45ca-8a7c-036c3122ed6e",
+                            Id = "e194d2e4-2217-44a3-a9ff-7558bbd8546b",
                             RepertoryId = "94fa00b6-628c-4a42-a4ca-5e3398dbdbc0",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -195,7 +195,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "0686e015-1344-4b58-b2d3-3049de391f8e",
+                            Id = "e33a9661-8518-4b7d-aa27-c6c41138a052",
                             RepertoryId = "40e5a01f-34d0-446f-a954-6057150ec540",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -203,7 +203,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "37983a24-33f9-4106-aaa6-812ce1312335",
+                            Id = "0aa4bf24-6460-46f2-8517-e20403330817",
                             RepertoryId = "334fb052-927e-43ae-b032-e18de7dd81ce",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -211,7 +211,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "e5cf7e0c-e8c5-45c5-92d6-8457056b6b10",
+                            Id = "e32ee21f-d329-460e-9fe0-b8f7b67d9007",
                             RepertoryId = "f1a264a5-045c-4107-9ef6-8ca65d7df47c",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -219,7 +219,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "97e4f202-6479-4e5c-81eb-c5422a0e5c87",
+                            Id = "e278987e-47a7-4bf5-9301-6c6eb525f461",
                             RepertoryId = "a658c6b0-20fd-43b7-a603-52bee735a01a",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -227,7 +227,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "d4793029-c445-4ccb-b2dc-1fe6a8354356",
+                            Id = "88b7645e-74e4-4d14-9224-95c186a34459",
                             RepertoryId = "37b06319-09db-4b97-8f78-98f51f1d8e32",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -235,7 +235,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "be4ef5df-c96f-4cc5-86aa-d10892486bcc",
+                            Id = "b3514d5d-e1b0-4e5d-93d3-1f83e01556fd",
                             RepertoryId = "db2ea23f-e7ce-423e-9bc2-257b2c061d04",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -243,7 +243,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "bb7e2509-fed3-49ed-87c1-3c48d6cd9a53",
+                            Id = "c5e018c9-dd1e-4cd8-a7d7-19b3e1e92652",
                             RepertoryId = "b9df548d-dde8-4c9d-9124-420e43072641",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -251,7 +251,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "1bfe9ea5-1745-44c7-8d86-fed65fb0d3e1",
+                            Id = "22518928-bf54-4029-8b05-848501036afb",
                             RepertoryId = "5bc15682-2eaa-4baf-86ea-e03db1efe9f1",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -259,7 +259,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "6e139dbb-2235-4597-bb22-4780ea57de2f",
+                            Id = "d1011d17-997f-451d-8831-be3703c48158",
                             RepertoryId = "2727ab7e-65a3-437a-a403-c121c87a32bf",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -267,7 +267,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "ab0b24d2-0a4f-46b2-a18e-eceb367d7828",
+                            Id = "e5c77b44-ed91-4970-9dc1-86ccd2f7927d",
                             RepertoryId = "e67e8d98-37a8-4310-b51c-d2b2f4c5210f",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -275,7 +275,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "70b7e970-6e40-4d13-8207-657bcbf68db9",
+                            Id = "31105209-a979-4f60-9079-8d465c6fdc05",
                             RepertoryId = "f0a03776-87cf-47b5-9a6c-679d0906d87e",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -283,7 +283,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "80faa9cd-a80a-4169-89fd-0c27eebdab2e",
+                            Id = "064efa6d-0008-4e05-af70-fb6fa46466bd",
                             RepertoryId = "b7b94c44-7346-4448-9030-5883e77047c6",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -291,7 +291,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "ad0dde81-6616-4422-95f6-162b42838253",
+                            Id = "75ddb402-3f92-4e5b-8191-96f78a07d65e",
                             RepertoryId = "8e25c8bb-a4a4-4df7-ab04-e8e2f6452a26",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -299,7 +299,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "88637f9b-f6ac-4082-8972-ff36b2ba12c7",
+                            Id = "0c57e998-c412-4000-a280-8bcac9d3c852",
                             RepertoryId = "ad3fe353-dca7-4fcd-bc8c-9badbaf1e811",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -307,7 +307,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "6ceceaf9-eba2-4ca8-83b6-9a5236f287dd",
+                            Id = "afec10d0-1c9a-4d04-8aae-af8e01de010e",
                             RepertoryId = "2a1fccf7-7603-4ba5-b4be-044ed500ea75",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -315,7 +315,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "faa89f94-e2f3-466b-b27b-a50d13403883",
+                            Id = "9afe7984-e93a-494c-884e-4684cb97a43a",
                             RepertoryId = "a82ed5c0-e84a-481a-9c6d-78263c07e6ca",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -323,7 +323,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "56acad0d-cff3-4582-862c-1f5c93846543",
+                            Id = "615722f8-159f-4ac0-9088-81ec71d58613",
                             RepertoryId = "34e641ec-9bea-4383-8e8b-f949aa764e21",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -331,7 +331,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "dec1650f-47ef-43f4-bfe6-714682f19f40",
+                            Id = "125b6dab-a740-4088-a33f-8c5313ae4f64",
                             RepertoryId = "750b85d6-9ea1-4b66-942c-4e09f432530b",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -339,7 +339,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8c2c7ed1-452c-4d42-8c03-60140e8e9125",
+                            Id = "235e1788-9f4f-444a-b7e2-f0db87562b3e",
                             RepertoryId = "00b4ebea-8f60-43c9-b1ff-091053e4f744",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -347,7 +347,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "0f18ab27-a027-46f0-ae10-314d38c0b7f0",
+                            Id = "29124bc8-68c1-4fe8-9432-7d007f4b501f",
                             RepertoryId = "14705128-16f3-4e28-8f2b-63465d15a49c",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -355,7 +355,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c780897e-5317-46da-adb0-20e8f3f97caa",
+                            Id = "5cef047b-65dd-44f2-9a20-4fee6e126b91",
                             RepertoryId = "e0d1c58d-1db0-4705-b3cb-94e6c861737c",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -363,7 +363,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "eea56041-8180-48b8-ac55-edb81b1ab1cc",
+                            Id = "42e4efe9-4a3c-4aac-bf32-b7ab0b580574",
                             RepertoryId = "b728d7fe-fa8f-4b97-be85-72a3c2990648",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -371,7 +371,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "be4cfc0c-e1b9-48c5-9950-723da1697464",
+                            Id = "d440aee9-8d7c-47eb-9bd1-fbdb4f432756",
                             RepertoryId = "8040c6f9-f275-4752-9363-6d12069cd828",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -379,7 +379,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "050c915f-5db5-4d3e-82c9-19598145a06a",
+                            Id = "7eeadcd2-cc04-4cc6-85d8-f48dd07c65c7",
                             RepertoryId = "ef8b3693-e048-4782-9c25-22456b5230b7",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -387,7 +387,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "90a45adf-b5b1-48fe-8331-0f61e9f112e3",
+                            Id = "960f2fdb-a992-4cde-ab4b-ab9e9a735825",
                             RepertoryId = "b8429be8-5561-434d-91a8-731a94dbd95f",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -395,7 +395,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "308075a4-f651-47c1-a0ed-ac1164796dbc",
+                            Id = "65f1657a-a2d5-4e9c-9077-d7addf8b4acc",
                             RepertoryId = "0b1177fe-0733-42e8-a8c5-35ad8039a14e",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -403,7 +403,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "71ce7c2b-eadb-4d85-9ca0-4f041105b1b9",
+                            Id = "ec4600fc-340a-4372-b9fe-63078c640132",
                             RepertoryId = "f563fb50-26da-4a57-9bcd-b3836614835a",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -411,7 +411,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7ba2eeb7-0f3f-47ee-9ef9-75eb89de699b",
+                            Id = "0251890f-565a-48b4-8986-48d3e1e50949",
                             RepertoryId = "8411a5b7-699f-45d4-ab67-ee3a17338424",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -419,7 +419,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "87ca590a-06d6-4ae4-a0a5-52064f469ae0",
+                            Id = "543d2771-2632-4b71-8a7e-1bc6a162d2e3",
                             RepertoryId = "18f8b880-1231-4028-9eb6-998e94b62b9b",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -427,7 +427,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "671005a3-a48b-47b4-b32d-add3245ab1e7",
+                            Id = "616c844a-7b08-4900-ab58-57bc8215ed7f",
                             RepertoryId = "73e61eb8-e1ef-400f-a6b8-b2e07725dfb2",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -435,7 +435,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "92406fd3-0ba4-4324-a446-c310d76cb9d0",
+                            Id = "7bfecfa9-0b88-45aa-8999-a7ffe00d6537",
                             RepertoryId = "524ce530-f997-44da-b118-2c88be728248",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -443,7 +443,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "4fc43a40-531a-4949-8465-041867f08530",
+                            Id = "f7fd2c22-0632-4551-8e51-134c8a98031d",
                             RepertoryId = "1367d782-f24e-4985-978d-825515f40bee",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -451,7 +451,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "593f1de4-6b29-463d-ad12-c5ebde7aa9cd",
+                            Id = "5f7678dc-ef4d-4c15-b8bf-17c40bed9949",
                             RepertoryId = "5417a7e6-e108-48ff-b831-6578c3680a71",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -459,7 +459,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "a5e9b790-9ce9-45a0-9b12-18386eb42724",
+                            Id = "454e801d-0c7f-4926-a552-6dfa90ef6976",
                             RepertoryId = "c80f93cc-c780-436d-800a-f3ba02aabcdc",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -467,7 +467,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "076d608a-13fc-48c2-9b6b-63de59d8403e",
+                            Id = "97f65532-fe30-46c6-a425-9491767d1ea4",
                             RepertoryId = "ef0f138d-b306-4983-a873-1222342b4368",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -475,7 +475,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "11b58b8e-c9b3-4d72-bcf1-76821df158cb",
+                            Id = "d90bf6ef-2904-409f-b74c-e8c3afc97ec0",
                             RepertoryId = "87950de7-b4a3-430b-add8-57cb2f696aa6",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -483,7 +483,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "55a5c461-571d-47da-af08-44a609ea7b9e",
+                            Id = "6f286d65-2f76-4120-ae01-5495f1bd8015",
                             RepertoryId = "86d5fad3-0481-4497-9dab-b97a7da4c13c",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -491,7 +491,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c57c2c11-c7bf-468f-a39a-562b6b053a31",
+                            Id = "e54629c6-9707-40b5-b831-0d1f15911768",
                             RepertoryId = "2ce9ef7b-77f0-49e8-8277-fe90927f3ce7",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -499,7 +499,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "dac9f80f-7970-4cbe-b284-1235a7091835",
+                            Id = "04f1582b-fa36-4b08-afec-7fc283c16e5e",
                             RepertoryId = "8ad3aba2-5caa-40ca-afdb-d62f9253ed01",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -507,7 +507,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5f88343a-6be3-4e7b-8649-417168e97830",
+                            Id = "bcdcabcf-cbfb-4bab-a941-74f7a10abc9e",
                             RepertoryId = "4f8eb2ca-3a70-4920-8de0-5033ed304451",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -515,7 +515,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "1ff6c330-1d5c-4fc1-8371-77ce6766ae75",
+                            Id = "8f61de43-419e-4124-9132-46edddd9c7bc",
                             RepertoryId = "1dd5a479-a903-426e-9880-4eeef60b69f8",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -523,7 +523,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "9b925495-b265-4823-b876-e6fbcf40cdd1",
+                            Id = "e0f41963-f53a-4a85-8074-84e49de64754",
                             RepertoryId = "f6f1670a-4eba-4d98-85f6-d4c1d37a7dec",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -531,7 +531,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c2d307b2-de1f-4532-bb9a-24077b947011",
+                            Id = "c31503b2-860b-423b-aedd-e02e8031eda5",
                             RepertoryId = "f6a55375-3743-4528-8ac4-8ba93e9ba017",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -539,7 +539,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "38b48b68-ac14-4d3c-89dd-a76735d0b63e",
+                            Id = "d8ea2293-3500-4469-b5e6-6ea7bdd07383",
                             RepertoryId = "17738e0f-d311-4003-b6c2-7a8bfe733e20",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -547,7 +547,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f1f79a16-13e0-4856-b817-90cfb303af7f",
+                            Id = "f7194768-93e7-44c6-ae72-8b5bd504a1d4",
                             RepertoryId = "067273f1-2931-4cf5-9f0f-0893fa7ec83e",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -555,7 +555,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "605bbf2f-55ee-4ae9-8db0-6f2ae62e5b3a",
+                            Id = "7174ade8-dd84-4f49-a249-0965dc6e820b",
                             RepertoryId = "2339db48-b2bc-481d-9d78-ebb9e32f433d",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -563,7 +563,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "a1aea539-042c-4d26-be20-6a78fc7a13df",
+                            Id = "80ba40c0-6329-4c81-8f61-0bc327afe502",
                             RepertoryId = "661ac04f-8289-4eec-9530-c648264eb9a4",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -571,7 +571,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f9af2eaf-e8b0-4421-bd58-8ff7d7ea8fe9",
+                            Id = "74cbf1c3-753e-4c14-8320-4af2230c8379",
                             RepertoryId = "f7c4ec9d-e923-4d28-8918-ac842efc24e5",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -579,7 +579,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "66815b0b-feda-4350-9566-82cf4dd0e10d",
+                            Id = "5f9dccc0-d647-499b-995d-b6699ce1f52c",
                             RepertoryId = "fa858d18-c031-4a4d-8700-7b46f21109f4",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -587,7 +587,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "9e3cd036-724b-4c10-adcf-5a0eb1faccbf",
+                            Id = "9b4c3557-eca2-49ed-8b7d-7be4330d4767",
                             RepertoryId = "1bbd4048-bbf7-4269-a4a1-bf0510fd18db",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -595,7 +595,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c19b8d33-98be-4a7b-be84-fd206a6577f6",
+                            Id = "3aaff147-20d4-4e7e-a664-15a35577b52f",
                             RepertoryId = "149d67fb-796f-489b-bbe2-993073b66bc6",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -603,7 +603,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "75be9fdd-da32-4b9b-8ade-48b060254fa0",
+                            Id = "8f887613-78e6-4803-b2aa-80e326b460f1",
                             RepertoryId = "23fc35c2-cd81-45be-bf32-b2cb1da3bc34",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -611,7 +611,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "3ff7c5f8-c440-4db1-8a5f-d66721416c2a",
+                            Id = "de322ca5-f93d-4780-a56b-92b9302f3a9e",
                             RepertoryId = "2128363b-df77-4459-85aa-2beaf899ec4c",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -619,7 +619,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5346162f-8d44-49e2-b739-8a4152e36d0d",
+                            Id = "c1e6d231-c975-4ac2-915f-ed71c14c71ba",
                             RepertoryId = "a9c0be59-ab64-4b33-8f03-26bd93aab48e",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -627,7 +627,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "b0cb591f-8fed-401f-a585-7706986b9283",
+                            Id = "d83964ea-dfc2-47b9-8ef6-ca73aeaba3b6",
                             RepertoryId = "a7dd1624-9980-48f4-b73a-56660e673c89",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -635,7 +635,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "2745d916-a6d6-497d-82e6-18b5967ffecd",
+                            Id = "c75d6389-233d-4ac8-ae14-c5fbf4ca17bb",
                             RepertoryId = "c6163527-6edf-43e2-a07b-f4889a37f70e",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -643,7 +643,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "65d264e8-494e-4dea-b90a-98a9b2b997d2",
+                            Id = "caffb014-e758-4743-9b62-02b96d7f370c",
                             RepertoryId = "f56de32e-a8d4-495b-99dc-a3867d7408f0",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -651,7 +651,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5da36b3f-e705-4c9b-aaf4-d3472efa852a",
+                            Id = "c27aeba5-40d0-4c08-b3eb-9281902c8eff",
                             RepertoryId = "7ed80a87-eb47-4249-8ac1-917a0800496c",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -659,7 +659,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c754c15d-15a9-410a-9871-f342563a87c8",
+                            Id = "c61495cf-bf46-4a4b-b2ff-922cfe090de9",
                             RepertoryId = "eacf5f01-e97f-412e-9ae0-a627b999bdeb",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -667,7 +667,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "375195aa-b8d8-421f-afa7-d378dd34a17c",
+                            Id = "66d2e0ed-9463-44be-9b40-12ee87b23f98",
                             RepertoryId = "9fff2c90-0b6f-4974-864c-8f54a86edb4b",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -675,7 +675,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8ef69f12-8f67-4034-aa75-0534975c729a",
+                            Id = "e3b488c3-c5aa-405c-b76f-92d814daf7a6",
                             RepertoryId = "a840daac-d9a9-4c16-a48a-043e43247034",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -683,7 +683,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "dea8fba7-b5d3-492a-8b44-0235076e021e",
+                            Id = "6b511bb1-db6c-42f1-acf6-c1c9281e6e57",
                             RepertoryId = "e4ed83ca-81a4-4ea0-a7ef-5e4062faa9fa",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -691,7 +691,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "82e36095-68bb-43f6-873d-2fab542fc731",
+                            Id = "d9cc1bae-cbf7-4fbe-9d24-69a7cbc7c1cb",
                             RepertoryId = "29fe55f5-1a1f-40ad-8db4-9b6731040db2",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -699,7 +699,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "54087763-0dfc-4618-9109-d5bcdfe2dd97",
+                            Id = "aee469d5-db42-492b-b32a-40b42a0e4516",
                             RepertoryId = "c6a09e5f-f947-4c64-9b18-16aac2afe1b7",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -707,7 +707,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "b9370f98-9233-4dfe-b578-6dee3b83fd93",
+                            Id = "4698866d-34ca-46ac-9138-71d3df7f283e",
                             RepertoryId = "7fe64e0c-3586-4164-a6b5-e336b032bd4a",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -715,7 +715,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "be3ad265-a7aa-4d88-a48c-075b8c1b5f5e",
+                            Id = "53c5c7d4-ace3-4335-b317-07fed1f8becb",
                             RepertoryId = "ad23b7ab-3357-4f0d-a134-25d7ed235ef6",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -723,7 +723,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "28cd1623-464f-42cb-868a-ecdd2bc11b6e",
+                            Id = "ccc05332-0c89-4d02-a665-c5252db39fa3",
                             RepertoryId = "a1a5cd9b-768c-44c3-9da7-c159e933da5b",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -731,7 +731,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "bb21fd56-e9df-49f9-9e42-5b5b629d2e80",
+                            Id = "c85665c1-d93a-4fe3-b8f1-f05d63317197",
                             RepertoryId = "7b0d2ec2-e0ad-4efc-ba04-8d9453fd6353",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -739,7 +739,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c744ba06-5ad2-46a2-a279-3736eaaf13d9",
+                            Id = "b67a9ad7-8970-49f6-98cf-acb1da3c9f22",
                             RepertoryId = "f974f0ce-ad88-4ca0-8e1e-a0f235ebe2fd",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -747,7 +747,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "4029d67b-9c20-45dd-8e6c-9154d80292f1",
+                            Id = "799ae1c0-c8c4-4257-8a40-9ae22f08e710",
                             RepertoryId = "4b0c1825-74c9-4b7c-be7e-42a25038e481",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -755,7 +755,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8a691255-2214-44ef-88f2-6fc76ebc8c9f",
+                            Id = "e2aaf8c8-040a-4b5f-8e81-ab1f6462dec3",
                             RepertoryId = "a36ce8fb-2240-4440-8fb9-2e09c1a21dba",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -763,7 +763,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "163bd9a6-85a9-4729-ad47-dbe1faa615bb",
+                            Id = "6aeb7a43-7512-4339-b346-14e76aacf2b5",
                             RepertoryId = "d859c610-740e-4955-878b-06fe614a1998",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -771,7 +771,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7d4ae48a-7184-41da-8769-2f11bdd5348f",
+                            Id = "8ab50988-0928-45a3-becc-c691c5491d4c",
                             RepertoryId = "4282c7e6-4904-4a11-83a4-bf5278775272",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -779,7 +779,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "17eaf78c-b58e-4846-a8c4-39828867f6fc",
+                            Id = "23290a88-82de-4adf-957c-40e5733735ae",
                             RepertoryId = "646458e6-6060-4dcc-9118-b14ce4c1fe28",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -787,7 +787,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "4f14a0d1-fe15-4735-a7bf-3f58b232cd45",
+                            Id = "af352e1f-bfec-401f-aaae-9a4f7ca46f92",
                             RepertoryId = "a1c414ac-30c6-44fa-84fe-8ed9bba25611",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -795,7 +795,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "262286e2-fed7-414e-9c87-dff68a86a333",
+                            Id = "9ababda3-7439-4ec2-97b1-96aa844bd4b8",
                             RepertoryId = "8cf9c962-93ad-429c-9347-6fb6022a1f37",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -803,7 +803,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "24a3c405-fc53-4482-9625-d031d7c8517a",
+                            Id = "828cd7c3-7a8e-4485-b3ee-15177fd01363",
                             RepertoryId = "0002ce82-5bf2-4b33-9d69-6c4c3f09f36a",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -811,7 +811,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "06515d96-8b74-4ab3-8bf7-bea40457e870",
+                            Id = "7dd7d40c-f50f-472e-aa0a-8348d0a63641",
                             RepertoryId = "43161eb5-a4a4-455f-b402-fb7d7c73b98a",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -819,7 +819,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "cd89c807-738d-446e-931d-918abd31528b",
+                            Id = "a78ba9c8-a62f-407a-a699-65be4e4f245f",
                             RepertoryId = "921112c1-f48f-4d06-9ae8-81b8c663fa2a",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -827,7 +827,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "3b1f93d6-2ea5-4b1b-aeb5-2004735fcd69",
+                            Id = "f1affb93-1244-4b92-a39b-08a0f90619a7",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 0,
@@ -835,7 +835,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "2d2ebbf9-92ac-4fb7-b42a-470b4c96effa",
+                            Id = "d6a91fe0-4901-45a5-bf69-c3b0764c0ecd",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -843,7 +843,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8415bcdd-d970-4a32-a2cc-91dca5fcbdf6",
+                            Id = "f4de66bc-8a6e-443e-b3f6-a467d99243e9",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 0,
@@ -851,7 +851,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "3e37d37c-32c5-4eb3-b807-2a62c154d82e",
+                            Id = "965776bd-bcd1-4d38-ac15-ba6d7b3d477b",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -859,7 +859,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "264739a6-9246-426c-ab6b-d054dfb7bcd8",
+                            Id = "5efa95fe-40f8-4dc4-813f-636a0b675989",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 0,
@@ -867,7 +867,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "85829069-eb0d-4431-afd1-fe32c2902a7f",
+                            Id = "d363fbc1-8d59-4f32-a5ff-b56f6f836b42",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -875,7 +875,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "2b024bdf-f9e3-441d-894d-c33ac0f46205",
+                            Id = "0a1c72eb-0eb4-4455-a7c5-32320e7a28eb",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 1,
@@ -883,7 +883,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "021fe4a6-d56d-496d-9b89-2245698080ff",
+                            Id = "ac2fe5e8-a76b-44ee-986f-41645287f393",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -891,7 +891,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "1ce576d2-6178-44a2-8368-ad90f003462e",
+                            Id = "07901c52-1772-4db1-ab10-8499ecc10b32",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 1,
@@ -899,7 +899,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "836a1e5c-8e34-4863-82b0-da79915b7fc1",
+                            Id = "78195b9a-d21b-4f51-aa45-9e7732e0a042",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 1,
@@ -907,7 +907,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "b79bf6dc-38fd-49c6-9e5f-ff02bbc5528c",
+                            Id = "fbcbb451-3b50-45ac-a387-2d9e590d016f",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 2,
@@ -915,7 +915,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "130b725b-d461-4429-82e9-434134c8fe36",
+                            Id = "6d9e0cb3-07ee-44de-823a-6cba1d2f8f9c",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -923,7 +923,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "93910af0-ca42-4e8b-b9b8-f1ffa914e0d7",
+                            Id = "5530e684-6f6c-41f3-afdf-15705ff40755",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 2,
@@ -931,7 +931,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "e5114ddc-4733-4009-a60d-4078a3143be1",
+                            Id = "985f9156-e686-4038-b034-cbcd8d61dc6f",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -939,7 +939,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7d31e900-8b97-47c7-b6c7-1aadac067641",
+                            Id = "d1ea2d6e-14ae-421d-86e8-ca95010ca298",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 2,
@@ -947,7 +947,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "598ea6dc-e8d1-4934-a32f-b2a905f15517",
+                            Id = "02242cd0-9802-4740-a579-a99e803c23be",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -955,7 +955,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "86a6ab7a-0682-49d2-a7d1-3e3e1ca9bf29",
+                            Id = "fa5614ff-a252-46fc-b57e-20b74b7c7b74",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 3,
@@ -963,7 +963,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f838518a-6bbf-4ca6-99fe-136eed8e316e",
+                            Id = "e7d7ea93-cce8-4a86-bc25-8af7947057c2",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -971,7 +971,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "ee075e4a-0343-4f5c-a516-a8f05bca2a28",
+                            Id = "b4e0cc2d-32ff-48e2-848f-1989e97aa0c5",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 3,
@@ -979,7 +979,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "ebbc89fc-8a87-4033-92ab-5e56ab11f520",
+                            Id = "208f6fd4-570c-48c8-aeed-87b7fec9825e",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 3,
@@ -987,7 +987,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "98eb0fb1-0948-4eed-9740-b389f2a62a1a",
+                            Id = "76c3a0e4-29bf-40d1-8188-0a3d47cf22c6",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 4,
@@ -995,7 +995,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "6db5fc80-b8bf-4df2-831a-71fb2ac55836",
+                            Id = "979edbfc-10ea-4e0c-ae3f-491b6356d41b",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 4,
@@ -1003,7 +1003,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "6adbf24e-4110-4151-9d18-875db89aa55f",
+                            Id = "b7e13cb3-c840-47e1-b840-5afdb92dc7d3",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 4,
@@ -1011,7 +1011,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8ca4a4c1-a363-4d38-9d30-55d4e86652cf",
+                            Id = "ab70140f-03e8-43e9-b8d0-3caefd770602",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 4,
@@ -1019,7 +1019,7 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7b6b917d-7934-43f9-9583-0093089043dd",
+                            Id = "9a1b6b14-4292-4a51-86b1-99854cffacce",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 4,

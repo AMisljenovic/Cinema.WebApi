@@ -5,20 +5,20 @@ using System.Collections.Generic;
 
 namespace Cinema.WebApi.Models
 {
-    public class TicketContext : DbContext
+    public class ReservationContext : DbContext
     {
-        public TicketContext(DbContextOptions<TicketContext> options)
+        public ReservationContext(DbContextOptions<ReservationContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            var tickets = new List<Ticket>();
+            var reservations = new List<Reservation>();
             
 
 
@@ -28,7 +28,7 @@ namespace Cinema.WebApi.Models
                 {
                     if (i != 0)
                     {
-                        tickets.Add(new Ticket
+                        reservations.Add(new Reservation
                         {
                             Id = Guid.NewGuid().ToString(),
                             RepertoryId = Constants.RepertoryIds[i, y, 0],
@@ -38,10 +38,10 @@ namespace Cinema.WebApi.Models
                         });
                     }
                     
-                    tickets.AddRange(new List<Ticket>
+                    reservations.AddRange(new List<Reservation>
                     {
                   
-                        new Ticket
+                        new Reservation
                         {
                             Id = Guid.NewGuid().ToString(),
                             RepertoryId = Constants.RepertoryIds[i, y, 1],
@@ -49,7 +49,7 @@ namespace Cinema.WebApi.Models
                             SeatColumn = (y + 2) % 4,
                             SeatRow = (y + 3) % 4,
                         },
-                        new Ticket
+                        new Reservation
                         {
                             Id = Guid.NewGuid().ToString(),
                             RepertoryId = Constants.RepertoryIds[i, y, 2],
@@ -66,7 +66,7 @@ namespace Cinema.WebApi.Models
             {
                 for (int y = 0; y < Constants.HallColumns; y++)
                 {
-                    tickets.Add(new Ticket
+                    reservations.Add(new Reservation
                     {
                         Id = Guid.NewGuid().ToString(),
                         RepertoryId = Constants.RepertoryIds[0, 0, 0],
@@ -79,7 +79,7 @@ namespace Cinema.WebApi.Models
 
 
             
-            modelBuilder.Entity<Ticket>().HasData(tickets);
+            modelBuilder.Entity<Reservation>().HasData(reservations);
         }
     }
 }

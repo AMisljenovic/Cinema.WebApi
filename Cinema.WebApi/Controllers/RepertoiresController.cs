@@ -35,20 +35,31 @@ namespace Cinema.WebApi.Controllers
             return Ok(await _dataRepository.GetByMovie(movieId));
         }
 
-        [HttpGet("{movieId}/{hallId}")]
-        public async Task<ActionResult<Repertory>> Get(string movieId, string hallId)
+        //[HttpGet("{movieId}/{hallId}")]
+        //public async Task<ActionResult<Repertory>> Get(string movieId, string hallId)
+        //{
+        //    if (!Guid.TryParse(movieId, out var parsedMovieId))
+        //    {
+        //        return BadRequest("Move id is not in valid format.");
+        //    }
+
+        //    if (!Guid.TryParse(hallId, out var parsedHallId))
+        //    {
+        //        return BadRequest("Hall id is not in valid format.");
+        //    }
+
+        //    return Ok(await _dataRepository.Get(movieId, hallId));
+        //}
+
+        [HttpGet("repertory/{repertoryId}")]
+        public async Task<ActionResult<Repertory>> Get(string repertoryId)
         {
-            if (!Guid.TryParse(movieId, out var parsedMovieId))
+            if (!Guid.TryParse(repertoryId, out var parserepertoryId))
             {
-                return BadRequest("Move id is not in valid format.");
+                return BadRequest("Repertory id is not in valid format.");
             }
 
-            if (!Guid.TryParse(hallId, out var parsedHallId))
-            {
-                return BadRequest("Hall id is not in valid format.");
-            }
-
-            return Ok(await _dataRepository.Get(movieId, hallId));
+            return Ok(await _dataRepository.GetById(repertoryId));
         }
 
         // PUT: api/Repertory/5

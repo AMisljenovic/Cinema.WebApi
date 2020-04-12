@@ -45,12 +45,12 @@ namespace Cinema.WebApi
             services.AddDbContext<RepertoryContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<HallContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddDbContext<UserContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
-            services.AddDbContext<TicketContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddDbContext<ReservationContext>(opts => opts.UseSqlServer(Configuration["ConnectionString"]));
             services.AddScoped<IDataRepository<Movie>, MovieManager>();
             services.AddScoped<IDataRepository<Hall>, HallManager>();
             services.AddScoped<IRepertoryRepository<Repertory>, RepertoryManager>();
             services.AddScoped<IUsersRepository<User>, UserManager>();
-            services.AddScoped<ITicketRepository<Ticket>, TicketManager>();
+            services.AddScoped<IReservationRepository<Reservation>, ReservationManager>();
 
             services.AddControllers();
             services.AddCors(o => o.AddPolicy(Constants.CorsPolicy, builder =>

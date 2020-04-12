@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.WebApi.Models.Repository
 {
-    public interface ITicketRepository<TEntity>
+    public interface IReservationRepository<TEntity>
     {
         Task<string> GetByRepertory(string repertoryId);
         Task<string> GetByRepertoryAndUser(string repertoryId, string userId);
