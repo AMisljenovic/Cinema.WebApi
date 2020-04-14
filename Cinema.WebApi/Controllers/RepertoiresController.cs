@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Cinema.WebApi.Models;
-using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Authorization;
 using Cinema.WebApi.Configuration;
+using Cinema.WebApi.Interfaces;
 
 namespace Cinema.WebApi.Controllers
 {

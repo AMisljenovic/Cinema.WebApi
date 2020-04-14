@@ -1,6 +1,6 @@
 ﻿using Cinema.WebApi.Configuration;
+using Cinema.WebApi.Interfaces;
 using Cinema.WebApi.Models;
-using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

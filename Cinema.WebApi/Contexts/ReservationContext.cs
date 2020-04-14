@@ -1,9 +1,10 @@
 ﻿using Cinema.WebApi.Configuration;
+using Cinema.WebApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 
-namespace Cinema.WebApi.Models
+namespace Cinema.WebApi.Contexts
 {
     public class ReservationContext : DbContext
     {

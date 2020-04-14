@@ -1,6 +1,8 @@
 using Cinema.WebApi.Configuration;
+using Cinema.WebApi.Contexts;
+using Cinema.WebApi.Interfaces;
 using Cinema.WebApi.Models;
-using Cinema.WebApi.Models.Repository;
+using Cinema.WebApi.Models.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

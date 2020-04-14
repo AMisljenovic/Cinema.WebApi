@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Cinema.WebApi.Contexts;
+using Cinema.WebApi.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 
-namespace Cinema.WebApi.Models.Repository
+namespace Cinema.WebApi.Models.Repositories
 {
     public class UserManager : IUsersRepository<User>
     {

@@ -1,4 +1,6 @@
 ﻿using Cinema.WebApi.Configuration;
+using Cinema.WebApi.Contexts;
+using Cinema.WebApi.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Cinema.WebApi.Models.Repository
+namespace Cinema.WebApi.Models.Repositories
 {
     public class ReservationManager : IReservationRepository<Reservation>
     {

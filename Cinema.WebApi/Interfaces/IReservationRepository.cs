@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Cinema.WebApi.Models.Repository
+namespace Cinema.WebApi.Interfaces
 {
     public interface IReservationRepository<TEntity>
     {

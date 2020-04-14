@@ -2,8 +2,8 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Cinema.WebApi.Configuration;
+using Cinema.WebApi.Interfaces;
 using Cinema.WebApi.Models;
-using Cinema.WebApi.Models.Repository;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
