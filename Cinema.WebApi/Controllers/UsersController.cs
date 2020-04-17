@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Cinema.WebApi.Configuration;
@@ -50,9 +51,13 @@ namespace Cinema.WebApi.Controllers
                 var claimsIdentity = new ClaimsIdentity(claims, "User identity");
                 var userPrincipal = new ClaimsPrincipal(new[] { claimsIdentity });
 
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, userPrincipal);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, userPrincipal, new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.Now.AddHours(1)
+                });
 
-                return NoContent();
+                return Ok(dbUser);
             }
 
             return Unauthorized("Invalid username(email) or password");
