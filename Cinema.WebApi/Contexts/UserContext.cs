@@ -29,7 +29,6 @@ namespace Cinema.WebApi.Contexts
                     Username = "user",
                     Password = "Y2luZW1hdXNlcg==",
                     Role = "User",
-                    Birthday = (new DateTime(1994,4,1)).ToShortDateString(),
                     Email = "user@cinemate.com"
                 },
                 new User
@@ -40,7 +39,6 @@ namespace Cinema.WebApi.Contexts
                     Username = "user2",
                     Password = "Y2luZW1hdXNlcjI=",
                     Role = "User",
-                    Birthday = (new DateTime(1993,11,5)).ToShortDateString(),
                     Email = "user2@cinemate.com"
                 },
                 new User
@@ -51,7 +49,6 @@ namespace Cinema.WebApi.Contexts
                     Username = "user3",
                     Password = "Y2luZW1hdXNlcjM=",
                     Role = "User",
-                    Birthday = (new DateTime(1990,4,6)).ToShortDateString(),
                     Email = "user3@cinemate.com"
                 },
                  new User
@@ -62,7 +59,6 @@ namespace Cinema.WebApi.Contexts
                     Username = "admin",
                     Password = "Y2luZW1hYWRtaW4=",
                     Role = "Administrator",
-                    Birthday = (new DateTime(1994,9,8)).ToShortDateString(),
                     Email = "admin@cinemate.com"
                 }
             };

@@ -2,6 +2,7 @@
 using Cinema.WebApi.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Cinema.WebApi.Models.Repositories
@@ -15,9 +16,27 @@ namespace Cinema.WebApi.Models.Repositories
             _userContext = userContext;
         }
 
-        public async Task Add(User entity)
+        public async Task<string[]> Add(User entity)
         {
+            var checkUsername = await _userContext.Users.FirstOrDefaultAsync(user => user.Username == entity.Username);
+            var checkEmail = await _userContext.Users.FirstOrDefaultAsync(user => user.Email == entity.Email);
+
+            if (checkEmail != null && checkUsername != null)
+            {
+                return new string[] { "email", "username" };
+            }
+            else if (checkEmail != null)
+            {
+                return new string[] { "email" };
+            }
+            else if (checkUsername != null)
+            {
+                return new string[] { "username" };
+            }
+
+
             entity.Id = Guid.NewGuid().ToString();
+            entity.Role = "User";
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(entity.Password);
             var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
             entity.Password = convertedPassword;
@@ -25,6 +44,8 @@ namespace Cinema.WebApi.Models.Repositories
             _userContext.Users.Add(entity);
 
             await _userContext.SaveChangesAsync();
+
+            return new string[0];
         }
 
         public async Task Delete(string password)
@@ -84,7 +105,6 @@ namespace Cinema.WebApi.Models.Repositories
             var user = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Password == convertedPassword);
             if (user != null)
             {
-                user.Birthday = entity.Birthday;
                 user.Email = entity.Email;
                 user.Username = entity.Username;
                 user.Name = entity.Name;

@@ -26,7 +26,7 @@ namespace Cinema.WebApi.Controllers
         }
 
         // GET: api/Users/5
-        [HttpPost("login")]
+        [HttpPost("signin")]
         public async Task<IActionResult> Login([FromBody] User user)
         {
             if ((string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password)) &&
@@ -45,7 +45,6 @@ namespace Cinema.WebApi.Controllers
                     new Claim(ClaimTypes.Name, dbUser.Username),
                     new Claim(ClaimTypes.Email, dbUser.Email),
                     new Claim(ClaimTypes.Role, dbUser.Role),
-                    new Claim(ClaimTypes.DateOfBirth, dbUser.Birthday)
                 };
 
                 var claimsIdentity = new ClaimsIdentity(claims, "User identity");
@@ -63,7 +62,7 @@ namespace Cinema.WebApi.Controllers
             return Unauthorized("Invalid username(email) or password");
         }
 
-        [HttpPost("logout")]
+        [HttpPost("signout")]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
@@ -79,9 +78,14 @@ namespace Cinema.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _dataRepository.Add(value);
+            var response = await _dataRepository.Add(value);
 
-            return Ok();
+            if (response.Length > 0)
+            {
+                return Conflict(response);
+            }
+
+            return Ok(response);
         }
 
         // PUT: api/Users
