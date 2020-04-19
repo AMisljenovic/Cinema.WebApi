@@ -58,7 +58,7 @@ namespace Cinema.WebApi.Models.Repositories
                 dbEntity.Released = entity.Released;
                 dbEntity.Runtime = entity.Runtime;
                 dbEntity.Title = entity.Title;
-                dbEntity.Writer = entity.Writer;
+                dbEntity.Director = entity.Director;
                 dbEntity.Year = entity.Year;
                 dbEntity.Actors = entity.Actors;
                 dbEntity.Genre = entity.Genre;

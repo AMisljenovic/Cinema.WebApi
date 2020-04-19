@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Interfaces;
 using Cinema.WebApi.Models;
+using Cinema.WebApi.Models.Request;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -90,16 +91,31 @@ namespace Cinema.WebApi.Controllers
 
         // PUT: api/Users
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] User value)
+        public async Task<IActionResult> Put([FromBody] UserRequestModel value)
         {
-            if (!ModelState.IsValid)
+            var user = new User
             {
-                return BadRequest(ModelState);
+                Name = value.Name,
+                Email = value.Email,
+                Password = value.NewPassword,
+                Surname = value.Surname,
+                Username = value.Username
+            };
+
+            var oldPassword = value.Password;
+
+            var response = await _dataRepository.Update(user, oldPassword);
+
+            if (response == DbStatusCode.PasswordDoesntMatch)
+            {
+                return Unauthorized(DbStatusCode.PasswordDoesntMatch.ToString());
+            }
+            else if (response == DbStatusCode.EmailInUse)
+            {
+                return Conflict();
             }
 
-            await _dataRepository.Update(value);
-
-            return Ok();
+            return Ok("Updated");
         }
 
         // PUT: api/Users/promote

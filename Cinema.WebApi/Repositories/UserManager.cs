@@ -38,8 +38,7 @@ namespace Cinema.WebApi.Models.Repositories
             entity.Id = Guid.NewGuid().ToString();
             entity.Role = "User";
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(entity.Password);
-            var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
-            entity.Password = convertedPassword;
+            entity.Password = Convert.ToBase64String(plainTextBytes);
 
             _userContext.Users.Add(entity);
 
@@ -97,22 +96,42 @@ namespace Cinema.WebApi.Models.Repositories
             }
         }
 
-        public async Task Update(User entity)
+        public async Task<DbStatusCode> Update(User entity, string oldPassword)
         {
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(entity.Password);
-            var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
+            entity.Password = string.IsNullOrEmpty(entity.Password) ? oldPassword : entity.Password; 
+
+            var checkEmail = await _userContext.Users.FirstOrDefaultAsync(user => user.Email == entity.Email);
+            if (checkEmail != null)
+            {
+                return DbStatusCode.EmailInUse;
+            }
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(oldPassword);
+            var convertedPassword = Convert.ToBase64String(plainTextBytes);
+
+            var newPasswordPlainTextBytes = System.Text.Encoding.UTF8.GetBytes(entity.Password);
+            entity.Password = Convert.ToBase64String(newPasswordPlainTextBytes);
+
 
             var user = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Password == convertedPassword);
             if (user != null)
             {
-                user.Email = entity.Email;
+                if (!string.IsNullOrEmpty(entity.Email))
+                {
+                    user.Email = entity.Email;
+                }
+                
                 user.Username = entity.Username;
                 user.Name = entity.Name;
                 user.Surname = entity.Surname;
+                user.Password = entity.Password;
 
                 _userContext.Users.Update(user);
-                await _userContext.SaveChangesAsync();           
+                await _userContext.SaveChangesAsync();
+
+                return DbStatusCode.Updated;
             }
+
+            return DbStatusCode.PasswordDoesntMatch;
         }
     }
 }

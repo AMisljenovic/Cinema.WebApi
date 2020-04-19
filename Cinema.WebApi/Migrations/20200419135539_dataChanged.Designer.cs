@@ -3,14 +3,16 @@ using Cinema.WebApi.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.WebApi.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    partial class MovieContextModelSnapshot : ModelSnapshot
+    [Migration("20200419135539_dataChanged")]
+    partial class dataChanged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,6 +56,9 @@ namespace Cinema.WebApi.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Writer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Year")
                         .HasColumnType("nvarchar(max)");
 
@@ -75,6 +80,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "29 Aug 2019",
                             Runtime = "98 min",
                             Title = "Falling Inn Love",
+                            Writer = "Elizabeth Hackett, Hilary Galanoy",
                             Year = "2019"
                         },
                         new
@@ -90,6 +96,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "30 Jan 2019",
                             Runtime = "98 min",
                             Title = "15 Minutes of War",
+                            Writer = "Ileana Epsztajn (collaboration), Fred Grivois (screenplay), Jérémie Guez (collaboration)",
                             Year = "2019"
                         },
                         new
@@ -105,6 +112,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "02 Jul 2019",
                             Runtime = "129 min",
                             Title = "Spider-Man: Far from Home",
+                            Writer = "Chris McKenna, Erik Sommers, Stan Lee (based on the Marvel comic book by), Steve Ditko (based on the Marvel comic book by)",
                             Year = "2019"
                         },
                         new
@@ -120,6 +128,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "27 Sep 2019",
                             Runtime = "107 min",
                             Title = "While at War",
+                            Writer = "Alejandro Amenábar, Alejandro Hernández",
                             Year = "2019"
                         },
                         new
@@ -135,6 +144,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "30 Aug 2019",
                             Runtime = "94 min",
                             Title = "Bennett's War",
+                            Writer = "Alex Ranarivelo",
                             Year = "2019"
                         },
                         new
@@ -150,6 +160,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "25 Aug 2020",
                             Runtime = "90 min",
                             Title = "Thomas Markle: My Story",
+                            Writer = "N/A",
                             Year = "2020"
                         },
                         new
@@ -165,6 +176,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "30 Aug 2020",
                             Runtime = "83 min",
                             Title = "Love in Winterland",
+                            Writer = "Neal H. Dobrofsky, Tippi Dobrofsky",
                             Year = "2020"
                         },
                         new
@@ -180,6 +192,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "19 Aug 2020",
                             Runtime = "88 min",
                             Title = "What Love Looks Like",
+                            Writer = "Alex Magaña",
                             Year = "2020"
                         },
                         new
@@ -193,8 +206,9 @@ namespace Cinema.WebApi.Migrations
                             Poster = "https://m.media-amazon.com/images/M/MV5BNmMwYzFlNTEtYTc0NC00NGY4LTgzNzItZGFiYTViY2QzNzU1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
                             Rated = "R",
                             Released = "17 Jul 2020",
-                            Runtime = "125 min",
+                            Runtime = "125min",
                             Title = "Tenet",
+                            Writer = "Christopher Nolan",
                             Year = "2020"
                         },
                         new
@@ -210,6 +224,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "15 Sep 2020",
                             Runtime = "103 min",
                             Title = "I Hate the Man in My Basement",
+                            Writer = "Dustin Cook",
                             Year = "2020"
                         },
                         new
@@ -225,6 +240,7 @@ namespace Cinema.WebApi.Migrations
                             Released = "8 Sep 2020",
                             Runtime = "115 min",
                             Title = "The Last Thing He Wanted",
+                            Writer = "Marco Villalobos (screenplay by), Dee Rees (screenplay by), Joan Didion (based on the book by)",
                             Year = "2020"
                         });
                 });

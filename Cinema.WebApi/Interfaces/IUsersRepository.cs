@@ -7,7 +7,7 @@ namespace Cinema.WebApi.Interfaces
     {
         Task<User> Get(string email, string username, string password);
         Task<string[]> Add(TEntity entity);
-        Task Update(TEntity entity);
+        Task<DbStatusCode> Update(TEntity entity, string oldPassword);
         Task UpdateRole(TEntity entity, string username, string newRole);
         Task Delete(string id);
     }

@@ -3,14 +3,16 @@ using Cinema.WebApi.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.WebApi.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    partial class MovieContextModelSnapshot : ModelSnapshot
+    [Migration("20200419140129_entriesUpdated")]
+    partial class entriesUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,9 +27,6 @@ namespace Cinema.WebApi.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Actors")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Director")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genre")
@@ -54,6 +53,9 @@ namespace Cinema.WebApi.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Writer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Year")
                         .HasColumnType("nvarchar(max)");
 
@@ -66,7 +68,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "31446c42-fa95-4f38-8b8a-c5830649ca32",
                             Actors = "Christina Milian, Adam Demos, Jeffrey Bowyer-Chapman, Anna Jullienne",
-                            Director = "Roger Kumble",
                             Genre = "Comedy, Romance",
                             Playing = true,
                             Plot = "When city girl Gabriela spontaneously enters a contest and wins a rustic New Zealand inn, she teams up with bighearted contractor Jake Taylor to fix and flip it.",
@@ -81,7 +82,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             Actors = "Alban Lenoir, Olga Kurylenko, Sébastien Lalanne, David Murgia",
-                            Director = "Fred Grivois",
                             Genre = "Action, Drama, History, War",
                             Playing = true,
                             Plot = "In February 1976 in Djibouti, a school bus was taken hostage at the Somali border. The GIGN is sent on the spot. After 30 hours of tension, a rescue operation is organized.",
@@ -96,7 +96,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             Actors = "Tom Holland, Samuel L. Jackson, Jake Gyllenhaal, Marisa Tomei",
-                            Director = "Jon Watts",
                             Genre = "Action, Adventure, Sci-Fi",
                             Playing = true,
                             Plot = "Following the events of Avengers: Endgame (2019), Spider-Man must step up to take on new threats in a world that has changed forever.",
@@ -111,7 +110,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
                             Actors = "Karra Elejalde, Eduard Fernández, Santi Prego, Luis Bermejo",
-                            Director = "Alejandro Amenábar",
                             Genre = "Drama, History, War",
                             Playing = true,
                             Plot = "July 18, 1936. Salamanca, Castilla and León (center to Spain). The Spanish army declares in the city the state of war, hoping to extend it to the rest of Spain and improve the unstable ...",
@@ -126,7 +124,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             Actors = "Michael Roark, Trace Adkins, Ali Afshar, Allison Paige",
-                            Director = "Alex Ranarivelo",
                             Genre = "Sport",
                             Playing = true,
                             Plot = "After surviving an IED explosion in combat overseas, a young soldier with the Army Motorcycle Unit is medically discharged with a broken back and leg. Against all odds he trains to make an ...",
@@ -141,7 +138,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "69e84aef-f2e8-436c-b235-7563ae1cffa2",
                             Actors = "Thomas W. Markle, Meghan Markle, Doria Ragland, Prince Harry",
-                            Director = "David Modell",
                             Genre = "Documentary",
                             Playing = false,
                             Plot = "Thomas Markle details his journey from raising Meghan Markle on his own to his heart attack days before her wedding to Prince Harry, Duke of Sussex. Due to his sudden fame as the father of ...",
@@ -156,7 +152,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "ee79a6c6-c7e6-4ff8-9668-03ebe5134767",
                             Actors = "Italia Ricci, Chad Michael Murray, Jack Turner, Aliyah O'Brien",
-                            Director = "Pat Williams",
                             Genre = "Drama, Romance",
                             Playing = false,
                             Plot = "Ally, a final contestant on a dating show, must face her high school sweetheart when she is chosen for the Hometown Date.",
@@ -171,7 +166,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "5480d3f9-0e58-45bd-927c-95fd06cd2753",
                             Actors = "Josh Gilmer, Amber Pauline Magdesyan, Tevy Poe, Kate Durocher",
-                            Director = "Alex Magaña",
                             Genre = "Comedy, Drama, Romance",
                             Playing = false,
                             Plot = "Five interwoven love stories explore the ups and downs of finding love.",
@@ -186,7 +180,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "251759f9-a3c5-43d3-9734-39a288f2a461",
                             Actors = "Elizabeth Debicki, Robert Pattinson, Aaron Taylor-Johnson, Kenneth Branagh",
-                            Director = "Christopher Nolan",
                             Genre = "Action, Drama, Thriller",
                             Playing = false,
                             Plot = "An action epic revolving around international espionage, time travel, and evolution.",
@@ -201,7 +194,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "0fe4656a-4598-4f6f-9e7c-3f9347153a10",
                             Actors = "Manny Montana, Nora-Jane Noone, Chris Marquette, Mary Birdsong",
-                            Director = "Dustin Cook",
                             Genre = "Comedy, Drama, Romance, Thriller",
                             Playing = false,
                             Plot = "After his wife's death, Claude struggles to appear normal while living with a Secret.",
@@ -216,7 +208,6 @@ namespace Cinema.WebApi.Migrations
                         {
                             Id = "3a1a1424-20d5-469b-b39f-9012da50a71a",
                             Actors = "Anne Hathaway, Ben Affleck, Rosie Perez, Willem Dafoe",
-                            Director = "Dee Rees",
                             Genre = "Crime, Drama, Mystery, Thriller",
                             Playing = false,
                             Plot = "A veteran D.C. journalist loses the thread of her own narrative when a guilt-propelled errand for her father thrusts her from byline to unwitting subject in the very story she's trying to break. Adapted from Joan Didion's namesake novel.",
