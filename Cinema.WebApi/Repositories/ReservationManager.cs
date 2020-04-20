@@ -44,12 +44,24 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<string> GetByRepertory(string repertoryId)
         {
-            var tickets = await _reservationContext.Reservations.Where(t => t.RepertoryId == repertoryId).ToListAsync();
+            var dateNow = DateTime.UtcNow;
+            var reservations = new List<Reservation>();
+
+           await _reservationContext.Reservations
+                .ForEachAsync(res =>
+                {
+                    var reservationDate = DateTime.Parse(res.Date);
+                    if (res.RepertoryId == repertoryId && (dateNow.Date <= reservationDate.Date))
+                    {
+                        reservations.Add(res);
+                    }
+                });
+
             int[,] seats = new int[Constants.HallRows, Constants.HallColumns];
 
-            foreach (var ticket in tickets)
+            foreach (var reservation in reservations)
             {
-                seats[ticket.SeatRow, ticket.SeatColumn] = 1;
+                seats[reservation.SeatRow, reservation.SeatColumn] = 1;
             }
 
             return JsonConvert.SerializeObject(seats);
@@ -57,12 +69,24 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<string> GetByRepertoryAndUser(string repertoryId, string userId)
         {
-            var tickets = await _reservationContext.Reservations.Where(t => t.RepertoryId == repertoryId && t.UserId == userId).ToListAsync();
+            var dateNow = DateTime.UtcNow;
+            var reservations = new List<Reservation>();
+
+            await _reservationContext.Reservations
+                 .ForEachAsync(res =>
+                 {
+                     var reservationDate = DateTime.Parse(res.Date);
+                     if (res.RepertoryId == repertoryId && res.UserId == userId && (dateNow.Date <= reservationDate.Date))
+                     {
+                         reservations.Add(res);
+                     }
+                 });
+
             int[,] seats = new int[Constants.HallRows, Constants.HallColumns];
 
-            foreach (var ticket in tickets)
+            foreach (var reservation in reservations)
             {
-                seats[ticket.SeatRow, ticket.SeatColumn] = 1;
+                seats[reservation.SeatRow, reservation.SeatColumn] = 1;
             }
 
             return JsonConvert.SerializeObject(seats);
@@ -70,20 +94,33 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<IEnumerable<Reservation>> GetByUser(string userId)
         {
-            return await _reservationContext.Reservations.Where(t => t.UserId == userId).ToListAsync();
+            var dateNow = DateTime.UtcNow;
+            var reservations = new List<Reservation>();
+
+            await _reservationContext.Reservations
+                 .ForEachAsync(res =>
+                 {
+                     var reservationDate = DateTime.Parse(res.Date);
+                     if (res.UserId == userId && (dateNow.Date <= reservationDate.Date))
+                     {
+                         reservations.Add(res);
+                     }
+                 });
+
+            return reservations;
         }
 
         public async Task Update(Reservation entity)
         {
-            var ticket = await _reservationContext.Reservations.FirstOrDefaultAsync(t => t.Id == entity.Id);
-            if (ticket != null)
+            var reservation = await _reservationContext.Reservations.FirstOrDefaultAsync(t => t.Id == entity.Id);
+            if (reservation != null)
             {
-                ticket.RepertoryId = entity.RepertoryId;
-                ticket.SeatRow = entity.SeatRow;
-                ticket.SeatColumn = entity.SeatColumn;
-                ticket.UserId = entity.UserId;
+                reservation.RepertoryId = entity.RepertoryId;
+                reservation.SeatRow = entity.SeatRow;
+                reservation.SeatColumn = entity.SeatColumn;
+                reservation.UserId = entity.UserId;
 
-                _reservationContext.Reservations.Update(ticket);
+                _reservationContext.Reservations.Update(reservation);
                 await _reservationContext.SaveChangesAsync();
             }
         }

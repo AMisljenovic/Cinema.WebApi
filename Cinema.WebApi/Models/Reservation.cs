@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cinema.WebApi.Models
@@ -17,5 +18,7 @@ namespace Cinema.WebApi.Models
         [Required]
         [Range(0, 4)]
         public int SeatColumn { get; set; }
+        [Required]
+        public string Date { get; set; }
     }
 }
