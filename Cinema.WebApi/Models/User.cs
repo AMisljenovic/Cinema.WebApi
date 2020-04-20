@@ -24,4 +24,11 @@ namespace Cinema.WebApi.Models
         public string Password { get; set; }
         public string Role { get; set; }
     }
+
+    public enum DbStatusCode
+    {
+        Executed,
+        PasswordDoesntMatch,
+        EmailInUse,
+    }
 }

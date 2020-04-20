@@ -40,11 +40,4 @@ namespace Cinema.WebApi.Models
         [Required]
         public bool Playing { get; set; }
     }
-
-    public enum DbStatusCode
-    {
-        Updated = 0,
-        PasswordDoesntMatch = 1,
-        EmailInUse = 2,
-    }
 }

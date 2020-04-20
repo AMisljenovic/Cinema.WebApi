@@ -28,7 +28,7 @@ namespace Cinema.WebApi.Controllers
 
         // GET: api/Users/5
         [HttpPost("signin")]
-        public async Task<IActionResult> Login([FromBody] User user)
+        public async Task<IActionResult> Login([FromBody] UserRequestModel user)
         {
             if ((string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password)) &&
                 (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password)))
@@ -105,7 +105,7 @@ namespace Cinema.WebApi.Controllers
         // PUT: api/Users
         [HttpPut]
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
-        public async Task<IActionResult> Put([FromBody] UserRequestModel value)
+        public async Task<IActionResult> Put([FromBody] PostUserRequestModel value)
         {
             var user = new User
             {
@@ -134,13 +134,25 @@ namespace Cinema.WebApi.Controllers
 
 
         // DELETE: api/Users/5
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(UserRequestModel user)
         {
-            await _dataRepository.Delete(id);
+            var dbUser = new User
+            {
+                Email = user.Email,
+                Username = user.Username,
+                Password = user.Password
+            };
 
-            return Ok();
+            var response = await _dataRepository.Delete(dbUser);
+
+            if (response == DbStatusCode.PasswordDoesntMatch)
+            {
+                return Unauthorized(DbStatusCode.PasswordDoesntMatch.ToString());
+            }
+
+            return Ok(DbStatusCode.Executed.ToString());
         }
 
         private bool IsSecretKeyValid(string adminSecret)

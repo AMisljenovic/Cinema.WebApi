@@ -46,18 +46,22 @@ namespace Cinema.WebApi.Models.Repositories
             return new string[0];
         }
 
-        public async Task Delete(string password)
+        public async Task<DbStatusCode> Delete(User entity)
         {
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(password);
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(entity.Password);
             var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
 
-            var user = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Password == convertedPassword);
+            var user = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Password == convertedPassword &&
+                        (usr.Username == entity.Username || usr.Email == entity.Email));
             if (user != null)
             {
                 _userContext.Remove(user);
+                await _userContext.SaveChangesAsync();
+
+                return DbStatusCode.Executed;
             }
 
-            await _userContext.SaveChangesAsync();
+            return DbStatusCode.PasswordDoesntMatch;         
         }
 
         public async Task<User> Get(string email, string username, string password)
@@ -73,26 +77,6 @@ namespace Cinema.WebApi.Models.Repositories
             }
 
             return null;
-        }
-
-        public async Task UpdateRole(User entity, string username, string newRole)
-        {
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(entity.Password);
-            var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
-
-            var user = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Password == convertedPassword);
-            if (user != null && user.Role == "Administrator")
-            {
-                var promotedUser = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Username == username);
-                if (promotedUser != null)
-                {
-                    promotedUser.Role = newRole;
-
-                    _userContext.Users.Update(promotedUser);
-                    await _userContext.SaveChangesAsync();
-
-                }
-            }
         }
 
         public async Task<DbStatusCode> Update(User entity, string oldPassword)
@@ -127,7 +111,7 @@ namespace Cinema.WebApi.Models.Repositories
                 _userContext.Users.Update(user);
                 await _userContext.SaveChangesAsync();
 
-                return DbStatusCode.Updated;
+                return DbStatusCode.Executed;
             }
 
             return DbStatusCode.PasswordDoesntMatch;
