@@ -134,7 +134,7 @@ namespace Cinema.WebApi.Controllers
 
 
         // DELETE: api/Users/5
-        [HttpDelete]
+        [HttpPost("delete")]
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Delete(UserRequestModel user)
         {

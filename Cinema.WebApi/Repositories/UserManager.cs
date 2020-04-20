@@ -2,6 +2,7 @@
 using Cinema.WebApi.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Cinema.WebApi.Models.Repositories
@@ -9,10 +10,12 @@ namespace Cinema.WebApi.Models.Repositories
     public class UserManager : IUsersRepository<User>
     {
         private readonly UserContext _userContext;
+        private readonly ReservationContext _reservationContext;
 
-        public UserManager(UserContext userContext)
+        public UserManager(UserContext userContext, ReservationContext reservationContext)
         {
             _userContext = userContext;
+            _reservationContext = reservationContext;
         }
 
         public async Task<string[]> Add(User entity, string role)
@@ -56,8 +59,13 @@ namespace Cinema.WebApi.Models.Repositories
             if (user != null)
             {
                 _userContext.Remove(user);
-                await _userContext.SaveChangesAsync();
+                
+                var reservations = await _reservationContext.Reservations.Where(res => res.UserId == user.Id).ToListAsync();
+                _reservationContext.Reservations.RemoveRange(reservations);
 
+                await _userContext.SaveChangesAsync();
+                await _reservationContext.SaveChangesAsync();
+                
                 return DbStatusCode.Executed;
             }
 
