@@ -7,6 +7,8 @@ namespace Cinema.WebApi.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
+        [Required]
+        [StringLength(40)]
         public string Name { get; set; }
         public int Rows { get; set; }
         public int Columns { get; set; }

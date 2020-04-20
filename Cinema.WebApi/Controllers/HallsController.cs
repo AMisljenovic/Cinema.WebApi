@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Interfaces;
 using Cinema.WebApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,13 +37,9 @@ namespace Cinema.WebApi.Controllers
 
         // POST: api/Halls
         [HttpPost]
+        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
         public async Task<IActionResult> Post([FromBody] Hall value)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             await _dataRepository.Add(value);
 
             return Ok();
@@ -50,13 +47,9 @@ namespace Cinema.WebApi.Controllers
 
         // PUT: api/Halls
         [HttpPut]
+        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
         public async Task<IActionResult> Put([FromBody] Hall value)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             await _dataRepository.Update(value);
 
             return Ok();
@@ -64,6 +57,7 @@ namespace Cinema.WebApi.Controllers
 
         // DELETE: api/Halls/5
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
         public async Task<IActionResult> Delete(string id)
         {
             await _dataRepository.Delete(id);

@@ -7,9 +7,15 @@ namespace Cinema.WebApi.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
+        [Required]
         public string RepertoryId { get; set; }
+        [Required]
         public string UserId { get; set; }
+        [Required]
+        [Range(0,4)]
         public int SeatRow { get; set; }
+        [Required]
+        [Range(0, 4)]
         public int SeatColumn { get; set; }
     }
 }

@@ -20,6 +20,8 @@ namespace Cinema.WebApi.Models.Repositories
         public async Task Add(Hall entity)
         {
             entity.Id = Guid.NewGuid().ToString();
+            entity.Columns = 5;
+            entity.Rows = 5;
             _hallContext.Halls.Add(entity);
 
             await _hallContext.SaveChangesAsync();
@@ -54,8 +56,6 @@ namespace Cinema.WebApi.Models.Repositories
             if (hall != null)
             {
                 hall.Name = entity.Name;
-                hall.Rows = entity.Rows;
-                hall.Columns = entity.Columns;
 
                 _hallContext.Halls.Update(hall);
                 await _hallContext.SaveChangesAsync();

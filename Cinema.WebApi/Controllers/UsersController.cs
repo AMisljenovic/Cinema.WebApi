@@ -74,12 +74,25 @@ namespace Cinema.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] User value)
         {
-            if (!ModelState.IsValid)
+            var response = await _dataRepository.Add(value, "User");
+
+            if (response.Length > 0)
             {
-                return BadRequest(ModelState);
+                return Conflict(response);
             }
 
-            var response = await _dataRepository.Add(value);
+            return Ok(response);
+        }
+
+        [HttpPost("admin/{adminSecret}")]
+        public async Task<IActionResult> PostAdmin([FromBody] User value, string adminSecret)
+        {
+            if (!IsSecretKeyValid(adminSecret))
+            {
+                return Unauthorized("Secret key invalid");
+            }   
+
+            var response = await _dataRepository.Add(value, "Administrator");
 
             if (response.Length > 0)
             {
@@ -91,6 +104,7 @@ namespace Cinema.WebApi.Controllers
 
         // PUT: api/Users
         [HttpPut]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Put([FromBody] UserRequestModel value)
         {
             var user = new User
@@ -118,29 +132,21 @@ namespace Cinema.WebApi.Controllers
             return Ok("Updated");
         }
 
-        // PUT: api/Users/promote
-        [HttpPut("promote")]
-        [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> Put([FromBody] User value, [FromQuery] string userName, [FromQuery] string newRole)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            await _dataRepository.UpdateRole(value, userName, newRole);
-
-            return Ok();
-        }
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        [Authorize(AuthenticationSchemes = Constants.CookieAuthScheme)]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Delete(string id)
         {
             await _dataRepository.Delete(id);
 
             return Ok();
+        }
+
+        private bool IsSecretKeyValid(string adminSecret)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(adminSecret);
+            return Constants.secretKey == Convert.ToBase64String(plainTextBytes);
         }
     }
 }

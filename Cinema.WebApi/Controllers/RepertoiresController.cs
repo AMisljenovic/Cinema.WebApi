@@ -6,6 +6,7 @@ using Cinema.WebApi.Models;
 using Microsoft.AspNetCore.Cors;
 using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cinema.WebApi.Controllers
 {
@@ -34,59 +35,26 @@ namespace Cinema.WebApi.Controllers
             return Ok(await _dataRepository.GetByMovie(movieId));
         }
 
-        //[HttpGet("{movieId}/{hallId}")]
-        //public async Task<ActionResult<Repertory>> Get(string movieId, string hallId)
-        //{
-        //    if (!Guid.TryParse(movieId, out var parsedMovieId))
-        //    {
-        //        return BadRequest("Move id is not in valid format.");
-        //    }
-
-        //    if (!Guid.TryParse(hallId, out var parsedHallId))
-        //    {
-        //        return BadRequest("Hall id is not in valid format.");
-        //    }
-
-        //    return Ok(await _dataRepository.Get(movieId, hallId));
-        //}
-
         [HttpGet("repertory/{repertoryId}")]
         public async Task<ActionResult<Repertory>> Get(string repertoryId)
         {
-            if (!Guid.TryParse(repertoryId, out var parserepertoryId))
-            {
-                return BadRequest("Repertory id is not in valid format.");
-            }
-
             return Ok(await _dataRepository.GetById(repertoryId));
         }
 
         // PUT: api/Repertory/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut]
+        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
         public async Task<IActionResult> Put([FromBody] Repertory repertory)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             await _dataRepository.Update(repertory);
             return Ok();
         }
 
         // POST: api/Repertory
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
+        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
         public async Task<IActionResult> Post(Repertory repertory)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             await _dataRepository.Add(repertory);
 
             return Ok();
@@ -94,6 +62,7 @@ namespace Cinema.WebApi.Controllers
 
         // DELETE: api/Repertory/5
         [HttpDelete("{movieId}/{hallId}")]
+        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
         public async Task<ActionResult<Repertory>> Delete(string movieId, string hallId)
         {
             if (!Guid.TryParse(movieId, out var parsedMovieId))

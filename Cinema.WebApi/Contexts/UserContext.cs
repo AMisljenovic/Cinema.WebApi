@@ -1,7 +1,6 @@
 ﻿using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 
 namespace Cinema.WebApi.Contexts
@@ -65,5 +64,5 @@ namespace Cinema.WebApi.Contexts
             
             modelBuilder.Entity<User>().HasData(users);
         }
-    }
+    }    
 }

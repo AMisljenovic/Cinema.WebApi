@@ -2,7 +2,6 @@
 using Cinema.WebApi.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Cinema.WebApi.Models.Repositories
@@ -16,7 +15,7 @@ namespace Cinema.WebApi.Models.Repositories
             _userContext = userContext;
         }
 
-        public async Task<string[]> Add(User entity)
+        public async Task<string[]> Add(User entity, string role)
         {
             var checkUsername = await _userContext.Users.FirstOrDefaultAsync(user => user.Username == entity.Username);
             var checkEmail = await _userContext.Users.FirstOrDefaultAsync(user => user.Email == entity.Email);
@@ -36,7 +35,7 @@ namespace Cinema.WebApi.Models.Repositories
 
 
             entity.Id = Guid.NewGuid().ToString();
-            entity.Role = "User";
+            entity.Role = role;
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(entity.Password);
             entity.Password = Convert.ToBase64String(plainTextBytes);
 

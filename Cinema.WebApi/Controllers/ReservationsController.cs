@@ -65,29 +65,21 @@ namespace Cinema.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(List<Reservation> tickets)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             await _dataRepository.Add(tickets);
 
             return Ok();
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Put([FromBody] Reservation ticket)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             await _dataRepository.Update(ticket);
             return Ok();
         }
 
         [HttpDelete("{repertoryId}")]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Delete(string repertoryId)
         {
             if (!Guid.TryParse(repertoryId, out var parsedId))

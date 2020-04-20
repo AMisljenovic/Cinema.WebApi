@@ -9,10 +9,18 @@ namespace Cinema.WebApi.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
+        [Required]
         public string MoveId { get; set; }
+        [Required]
         public string HallId { get; set; }
+        [Required]
+        [StringLength(20)]
         public string PlayTime { get; set; }
+        [Required]
+        [Range(1, 7)]
         public int Day { get; set; }
+        [Required]
+        [StringLength(10)]
         public int Price { get; set; }
     }
 }
