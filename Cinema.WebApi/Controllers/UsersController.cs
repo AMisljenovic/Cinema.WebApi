@@ -132,7 +132,6 @@ namespace Cinema.WebApi.Controllers
             return Ok("Updated");
         }
 
-
         // DELETE: api/Users/5
         [HttpPost("delete")]
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]

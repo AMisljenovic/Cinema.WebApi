@@ -78,6 +78,14 @@ namespace Cinema.WebApi.Controllers
             return Ok();
         }
 
+        [HttpPost("delete")]
+        public async Task<IActionResult> DeleteReservations([FromBody] string[] reservationsIds)
+        {
+            await _dataRepository.DeleteByIds(reservationsIds);
+
+            return Ok();
+        }
+
         [HttpDelete("{repertoryId}")]
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Delete(string repertoryId)
