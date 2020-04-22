@@ -26,6 +26,13 @@ namespace Cinema.WebApi.Controllers
             _dataRepository = dataRepository;
         }
 
+        [HttpGet]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
+        public IActionResult SignedInAsAdministrator()
+        {
+            return Ok("You are logged in as a administrator");
+        }
+
         // GET: api/Users/5
         [HttpPost("signin")]
         public async Task<IActionResult> Login([FromBody] UserRequestModel user)
