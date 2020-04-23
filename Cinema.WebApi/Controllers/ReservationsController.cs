@@ -24,6 +24,13 @@ namespace Cinema.WebApi.Controllers
             _dataRepository = dataRepository;
         }
 
+        [HttpGet()]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
+        public IActionResult GetChartData()
+        {
+            return Ok(_dataRepository.GetChartData());
+        }
+
         [HttpGet("{repertoryId}")]
         public async Task<IActionResult> Get(string repertoryId)
         {

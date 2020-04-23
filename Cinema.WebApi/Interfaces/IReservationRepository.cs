@@ -6,6 +6,7 @@ namespace Cinema.WebApi.Interfaces
 {
     public interface IReservationRepository<TEntity>
     {
+        IEnumerable<ChartDataResponse> GetChartData();
         Task<string> GetByRepertory(string repertoryId);
         Task<string> GetByRepertoryAndUser(string repertoryId, string userId);
         Task<IEnumerable<UserReservationResponse>> GetByUser(string userId);

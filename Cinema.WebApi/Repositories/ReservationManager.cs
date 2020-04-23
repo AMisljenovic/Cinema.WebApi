@@ -63,6 +63,27 @@ namespace Cinema.WebApi.Models.Repositories
             await _reservationContext.SaveChangesAsync();
         }
 
+        public IEnumerable<ChartDataResponse> GetChartData()
+        {
+            var response = new List<ChartDataResponse>();
+
+            var dateNow = DateTime.Now;
+            for (int i = 0; i < 7; i++)
+            {
+                var date = dateNow.Date.AddDays(-i).ToShortDateString();
+
+                var reservations = _reservationContext.Reservations.Where(res => res.Date == date).Count();
+
+                response.Add(new ChartDataResponse
+                {
+                    Date = date,
+                    ReservationsMade = reservations
+                });
+            }
+
+            return response;
+        }
+
         public async Task<string> GetByRepertory(string repertoryId)
         {
             var dateNow = DateTime.UtcNow;
