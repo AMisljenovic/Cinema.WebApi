@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Cors;
 using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Cinema.WebApi.Controllers
 {
@@ -43,7 +44,7 @@ namespace Cinema.WebApi.Controllers
 
         // PUT: api/Repertory/5
         [HttpPut]
-        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Put([FromBody] Repertory repertory)
         {
             await _dataRepository.Update(repertory);
@@ -52,7 +53,7 @@ namespace Cinema.WebApi.Controllers
 
         // POST: api/Repertory
         [HttpPost]
-        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Post(Repertory repertory)
         {
             await _dataRepository.Add(repertory);
@@ -62,7 +63,7 @@ namespace Cinema.WebApi.Controllers
 
         // DELETE: api/Repertory/5
         [HttpDelete("{movieId}/{hallId}")]
-        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<ActionResult<Repertory>> Delete(string movieId, string hallId)
         {
             if (!Guid.TryParse(movieId, out var parsedMovieId))

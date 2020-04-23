@@ -17,6 +17,16 @@ namespace Cinema.WebApi.Models.Repositories
             _repertoryContext = ticketContext;
         }
 
+        public async Task<Repertory> Get(string movieId, string hallId)
+        {
+            return await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.MoveId == movieId && t.HallId == hallId);
+        }
+
+        public async Task<IEnumerable<Repertory>> GetAll()
+        {
+            return await _repertoryContext.Repertoires.ToListAsync();
+        }
+
         public async Task Add(Repertory entity)
         {
             entity.Id = Guid.NewGuid().ToString();
@@ -24,17 +34,7 @@ namespace Cinema.WebApi.Models.Repositories
 
            await _repertoryContext.SaveChangesAsync();
         }
-
-        public async Task Delete(string movieId, string hallId)
-        {
-            var ticket = _repertoryContext.Repertoires.FirstOrDefault(t => t.MoveId == movieId && t.HallId == hallId);
-            if (ticket != null)
-            {
-                _repertoryContext.Repertoires.Remove(ticket);
-            }
-
-            await _repertoryContext.SaveChangesAsync();
-        }
+      
 
         public async Task<IEnumerable<Repertory>> GetByMovie(string movieId)
         {
@@ -44,16 +44,6 @@ namespace Cinema.WebApi.Models.Repositories
         public async Task<Repertory> GetById(string id)
         {
             return await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.Id == id);
-        }
-
-        public async Task<Repertory> Get(string movieId, string hallId)
-        {
-            return await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.MoveId == movieId && t.HallId == hallId);
-        }
-
-        public async Task<IEnumerable<Repertory>> GetAll()
-        {
-           return await _repertoryContext.Repertoires.ToListAsync();
         }
 
         public async Task Update(Repertory entity)
@@ -70,6 +60,17 @@ namespace Cinema.WebApi.Models.Repositories
                 _repertoryContext.Repertoires.Update(dbEntity);
                 await _repertoryContext.SaveChangesAsync();
             }
+        }
+
+        public async Task Delete(string movieId, string hallId)
+        {
+            var ticket = _repertoryContext.Repertoires.FirstOrDefault(t => t.MoveId == movieId && t.HallId == hallId);
+            if (ticket != null)
+            {
+                _repertoryContext.Repertoires.Remove(ticket);
+            }
+
+            await _repertoryContext.SaveChangesAsync();
         }
     }
 }

@@ -26,43 +26,6 @@ namespace Cinema.WebApi.Models.Repositories
             _movieContext = movieContext;
         }
 
-        public async Task Add(List<Reservation> entities)
-        {
-            foreach (var entity in entities)
-            {
-                entity.Id = Guid.NewGuid().ToString();
-
-                _reservationContext.Reservations.Add(entity);
-            }
-     
-            await _reservationContext.SaveChangesAsync();
-        }
-
-        public async Task Delete(string repertoryId)
-        {
-            var reservation = await _reservationContext.Reservations.FirstOrDefaultAsync(t => t.RepertoryId == repertoryId);
-            if (reservation != null)
-            {
-                _reservationContext.Reservations.Remove(reservation);
-                await _reservationContext.SaveChangesAsync();
-            }
-
-        }
-
-        public async Task DeleteByIds(string[] reservationsIds)
-        {
-            foreach (var reservationId in reservationsIds)
-            {
-                var reservation = await _reservationContext.Reservations.FirstOrDefaultAsync(t => t.Id == reservationId);
-                if (reservation != null)
-                {
-                    _reservationContext.Reservations.Remove(reservation);
-                }        
-            }
-
-            await _reservationContext.SaveChangesAsync();
-        }
-
         public IEnumerable<ChartDataResponse> GetChartData()
         {
             var response = new List<ChartDataResponse>();
@@ -89,15 +52,15 @@ namespace Cinema.WebApi.Models.Repositories
             var dateNow = DateTime.UtcNow;
             var reservations = new List<Reservation>();
 
-           await _reservationContext.Reservations
-                .ForEachAsync(res =>
-                {
-                    var reservationDate = DateTime.Parse(res.Date);
-                    if (res.RepertoryId == repertoryId && (dateNow.Date <= reservationDate.Date))
-                    {
-                        reservations.Add(res);
-                    }
-                });
+            await _reservationContext.Reservations
+                 .ForEachAsync(res =>
+                 {
+                     var reservationDate = DateTime.Parse(res.Date);
+                     if (res.RepertoryId == repertoryId && (dateNow.Date <= reservationDate.Date))
+                     {
+                         reservations.Add(res);
+                     }
+                 });
 
             int[,] seats = new int[Constants.HallRows, Constants.HallColumns];
 
@@ -163,6 +126,18 @@ namespace Cinema.WebApi.Models.Repositories
             return reservations;
         }
 
+        public async Task Add(List<Reservation> entities)
+        {
+            foreach (var entity in entities)
+            {
+                entity.Id = Guid.NewGuid().ToString();
+
+                _reservationContext.Reservations.Add(entity);
+            }
+     
+            await _reservationContext.SaveChangesAsync();
+        }
+
         public async Task Update(Reservation entity)
         {
             var reservation = await _reservationContext.Reservations.FirstOrDefaultAsync(t => t.Id == entity.Id);
@@ -176,6 +151,31 @@ namespace Cinema.WebApi.Models.Repositories
                 _reservationContext.Reservations.Update(reservation);
                 await _reservationContext.SaveChangesAsync();
             }
+        }
+
+        public async Task Delete(string repertoryId)
+        {
+            var reservation = await _reservationContext.Reservations.FirstOrDefaultAsync(t => t.RepertoryId == repertoryId);
+            if (reservation != null)
+            {
+                _reservationContext.Reservations.Remove(reservation);
+                await _reservationContext.SaveChangesAsync();
+            }
+
+        }
+
+        public async Task DeleteByIds(string[] reservationsIds)
+        {
+            foreach (var reservationId in reservationsIds)
+            {
+                var reservation = await _reservationContext.Reservations.FirstOrDefaultAsync(t => t.Id == reservationId);
+                if (reservation != null)
+                {
+                    _reservationContext.Reservations.Remove(reservation);
+                }
+            }
+
+            await _reservationContext.SaveChangesAsync();
         }
     }
 }

@@ -21,7 +21,6 @@ namespace Cinema.WebApi.Contexts
 
             var reservations = new List<Reservation>();
 
-
             var date = DateTime.UtcNow;
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
             {

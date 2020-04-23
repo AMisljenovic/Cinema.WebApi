@@ -17,28 +17,6 @@ namespace Cinema.WebApi.Models.Repositories
             _hallContext = hallContext;
         }
 
-        public async Task Add(Hall entity)
-        {
-            entity.Id = Guid.NewGuid().ToString();
-            entity.Columns = 5;
-            entity.Rows = 5;
-            _hallContext.Halls.Add(entity);
-
-            await _hallContext.SaveChangesAsync();
-        }
-
-        public async Task Delete(string id)
-        {
-            var hall = _hallContext.Halls.FirstOrDefault(h => h.Id == id);
-
-            if (hall != null)
-            {
-                _hallContext.Halls.Remove(hall);
-            }
-
-            await _hallContext.SaveChangesAsync();
-        }
-
         public async Task<Hall> Get(string id)
         {
             return await _hallContext.Halls.FirstOrDefaultAsync(h => h.Id == id);
@@ -47,6 +25,16 @@ namespace Cinema.WebApi.Models.Repositories
         public async Task<IEnumerable<Hall>> GetAll()
         {
             return await _hallContext.Halls.ToListAsync();
+        }
+
+        public async Task Add(Hall entity)
+        {
+            entity.Id = Guid.NewGuid().ToString();
+            entity.Columns = 5;
+            entity.Rows = 5;
+            _hallContext.Halls.Add(entity);
+
+            await _hallContext.SaveChangesAsync();
         }
 
         public async Task Update(Hall entity)
@@ -60,6 +48,18 @@ namespace Cinema.WebApi.Models.Repositories
                 _hallContext.Halls.Update(hall);
                 await _hallContext.SaveChangesAsync();
             }
+        }
+
+        public async Task Delete(string id)
+        {
+            var hall = _hallContext.Halls.FirstOrDefault(h => h.Id == id);
+
+            if (hall != null)
+            {
+                _hallContext.Halls.Remove(hall);
+            }
+
+            await _hallContext.SaveChangesAsync();
         }
     }
 }

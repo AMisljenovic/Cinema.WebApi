@@ -1,6 +1,7 @@
 ﻿using Cinema.WebApi.Configuration;
 using Cinema.WebApi.Interfaces;
 using Cinema.WebApi.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -55,7 +56,7 @@ namespace Cinema.WebApi.Controllers
 
         // DELETE: api/Movies/5
         [HttpDelete("{id}")]
-        [Authorize(AuthenticationSchemes = Constants.AdminCookieAuthScheme)]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Delete(string id)
         {
             await _dataRepository.Delete(id);

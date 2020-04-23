@@ -17,25 +17,6 @@ namespace Cinema.WebApi.Models.Repositories
             _movieContext = movieContext;
         }
 
-        public async Task Add(Movie entity)
-        {
-            entity.Id = Guid.NewGuid().ToString();
-            _movieContext.Movies.Add(entity);
-
-           await _movieContext.SaveChangesAsync();
-        }
-
-        public async Task Delete(string id)
-        {
-            var dbEntity = _movieContext.Movies.FirstOrDefault(movie => movie.Id == id);
-            if (dbEntity != null)
-            {
-                _movieContext.Movies.Remove(dbEntity);
-            }
-
-            await _movieContext.SaveChangesAsync();
-        }
-
         public async Task<Movie> Get(string id)
         {
             return await _movieContext.Movies.FirstOrDefaultAsync(movie => movie.Id == id);
@@ -44,6 +25,14 @@ namespace Cinema.WebApi.Models.Repositories
         public async Task<IEnumerable<Movie>> GetAll()
         {
             return await _movieContext.Movies.ToListAsync();
+        }
+
+        public async Task Add(Movie entity)
+        {
+            entity.Id = Guid.NewGuid().ToString();
+            _movieContext.Movies.Add(entity);
+
+           await _movieContext.SaveChangesAsync();
         }
 
         public async Task Update(Movie entity)
@@ -67,6 +56,17 @@ namespace Cinema.WebApi.Models.Repositories
                 _movieContext.Movies.Update(dbEntity);
                 await _movieContext.SaveChangesAsync();
             }
+        }
+
+        public async Task Delete(string id)
+        {
+            var dbEntity = _movieContext.Movies.FirstOrDefault(movie => movie.Id == id);
+            if (dbEntity != null)
+            {
+                _movieContext.Movies.Remove(dbEntity);
+            }
+
+            await _movieContext.SaveChangesAsync();
         }
     }
 }

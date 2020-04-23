@@ -18,6 +18,21 @@ namespace Cinema.WebApi.Models.Repositories
             _reservationContext = reservationContext;
         }
 
+        public async Task<User> Get(string email, string username, string password)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(password);
+            var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
+            var user = await _userContext.Users
+                .FirstOrDefaultAsync(usr => (usr.Username == username || usr.Email == email) && usr.Password == convertedPassword);
+            if (user != null)
+            {
+                user.Password = null;
+                return user;
+            }
+
+            return null;
+        }
+
         public async Task<string[]> Add(User entity, string role)
         {
             var checkUsername = await _userContext.Users.FirstOrDefaultAsync(user => user.Username == entity.Username);
@@ -47,44 +62,6 @@ namespace Cinema.WebApi.Models.Repositories
             await _userContext.SaveChangesAsync();
 
             return new string[0];
-        }
-
-        public async Task<DbStatusCode> Delete(User entity)
-        {
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(entity.Password);
-            var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
-
-            var user = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Password == convertedPassword &&
-                        (usr.Username == entity.Username || usr.Email == entity.Email));
-            if (user != null)
-            {
-                _userContext.Remove(user);
-                
-                var reservations = await _reservationContext.Reservations.Where(res => res.UserId == user.Id).ToListAsync();
-                _reservationContext.Reservations.RemoveRange(reservations);
-
-                await _userContext.SaveChangesAsync();
-                await _reservationContext.SaveChangesAsync();
-                
-                return DbStatusCode.Executed;
-            }
-
-            return DbStatusCode.PasswordDoesntMatch;         
-        }
-
-        public async Task<User> Get(string email, string username, string password)
-        {
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(password);
-            var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
-            var user = await _userContext.Users
-                .FirstOrDefaultAsync(usr => (usr.Username == username || usr.Email == email) && usr.Password == convertedPassword);
-            if (user != null)
-            {
-                user.Password = null;
-                return user;
-            }
-
-            return null;
         }
 
         public async Task<DbStatusCode> Update(User entity, string oldPassword)
@@ -118,6 +95,29 @@ namespace Cinema.WebApi.Models.Repositories
 
                 _userContext.Users.Update(user);
                 await _userContext.SaveChangesAsync();
+
+                return DbStatusCode.Executed;
+            }
+
+            return DbStatusCode.PasswordDoesntMatch;
+        }
+
+        public async Task<DbStatusCode> Delete(User entity)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(entity.Password);
+            var convertedPassword = System.Convert.ToBase64String(plainTextBytes);
+
+            var user = await _userContext.Users.FirstOrDefaultAsync(usr => usr.Password == convertedPassword &&
+                        (usr.Username == entity.Username || usr.Email == entity.Email));
+            if (user != null)
+            {
+                _userContext.Remove(user);
+
+                var reservations = await _reservationContext.Reservations.Where(res => res.UserId == user.Id).ToListAsync();
+                _reservationContext.Reservations.RemoveRange(reservations);
+
+                await _userContext.SaveChangesAsync();
+                await _reservationContext.SaveChangesAsync();
 
                 return DbStatusCode.Executed;
             }

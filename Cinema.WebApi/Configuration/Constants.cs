@@ -50,7 +50,6 @@
         public const int HallRows = 5;
         public const int HallColumns = 5;
 
-        public const string AdminCookieAuthScheme = "CookieAuth";
         public const string CorsPolicy = "CorsPolicy";
 
         public const string secretKey = "dG9wU2VjcmV0S2V5ODg4";
