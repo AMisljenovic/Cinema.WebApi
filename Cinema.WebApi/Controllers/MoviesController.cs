@@ -24,9 +24,9 @@ namespace Cinema.WebApi.Controllers
 
         // GET: api/Movies
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Movie>>> Get()
+        public async Task<IEnumerable<Movie>> Get()
         {
-            return Ok( await _dataRepository.GetAll());
+            return await _dataRepository.GetAll();
         }
 
         // GET: api/Movies/5

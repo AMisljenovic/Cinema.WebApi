@@ -17,13 +17,13 @@ namespace Cinema.WebApi.Models
         [StringLength(10)]
         public string Rated { get; set; }
         [Required]
-        [StringLength(10)]
+        [StringLength(20)]
         public string Released { get; set; }
         [Required]
         [StringLength(10)]
         public string Runtime { get; set; }
         [Required]
-        [StringLength(20)]
+        [StringLength(40)]
         public string Genre { get; set; }
         [Required]
         [StringLength(600)]

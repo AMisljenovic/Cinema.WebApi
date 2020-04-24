@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Cinema.WebApi.Migrations
+namespace Cinema.WebApi.Migrations.Movie
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20200419134035_updateMovieTable")]
-    partial class updateMovieTable
+    [Migration("20200424174214_movies")]
+    partial class movies
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,40 +27,57 @@ namespace Cinema.WebApi.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Actors")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(600)")
+                        .HasMaxLength(600);
 
                     b.Property<string>("Director")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(600)")
+                        .HasMaxLength(600);
 
                     b.Property<string>("Genre")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
 
                     b.Property<bool>("Playing")
                         .HasColumnType("bit");
 
                     b.Property<string>("Plot")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(600)")
+                        .HasMaxLength(600);
 
                     b.Property<string>("Poster")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(600)")
+                        .HasMaxLength(600);
 
                     b.Property<string>("Rated")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
 
                     b.Property<string>("Released")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<string>("Runtime")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Writer")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<string>("Year")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(4)")
+                        .HasMaxLength(4);
 
                     b.HasKey("Id");
 
@@ -80,7 +97,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "29 Aug 2019",
                             Runtime = "98 min",
                             Title = "Falling Inn Love",
-                            Writer = "Elizabeth Hackett, Hilary Galanoy",
                             Year = "2019"
                         },
                         new
@@ -96,7 +112,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "30 Jan 2019",
                             Runtime = "98 min",
                             Title = "15 Minutes of War",
-                            Writer = "Ileana Epsztajn (collaboration), Fred Grivois (screenplay), Jérémie Guez (collaboration)",
                             Year = "2019"
                         },
                         new
@@ -112,7 +127,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "02 Jul 2019",
                             Runtime = "129 min",
                             Title = "Spider-Man: Far from Home",
-                            Writer = "Chris McKenna, Erik Sommers, Stan Lee (based on the Marvel comic book by), Steve Ditko (based on the Marvel comic book by)",
                             Year = "2019"
                         },
                         new
@@ -128,7 +142,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "27 Sep 2019",
                             Runtime = "107 min",
                             Title = "While at War",
-                            Writer = "Alejandro Amenábar, Alejandro Hernández",
                             Year = "2019"
                         },
                         new
@@ -144,7 +157,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "30 Aug 2019",
                             Runtime = "94 min",
                             Title = "Bennett's War",
-                            Writer = "Alex Ranarivelo",
                             Year = "2019"
                         },
                         new
@@ -160,7 +172,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "25 Aug 2020",
                             Runtime = "90 min",
                             Title = "Thomas Markle: My Story",
-                            Writer = "N/A",
                             Year = "2020"
                         },
                         new
@@ -176,7 +187,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "30 Aug 2020",
                             Runtime = "83 min",
                             Title = "Love in Winterland",
-                            Writer = "Neal H. Dobrofsky, Tippi Dobrofsky",
                             Year = "2020"
                         },
                         new
@@ -192,7 +202,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "19 Aug 2020",
                             Runtime = "88 min",
                             Title = "What Love Looks Like",
-                            Writer = "Alex Magaña",
                             Year = "2020"
                         },
                         new
@@ -202,13 +211,12 @@ namespace Cinema.WebApi.Migrations
                             Director = "Christopher Nolan",
                             Genre = "Action, Drama, Thriller",
                             Playing = false,
-                            Plot = "An action epic revolving around international espionage, time travel, and evolution. Possibly about a man trying to prevent World War 3 through time travel and rebirth.",
+                            Plot = "An action epic revolving around international espionage, time travel, and evolution.",
                             Poster = "https://m.media-amazon.com/images/M/MV5BNmMwYzFlNTEtYTc0NC00NGY4LTgzNzItZGFiYTViY2QzNzU1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
                             Rated = "R",
                             Released = "17 Jul 2020",
-                            Runtime = "N/A",
+                            Runtime = "125 min",
                             Title = "Tenet",
-                            Writer = "Christopher Nolan",
                             Year = "2020"
                         },
                         new
@@ -224,7 +232,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "15 Sep 2020",
                             Runtime = "103 min",
                             Title = "I Hate the Man in My Basement",
-                            Writer = "Dustin Cook",
                             Year = "2020"
                         },
                         new
@@ -240,7 +247,6 @@ namespace Cinema.WebApi.Migrations
                             Released = "8 Sep 2020",
                             Runtime = "115 min",
                             Title = "The Last Thing He Wanted",
-                            Writer = "Marco Villalobos (screenplay by), Dee Rees (screenplay by), Joan Didion (based on the book by)",
                             Year = "2020"
                         });
                 });

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Cinema.WebApi.Migrations.Hall
+namespace Cinema.WebApi.Migrations
 {
-    public partial class removedseats : Migration
+    public partial class halls : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace Cinema.WebApi.Migrations.Hall
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 40, nullable: false),
                     Rows = table.Column<int>(nullable: false),
                     Columns = table.Column<int>(nullable: false)
                 },

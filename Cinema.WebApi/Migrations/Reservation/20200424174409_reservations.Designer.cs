@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Cinema.WebApi.Migrations.Ticket
+namespace Cinema.WebApi.Migrations.Reservation
 {
     [DbContext(typeof(ReservationContext))]
-    [Migration("20200420124949_dateAdded")]
-    partial class dateAdded
+    [Migration("20200424174409_reservations")]
+    partial class reservations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,8 +51,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                     b.HasData(
                         new
                         {
-                            Id = "bc09af31-dc29-4f00-bb58-8003ff239430",
-                            Date = "4/20/2020",
+                            Id = "9115e989-2046-4d40-b806-10af1e7d04b4",
+                            Date = "4/24/2020",
                             RepertoryId = "9eb6b139-02cc-4be2-b1cf-5d8145f5cfa3",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -60,8 +60,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "914e3fb5-992d-4563-a54f-b63b4fdaaea8",
-                            Date = "4/20/2020",
+                            Id = "f490a377-3785-4386-bd98-0a474e785d5e",
+                            Date = "4/24/2020",
                             RepertoryId = "d464a27a-e837-4ea1-8881-77323dae42eb",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -69,8 +69,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "b2032a33-8f4e-4744-836f-d4d630e18977",
-                            Date = "4/20/2020",
+                            Id = "3c1fc271-1587-4ed7-8bac-22f530aebcc6",
+                            Date = "4/24/2020",
                             RepertoryId = "c785db64-dedb-42cd-8f7a-57ade4bc38db",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -78,8 +78,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7cf743e7-727b-492d-a7cc-d2af762c0bb0",
-                            Date = "4/20/2020",
+                            Id = "60b7fe63-b980-449f-895e-190b0fd59181",
+                            Date = "4/24/2020",
                             RepertoryId = "12c891d0-3a9c-40b0-93a1-e56ce23c15dd",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -87,8 +87,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "26d2e50b-af66-4476-ba09-0b926ef2d7f6",
-                            Date = "4/20/2020",
+                            Id = "b1542106-44fe-42df-a940-49a7ef9f52b5",
+                            Date = "4/24/2020",
                             RepertoryId = "e9c1a622-520c-4d6e-9447-12fd2523d40c",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -96,8 +96,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "ad53aec0-8059-4539-8bdb-b2511bbebd82",
-                            Date = "4/20/2020",
+                            Id = "0f9bfe26-ff2a-4df2-9e9b-fbe495a575f3",
+                            Date = "4/24/2020",
                             RepertoryId = "fd8e5615-28bc-4996-8651-0ff52f15362d",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -105,8 +105,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "6e46f8a5-46d5-4437-b0a2-9fc15990bf19",
-                            Date = "4/20/2020",
+                            Id = "46e7b151-c1a9-41c0-834e-89c52e406165",
+                            Date = "4/24/2020",
                             RepertoryId = "3dd1e68e-667c-42b3-bea0-29ffcc30a0e8",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -114,8 +114,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f8a41912-1032-4a66-83dd-4399a4f8ce5a",
-                            Date = "4/20/2020",
+                            Id = "b8b86d83-8afd-4f6c-b347-99e205c2fe75",
+                            Date = "4/24/2020",
                             RepertoryId = "bcf9d20a-decc-4bb1-ac1e-81a053135c94",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -123,8 +123,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "75ea3bf0-80c2-47b9-84cd-952deffe1d1c",
-                            Date = "4/20/2020",
+                            Id = "0856afea-11b2-4166-8386-0b4e45767519",
+                            Date = "4/24/2020",
                             RepertoryId = "2a8d4b29-f39b-4812-a219-3f7661842098",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -132,8 +132,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "fbe610de-f4fa-4418-b4fd-c357b8dcd36d",
-                            Date = "4/20/2020",
+                            Id = "091cd0a5-81e3-4852-a595-30fb3f6a0b80",
+                            Date = "4/24/2020",
                             RepertoryId = "f288ec62-9915-412a-8e2f-a7555e60bc49",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -141,8 +141,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "2a18a9dc-760d-48a3-93a2-fd7436063f6a",
-                            Date = "4/20/2020",
+                            Id = "86665375-0f4a-4a19-8613-72af723620c7",
+                            Date = "4/24/2020",
                             RepertoryId = "d98821de-b8fd-4945-8c06-c912d2cb940a",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -150,8 +150,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "bbe7c986-f976-47bd-829e-be883c30c87a",
-                            Date = "4/20/2020",
+                            Id = "00c4cf84-7392-4968-a6bd-0cd9af026c8e",
+                            Date = "4/24/2020",
                             RepertoryId = "533a5c82-b0ce-4e4e-afb9-cb23a7940a05",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -159,8 +159,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5246b7d2-5151-42f1-8abc-30e1a7c2e663",
-                            Date = "4/20/2020",
+                            Id = "38894eac-df05-4541-b447-bd99a81ab85c",
+                            Date = "4/24/2020",
                             RepertoryId = "66fd7189-cf10-44cc-a4e5-0f16aa07bfb9",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -168,8 +168,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "a7c12eba-bd45-4a27-9b45-c5dd8151e841",
-                            Date = "4/20/2020",
+                            Id = "ffa8a635-f935-4108-ab41-e6feb67a3854",
+                            Date = "4/24/2020",
                             RepertoryId = "b6b2c675-d629-4f0f-ae26-d0a9a23983e1",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -177,8 +177,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "a9f870e7-ae71-418b-bfa8-b86a4f5da432",
-                            Date = "4/21/2020",
+                            Id = "7ae06f87-a498-40e1-9303-0f462cd6209e",
+                            Date = "4/25/2020",
                             RepertoryId = "4f537a29-4171-4a9e-a3db-9acc950863e2",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -186,8 +186,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "2619b029-c1f0-46da-aa4f-ea4b5534a50c",
-                            Date = "4/21/2020",
+                            Id = "c4870fae-f4c6-4d7a-8f99-c78cb19df57e",
+                            Date = "4/25/2020",
                             RepertoryId = "d2f88961-adf9-4089-9198-17e5b4b99c3b",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -195,8 +195,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "4a285208-c39f-42ef-a539-6912ab69dc0e",
-                            Date = "4/21/2020",
+                            Id = "9d4efb8f-bd28-400c-ba4b-97947492c420",
+                            Date = "4/25/2020",
                             RepertoryId = "870a16fa-a719-4491-b09a-b06ad652a1d7",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -204,8 +204,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "6d5380c3-c443-44ab-b3c1-198f16df5630",
-                            Date = "4/21/2020",
+                            Id = "360b123e-5351-45f9-93ff-ece399e53d3f",
+                            Date = "4/25/2020",
                             RepertoryId = "5f37e508-8156-4d8e-9859-d52933a64b12",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -213,8 +213,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "bf88584e-d1a4-4cd9-8f29-30a6b353bec9",
-                            Date = "4/21/2020",
+                            Id = "3689447b-f8d6-47ed-831b-2f04b0d26b3d",
+                            Date = "4/25/2020",
                             RepertoryId = "94fa00b6-628c-4a42-a4ca-5e3398dbdbc0",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -222,8 +222,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7b1314d2-602f-4db8-91e9-f678919c4583",
-                            Date = "4/21/2020",
+                            Id = "c1f8e692-8fec-428e-b6a2-4c53be50012f",
+                            Date = "4/25/2020",
                             RepertoryId = "40e5a01f-34d0-446f-a954-6057150ec540",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -231,8 +231,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "af555e55-3e1b-4a16-bec6-56d9dce4944e",
-                            Date = "4/21/2020",
+                            Id = "cf65bb30-b2c2-4238-9a6d-a96ac8b1b02b",
+                            Date = "4/25/2020",
                             RepertoryId = "334fb052-927e-43ae-b032-e18de7dd81ce",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -240,8 +240,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "b6d555c2-b43e-4049-a54d-2eca45a248cb",
-                            Date = "4/21/2020",
+                            Id = "bc668813-5270-4946-b698-f39e48313474",
+                            Date = "4/25/2020",
                             RepertoryId = "f1a264a5-045c-4107-9ef6-8ca65d7df47c",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -249,8 +249,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "0407703b-086c-4502-bf3f-1a3b781173b7",
-                            Date = "4/21/2020",
+                            Id = "92384fa5-28b7-4208-b44c-63586391298d",
+                            Date = "4/25/2020",
                             RepertoryId = "a658c6b0-20fd-43b7-a603-52bee735a01a",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -258,8 +258,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "15758f05-c4ad-4fa2-b0eb-999a2adb4b20",
-                            Date = "4/21/2020",
+                            Id = "e759acb0-3ca2-4f6d-aed8-39579a0492d6",
+                            Date = "4/25/2020",
                             RepertoryId = "37b06319-09db-4b97-8f78-98f51f1d8e32",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -267,8 +267,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "52a5acd4-4a2c-4b68-bcdf-234c67a0e702",
-                            Date = "4/21/2020",
+                            Id = "d7ae10c7-65b2-4f78-8d02-a7dc081e7cf2",
+                            Date = "4/25/2020",
                             RepertoryId = "db2ea23f-e7ce-423e-9bc2-257b2c061d04",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -276,8 +276,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "e01d2a41-89bf-460e-a81b-e1dda8278579",
-                            Date = "4/21/2020",
+                            Id = "9a17870b-4625-4ac6-94b2-ee23c95efa64",
+                            Date = "4/25/2020",
                             RepertoryId = "b9df548d-dde8-4c9d-9124-420e43072641",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -285,8 +285,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "43db35f4-a341-4577-adf7-6613467cf904",
-                            Date = "4/21/2020",
+                            Id = "338c0539-3f20-4a61-bdec-aaa85384645d",
+                            Date = "4/25/2020",
                             RepertoryId = "5bc15682-2eaa-4baf-86ea-e03db1efe9f1",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -294,8 +294,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "a9c4521c-5fcc-4717-8835-2882e38e8130",
-                            Date = "4/21/2020",
+                            Id = "616dda4d-5821-44fc-8a64-b512fc3f8eb7",
+                            Date = "4/25/2020",
                             RepertoryId = "2727ab7e-65a3-437a-a403-c121c87a32bf",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -303,8 +303,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "fb6574fc-fd2c-4390-b788-35cd8e39b094",
-                            Date = "4/21/2020",
+                            Id = "834fe210-1896-4250-8d2b-f42bf892e2e0",
+                            Date = "4/25/2020",
                             RepertoryId = "e67e8d98-37a8-4310-b51c-d2b2f4c5210f",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -312,8 +312,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "53a89338-5c4c-45a1-b3ca-274a9a636ca8",
-                            Date = "4/21/2020",
+                            Id = "8b27daa7-b83b-47ed-a495-fdbc26950844",
+                            Date = "4/25/2020",
                             RepertoryId = "f0a03776-87cf-47b5-9a6c-679d0906d87e",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -321,8 +321,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7b4a8cae-d525-46a4-926a-e5bfeb33c263",
-                            Date = "4/21/2020",
+                            Id = "ee354f31-be1f-4cf1-b756-f57ba08e6e0e",
+                            Date = "4/25/2020",
                             RepertoryId = "b7b94c44-7346-4448-9030-5883e77047c6",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -330,8 +330,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "3ce07b49-83b3-412b-90c7-e684fb944eb6",
-                            Date = "4/21/2020",
+                            Id = "e4332c38-ecde-4d4b-9c8c-1f80034a6769",
+                            Date = "4/25/2020",
                             RepertoryId = "8e25c8bb-a4a4-4df7-ab04-e8e2f6452a26",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -339,8 +339,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "fec1a21c-e7d6-4709-979b-5aa11c2a6653",
-                            Date = "4/21/2020",
+                            Id = "af54540a-9ca3-4da1-93c5-e4c31f3bff46",
+                            Date = "4/25/2020",
                             RepertoryId = "ad3fe353-dca7-4fcd-bc8c-9badbaf1e811",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -348,8 +348,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "54bb6323-91ff-4cab-953f-de43f1b6aa0a",
-                            Date = "4/21/2020",
+                            Id = "e2ed4265-cea5-46c4-bec6-2f437ea443ad",
+                            Date = "4/25/2020",
                             RepertoryId = "2a1fccf7-7603-4ba5-b4be-044ed500ea75",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -357,8 +357,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "b63d847e-f179-4617-815f-35fd2375e965",
-                            Date = "4/21/2020",
+                            Id = "5570c6bc-7dac-4d42-a3fb-2bcc8da5baab",
+                            Date = "4/25/2020",
                             RepertoryId = "a82ed5c0-e84a-481a-9c6d-78263c07e6ca",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -366,8 +366,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "4a6a760b-41fb-417d-bfc3-6d6f99d02cf3",
-                            Date = "4/22/2020",
+                            Id = "3436a3ad-4b6c-4aa3-a2eb-7a6274e86d16",
+                            Date = "4/26/2020",
                             RepertoryId = "34e641ec-9bea-4383-8e8b-f949aa764e21",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -375,8 +375,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "ce4f24c6-3fcd-4504-b3a3-2d98a67d3e5b",
-                            Date = "4/22/2020",
+                            Id = "98ac6cc9-e49e-49ae-b28c-add60263f7cc",
+                            Date = "4/26/2020",
                             RepertoryId = "750b85d6-9ea1-4b66-942c-4e09f432530b",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -384,8 +384,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "510a9749-ce25-486a-9181-6efe4e9fa356",
-                            Date = "4/22/2020",
+                            Id = "a7435ece-04a4-43bb-8aa7-b4af5bbb7813",
+                            Date = "4/26/2020",
                             RepertoryId = "00b4ebea-8f60-43c9-b1ff-091053e4f744",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -393,8 +393,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "58f011e0-308c-4e43-b83a-cdaa3059f1b3",
-                            Date = "4/22/2020",
+                            Id = "654aa502-a4a5-4ab0-8062-1440ca605eca",
+                            Date = "4/26/2020",
                             RepertoryId = "14705128-16f3-4e28-8f2b-63465d15a49c",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -402,8 +402,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "376703d1-63e5-4610-a588-078d00a68e7d",
-                            Date = "4/22/2020",
+                            Id = "84d5211c-2005-4c75-94cd-3f15a4acaffe",
+                            Date = "4/26/2020",
                             RepertoryId = "e0d1c58d-1db0-4705-b3cb-94e6c861737c",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -411,8 +411,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "fe15ad10-b244-4516-bdd3-f89b555e048d",
-                            Date = "4/22/2020",
+                            Id = "7ed9811f-73ab-4ca2-ab71-f5e2242dd129",
+                            Date = "4/26/2020",
                             RepertoryId = "b728d7fe-fa8f-4b97-be85-72a3c2990648",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -420,8 +420,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7479cb98-658d-40a3-b8f8-3793a2307c29",
-                            Date = "4/22/2020",
+                            Id = "51650edb-80a3-4861-9841-62cba36558bf",
+                            Date = "4/26/2020",
                             RepertoryId = "8040c6f9-f275-4752-9363-6d12069cd828",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -429,8 +429,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "0a687c9f-e375-4cde-bbb0-f6787cfffc9f",
-                            Date = "4/22/2020",
+                            Id = "d0ab7d4b-8927-4049-9ffa-19a3b27dc8e2",
+                            Date = "4/26/2020",
                             RepertoryId = "ef8b3693-e048-4782-9c25-22456b5230b7",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -438,8 +438,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c9593351-60a9-4647-9454-6786e138a2fc",
-                            Date = "4/22/2020",
+                            Id = "d7a50761-ddd7-4aea-8717-5ea1f8bea441",
+                            Date = "4/26/2020",
                             RepertoryId = "b8429be8-5561-434d-91a8-731a94dbd95f",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -447,8 +447,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c46003ce-92fc-4166-8723-abd5a619f010",
-                            Date = "4/22/2020",
+                            Id = "bbfd1810-6600-4d4a-900d-d7830c247984",
+                            Date = "4/26/2020",
                             RepertoryId = "0b1177fe-0733-42e8-a8c5-35ad8039a14e",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -456,8 +456,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5cdb59ae-6197-4fee-a32b-89b28c8560c8",
-                            Date = "4/22/2020",
+                            Id = "46f514ba-6a42-4468-a347-22517bfc505a",
+                            Date = "4/26/2020",
                             RepertoryId = "f563fb50-26da-4a57-9bcd-b3836614835a",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -465,8 +465,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f6c706ac-531b-4b9f-a091-21fbad2d6051",
-                            Date = "4/22/2020",
+                            Id = "13de9df2-80a9-43a9-b280-f462427836fc",
+                            Date = "4/26/2020",
                             RepertoryId = "8411a5b7-699f-45d4-ab67-ee3a17338424",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -474,8 +474,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "360c9e6a-84cb-4b4e-ad6b-ef2713a8e27c",
-                            Date = "4/22/2020",
+                            Id = "c6eaa8d8-5419-4dfc-aeb7-fce43844f5a6",
+                            Date = "4/26/2020",
                             RepertoryId = "18f8b880-1231-4028-9eb6-998e94b62b9b",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -483,8 +483,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "1f9b8cde-999f-4d6b-b82b-da7d3b46fe9e",
-                            Date = "4/22/2020",
+                            Id = "f81ebb9e-0264-4e95-9253-07f4258febb4",
+                            Date = "4/26/2020",
                             RepertoryId = "73e61eb8-e1ef-400f-a6b8-b2e07725dfb2",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -492,8 +492,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "02a74ead-1b23-4fb3-8cdf-04a52394f6a1",
-                            Date = "4/22/2020",
+                            Id = "f6b4dba2-c7ca-43ee-8c69-63ae5a377c3d",
+                            Date = "4/26/2020",
                             RepertoryId = "524ce530-f997-44da-b118-2c88be728248",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -501,8 +501,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5e8b3cc5-0a04-4f70-bfad-4fe87667e899",
-                            Date = "4/22/2020",
+                            Id = "6de5219f-78ae-454e-b455-cb261f5fe764",
+                            Date = "4/26/2020",
                             RepertoryId = "1367d782-f24e-4985-978d-825515f40bee",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -510,8 +510,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "2b9c3efc-a494-486c-a4d7-ab9bd1a68445",
-                            Date = "4/22/2020",
+                            Id = "2fe2bb93-8bef-4b9d-a6b0-6bdff7e94eaa",
+                            Date = "4/26/2020",
                             RepertoryId = "5417a7e6-e108-48ff-b831-6578c3680a71",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -519,8 +519,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "dfe6c43c-1c5e-4010-9ea0-b254637b572b",
-                            Date = "4/22/2020",
+                            Id = "ca9d1605-5268-4141-9c35-8355f80a75d2",
+                            Date = "4/26/2020",
                             RepertoryId = "c80f93cc-c780-436d-800a-f3ba02aabcdc",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -528,8 +528,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c2bb2f19-6ac3-4411-8c98-fd3f8567efea",
-                            Date = "4/22/2020",
+                            Id = "d0721210-8237-486f-a05a-de574659b9af",
+                            Date = "4/26/2020",
                             RepertoryId = "ef0f138d-b306-4983-a873-1222342b4368",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -537,8 +537,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "9773a674-cddb-4ab9-9097-46845e02a893",
-                            Date = "4/22/2020",
+                            Id = "cbe84afb-ed74-4eab-81d7-e21d4d2a401f",
+                            Date = "4/26/2020",
                             RepertoryId = "87950de7-b4a3-430b-add8-57cb2f696aa6",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -546,8 +546,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f1c27f2a-c053-4f3e-bcb8-8dc585a534ca",
-                            Date = "4/22/2020",
+                            Id = "1fc73215-e87b-45e5-b3bd-c615d99135f2",
+                            Date = "4/26/2020",
                             RepertoryId = "86d5fad3-0481-4497-9dab-b97a7da4c13c",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -555,8 +555,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "df8d7653-bdd8-4235-b492-2b04fd0d787f",
-                            Date = "4/23/2020",
+                            Id = "37096779-7829-457d-9e5b-1e56a64d071b",
+                            Date = "4/27/2020",
                             RepertoryId = "2ce9ef7b-77f0-49e8-8277-fe90927f3ce7",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -564,8 +564,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f132f08e-f24c-4cc5-89f1-12cb5951d501",
-                            Date = "4/23/2020",
+                            Id = "87f2ad18-233b-4b48-b2a9-0995ff7d0e2b",
+                            Date = "4/27/2020",
                             RepertoryId = "8ad3aba2-5caa-40ca-afdb-d62f9253ed01",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -573,8 +573,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "245e363c-2ab2-4a8a-8af5-08252d8e9b38",
-                            Date = "4/23/2020",
+                            Id = "fcddea4f-e7cf-48d4-a525-d3899cf9d0ef",
+                            Date = "4/27/2020",
                             RepertoryId = "4f8eb2ca-3a70-4920-8de0-5033ed304451",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -582,8 +582,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8fb513c9-8780-45bd-b405-d72913d32289",
-                            Date = "4/23/2020",
+                            Id = "15755e7d-3a0d-4947-a5b0-45ac59d010e1",
+                            Date = "4/27/2020",
                             RepertoryId = "1dd5a479-a903-426e-9880-4eeef60b69f8",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -591,8 +591,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "2e063b32-f93f-41b4-b080-1bf80ea03a31",
-                            Date = "4/23/2020",
+                            Id = "f839451c-9bd4-4d05-9aba-4c2298031e2e",
+                            Date = "4/27/2020",
                             RepertoryId = "f6f1670a-4eba-4d98-85f6-d4c1d37a7dec",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -600,8 +600,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8b8677f2-ef51-4815-a2b2-3859758ef79a",
-                            Date = "4/23/2020",
+                            Id = "86fead5b-5132-4946-8a46-5dce80d43524",
+                            Date = "4/27/2020",
                             RepertoryId = "f6a55375-3743-4528-8ac4-8ba93e9ba017",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -609,8 +609,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f5ba4443-6b2f-4718-95f7-a72a3113abcb",
-                            Date = "4/23/2020",
+                            Id = "60938baf-616f-48e3-8e67-f2cfed60c0b5",
+                            Date = "4/27/2020",
                             RepertoryId = "17738e0f-d311-4003-b6c2-7a8bfe733e20",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -618,8 +618,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "0a9bd3dd-d825-4091-9625-0c234c99c738",
-                            Date = "4/23/2020",
+                            Id = "e3b32d62-8314-4fa4-885a-0afdd5843278",
+                            Date = "4/27/2020",
                             RepertoryId = "067273f1-2931-4cf5-9f0f-0893fa7ec83e",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -627,8 +627,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "3d8b9c9b-363c-4e29-8989-d817392ed838",
-                            Date = "4/23/2020",
+                            Id = "e25cc05b-7d60-400a-826a-50209c3af4ab",
+                            Date = "4/27/2020",
                             RepertoryId = "2339db48-b2bc-481d-9d78-ebb9e32f433d",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -636,8 +636,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "6262ca0f-20b0-4ce4-95df-5a1fb1938593",
-                            Date = "4/23/2020",
+                            Id = "dead34ec-b01f-439d-8a92-a25dc742e843",
+                            Date = "4/27/2020",
                             RepertoryId = "661ac04f-8289-4eec-9530-c648264eb9a4",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -645,8 +645,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "567e86ff-17e3-4544-a959-75e14c75c733",
-                            Date = "4/23/2020",
+                            Id = "98d8600b-afa4-44e5-94c9-2db7eaf6784e",
+                            Date = "4/27/2020",
                             RepertoryId = "f7c4ec9d-e923-4d28-8918-ac842efc24e5",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -654,8 +654,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "de579464-fbdd-4e93-9353-e6044c486ea3",
-                            Date = "4/23/2020",
+                            Id = "a69994a9-4a57-4b4e-8c7b-c1f7aa1c6f4a",
+                            Date = "4/27/2020",
                             RepertoryId = "fa858d18-c031-4a4d-8700-7b46f21109f4",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -663,8 +663,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "43bf8451-c5ec-4de8-a6fb-571723604a0b",
-                            Date = "4/23/2020",
+                            Id = "b6065d9c-d190-447c-9b48-e4b1e36b97c4",
+                            Date = "4/27/2020",
                             RepertoryId = "1bbd4048-bbf7-4269-a4a1-bf0510fd18db",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -672,8 +672,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "352daba7-5498-4bc6-885a-365e09f34d45",
-                            Date = "4/23/2020",
+                            Id = "7acbc253-d292-46c8-a829-b0d9321664ff",
+                            Date = "4/27/2020",
                             RepertoryId = "149d67fb-796f-489b-bbe2-993073b66bc6",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -681,8 +681,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "00d2b0a4-a7ff-4c46-94e4-d6ef7500323f",
-                            Date = "4/23/2020",
+                            Id = "529cb7a0-b9ca-450b-ae7b-c354e4caf350",
+                            Date = "4/27/2020",
                             RepertoryId = "23fc35c2-cd81-45be-bf32-b2cb1da3bc34",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -690,8 +690,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7cad898f-0f59-42ef-9fac-205e2f9f929e",
-                            Date = "4/23/2020",
+                            Id = "984ce2a2-008c-49c1-a7b9-4a4df4a735fb",
+                            Date = "4/27/2020",
                             RepertoryId = "2128363b-df77-4459-85aa-2beaf899ec4c",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -699,8 +699,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "a78fbb2a-1c2c-4b45-bfd7-f15c352b139c",
-                            Date = "4/23/2020",
+                            Id = "bfef0f76-8c25-44c3-84b7-f2016ddabc89",
+                            Date = "4/27/2020",
                             RepertoryId = "a9c0be59-ab64-4b33-8f03-26bd93aab48e",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -708,8 +708,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "1573710e-1b3d-481b-abbe-9db4833759e4",
-                            Date = "4/23/2020",
+                            Id = "f7ece276-496e-483f-bdbb-968472515d13",
+                            Date = "4/27/2020",
                             RepertoryId = "a7dd1624-9980-48f4-b73a-56660e673c89",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -717,8 +717,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "4d554749-be8b-4d96-8ade-41afd153bb0e",
-                            Date = "4/23/2020",
+                            Id = "93ed77d3-5a08-43a1-b0a7-285a6aeaff49",
+                            Date = "4/27/2020",
                             RepertoryId = "c6163527-6edf-43e2-a07b-f4889a37f70e",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -726,8 +726,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "79384a18-1283-4658-9a31-58ddcb8ccd42",
-                            Date = "4/23/2020",
+                            Id = "795b6c4d-d33a-4d19-8529-bfefebcabe7b",
+                            Date = "4/27/2020",
                             RepertoryId = "f56de32e-a8d4-495b-99dc-a3867d7408f0",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -735,8 +735,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "3d8784d6-55e8-4860-aff7-f713b6d6a37c",
-                            Date = "4/23/2020",
+                            Id = "b576a710-ed58-4ab7-8571-36313dc410f1",
+                            Date = "4/27/2020",
                             RepertoryId = "7ed80a87-eb47-4249-8ac1-917a0800496c",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -744,8 +744,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f5053b7e-f315-4e19-aa6b-d37a200b8d15",
-                            Date = "4/24/2020",
+                            Id = "cbde266a-d27c-434a-ba0e-975819731213",
+                            Date = "4/28/2020",
                             RepertoryId = "eacf5f01-e97f-412e-9ae0-a627b999bdeb",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -753,8 +753,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "536ea5c4-036a-4fb6-9d0f-6ff0f516418a",
-                            Date = "4/24/2020",
+                            Id = "af17ecfd-c0b6-4efb-80fc-7eb5119a7bb4",
+                            Date = "4/28/2020",
                             RepertoryId = "9fff2c90-0b6f-4974-864c-8f54a86edb4b",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -762,8 +762,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "3b82dfcd-09f9-4ea8-98a8-ebc90a0b43dd",
-                            Date = "4/24/2020",
+                            Id = "eb32b6b4-6423-4abd-9bb0-35b2a3a33bbd",
+                            Date = "4/28/2020",
                             RepertoryId = "a840daac-d9a9-4c16-a48a-043e43247034",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -771,8 +771,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8c4f023f-c3a2-4b8e-ad6e-c4f66db1fa20",
-                            Date = "4/24/2020",
+                            Id = "67652004-e8ad-43d8-9ba6-1db5964dcb27",
+                            Date = "4/28/2020",
                             RepertoryId = "e4ed83ca-81a4-4ea0-a7ef-5e4062faa9fa",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -780,8 +780,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "290af2a9-9605-4751-a6bd-b8a22d1abb03",
-                            Date = "4/24/2020",
+                            Id = "b742a20f-8a72-4d81-92f7-3a3d6ac0f3d6",
+                            Date = "4/28/2020",
                             RepertoryId = "29fe55f5-1a1f-40ad-8db4-9b6731040db2",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -789,8 +789,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "412792f7-8801-4df1-bd1b-664fdd492f7b",
-                            Date = "4/24/2020",
+                            Id = "6cdc5254-39f2-4d48-ac7e-6fc1415cbcab",
+                            Date = "4/28/2020",
                             RepertoryId = "c6a09e5f-f947-4c64-9b18-16aac2afe1b7",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -798,8 +798,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5398b751-be89-45e4-aade-8b308caf1c68",
-                            Date = "4/24/2020",
+                            Id = "76e1fb6b-2b3c-4aee-856b-ddb948bd4a7d",
+                            Date = "4/28/2020",
                             RepertoryId = "7fe64e0c-3586-4164-a6b5-e336b032bd4a",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -807,8 +807,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "6c997b17-d658-4319-881b-4c4b4af1d22d",
-                            Date = "4/24/2020",
+                            Id = "8e79f5ed-aa8e-4cb2-b9ad-f0dd7b8ba8ff",
+                            Date = "4/28/2020",
                             RepertoryId = "ad23b7ab-3357-4f0d-a134-25d7ed235ef6",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -816,8 +816,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "ee85ffee-f248-4b82-9786-2578421673b8",
-                            Date = "4/24/2020",
+                            Id = "8356875e-a6be-49ce-8c25-78200874c532",
+                            Date = "4/28/2020",
                             RepertoryId = "a1a5cd9b-768c-44c3-9da7-c159e933da5b",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -825,8 +825,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "39c4f640-2dae-408a-ab7e-8e3ad3e90d0a",
-                            Date = "4/24/2020",
+                            Id = "7aaa67e2-79cb-48a4-920a-16691c090b51",
+                            Date = "4/28/2020",
                             RepertoryId = "7b0d2ec2-e0ad-4efc-ba04-8d9453fd6353",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -834,8 +834,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5300c979-8c8e-4233-90af-55ebf359d781",
-                            Date = "4/24/2020",
+                            Id = "3c83d95f-0602-4a59-a42a-c9ebcfb5495e",
+                            Date = "4/28/2020",
                             RepertoryId = "f974f0ce-ad88-4ca0-8e1e-a0f235ebe2fd",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -843,8 +843,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "405779c5-b039-47f6-946b-5e40c647f0fe",
-                            Date = "4/24/2020",
+                            Id = "46d7031b-9d99-4816-b5e5-c6c06ceb5987",
+                            Date = "4/28/2020",
                             RepertoryId = "4b0c1825-74c9-4b7c-be7e-42a25038e481",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -852,8 +852,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "dbccb758-0003-43c1-b5ad-03e578c122c3",
-                            Date = "4/24/2020",
+                            Id = "009af084-4550-4008-be4c-861e67e8d213",
+                            Date = "4/28/2020",
                             RepertoryId = "a36ce8fb-2240-4440-8fb9-2e09c1a21dba",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -861,8 +861,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8d2395fb-2d92-45a6-a6ba-ac34ff166231",
-                            Date = "4/24/2020",
+                            Id = "5643b204-d451-485d-89dd-4790455da6e2",
+                            Date = "4/28/2020",
                             RepertoryId = "d859c610-740e-4955-878b-06fe614a1998",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -870,8 +870,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "b121319b-8674-486a-9797-4596bafe568c",
-                            Date = "4/24/2020",
+                            Id = "3b4bbea5-6e77-4c7a-a574-cde8e710c659",
+                            Date = "4/28/2020",
                             RepertoryId = "4282c7e6-4904-4a11-83a4-bf5278775272",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -879,8 +879,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "4688374a-8ac4-48c7-90dd-b4c4788ca4fd",
-                            Date = "4/24/2020",
+                            Id = "2a16677e-b808-44dd-b4aa-5d6f974f8df0",
+                            Date = "4/28/2020",
                             RepertoryId = "646458e6-6060-4dcc-9118-b14ce4c1fe28",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -888,8 +888,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "01689c17-6ed5-4944-90b8-246b111474a7",
-                            Date = "4/24/2020",
+                            Id = "27f5c695-1ef0-42cb-95e1-9b7c3a5449b7",
+                            Date = "4/28/2020",
                             RepertoryId = "a1c414ac-30c6-44fa-84fe-8ed9bba25611",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -897,8 +897,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "e1714e29-d9b3-46d6-b6aa-1e67bf2c4a3c",
-                            Date = "4/24/2020",
+                            Id = "c98fc03e-ae8c-4901-9e29-333192b27867",
+                            Date = "4/28/2020",
                             RepertoryId = "8cf9c962-93ad-429c-9347-6fb6022a1f37",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -906,8 +906,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "370d1c43-1799-495e-89d2-2d15ba2c0f21",
-                            Date = "4/24/2020",
+                            Id = "e0a29b65-0c8f-40d2-862e-a8092607029c",
+                            Date = "4/28/2020",
                             RepertoryId = "0002ce82-5bf2-4b33-9d69-6c4c3f09f36a",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -915,8 +915,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "cce4c993-9b25-4f61-aabb-d2d32dfa487f",
-                            Date = "4/24/2020",
+                            Id = "cb42778d-9143-4f66-beca-b7631ea82e48",
+                            Date = "4/28/2020",
                             RepertoryId = "43161eb5-a4a4-455f-b402-fb7d7c73b98a",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -924,8 +924,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "adb45536-aeba-4936-94ca-3ff39a129bab",
-                            Date = "4/24/2020",
+                            Id = "b0b29f86-02a0-4550-b232-76bde709dfad",
+                            Date = "4/28/2020",
                             RepertoryId = "921112c1-f48f-4d06-9ae8-81b8c663fa2a",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -933,8 +933,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "5ab5beea-95ed-4eb8-93ca-e07e45e2955f",
-                            Date = "4/20/2020",
+                            Id = "194f9365-2556-4c6d-aab2-7cfcb6c86f18",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 0,
@@ -942,8 +942,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "04d8f93b-84db-49a5-97eb-d6c2ea9ca5aa",
-                            Date = "4/20/2020",
+                            Id = "cab780ef-2cc9-4625-8d07-b38d11589d17",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -951,8 +951,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "482aad8d-8a16-4b51-bd2c-4c0d18c5343a",
-                            Date = "4/20/2020",
+                            Id = "bd234f5b-85ca-4444-8e0f-9a80672cb4f4",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 0,
@@ -960,8 +960,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "98b57c9d-141b-4457-8121-4ef41d46d349",
-                            Date = "4/20/2020",
+                            Id = "5c2dd43e-3cff-44e2-a28e-ed6af33e9c31",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -969,8 +969,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c9636c90-3cae-4a04-ae31-fd8ac46881fb",
-                            Date = "4/20/2020",
+                            Id = "eefd1040-13f7-4ab5-ac98-82b79a7f3442",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 0,
@@ -978,8 +978,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "c2ba0d8b-87fe-4364-afa4-17b627b15cb2",
-                            Date = "4/20/2020",
+                            Id = "17433507-4d5d-4f3a-823a-20ba355574d7",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -987,8 +987,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "e964516e-d861-48d8-a086-d0296eee1457",
-                            Date = "4/20/2020",
+                            Id = "159ef009-e7e4-4aaa-93e3-7093ea5f83ee",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 1,
@@ -996,8 +996,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "22094ce2-21a3-4315-985b-7b414f045b0f",
-                            Date = "4/20/2020",
+                            Id = "7bad645c-24c5-4382-abc0-da69cf637830",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -1005,8 +1005,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "581de9ab-97ad-427c-bfab-a13649fbed35",
-                            Date = "4/20/2020",
+                            Id = "b90259e5-a640-4a06-8b92-ab5588406b77",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 1,
@@ -1014,8 +1014,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "e4342487-21bc-41b7-898a-8a7526e45bcc",
-                            Date = "4/20/2020",
+                            Id = "367b0af1-a096-41b4-8313-38498b0ac41b",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 1,
@@ -1023,8 +1023,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "013b6edf-b0a0-4830-b3a1-1386122a3642",
-                            Date = "4/20/2020",
+                            Id = "b57b85ca-b9c0-47b1-a4f9-2822ef5b1010",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 2,
@@ -1032,8 +1032,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "d44488cc-99d2-49b0-afa9-e8df7167f63e",
-                            Date = "4/20/2020",
+                            Id = "e65b210d-72fa-4126-bac8-eebe72cbff3b",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -1041,8 +1041,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "ce208861-05b9-4ebd-bf39-516ef80abb17",
-                            Date = "4/20/2020",
+                            Id = "a7064a83-ee62-4560-a517-3194dcf9efed",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 2,
@@ -1050,8 +1050,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "f2d9c718-8a39-4282-9186-c9e69145a5e2",
-                            Date = "4/20/2020",
+                            Id = "6a5afc32-f4a7-4711-b05d-241b025adc9c",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -1059,8 +1059,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "7d18c6fc-ab88-4ed9-a692-bffd1915fe1c",
-                            Date = "4/20/2020",
+                            Id = "073ec28b-3a38-4d4e-be3e-8daa2d436cc3",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 2,
@@ -1068,8 +1068,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "30913304-8c5d-47cf-81fc-d4da40a3f6c8",
-                            Date = "4/20/2020",
+                            Id = "334ea26f-0bb0-425f-a56d-f7b6321cc7ed",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -1077,8 +1077,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "41b3ed47-8537-4cd3-8896-8bae358e44c4",
-                            Date = "4/20/2020",
+                            Id = "68665b82-ffe2-40ee-9480-7436b3aae18e",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 3,
@@ -1086,8 +1086,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "2008d84d-d23e-4027-a49a-f84d84764670",
-                            Date = "4/20/2020",
+                            Id = "6bd7b12c-0adc-4138-bca9-28dd9c10792d",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -1095,8 +1095,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "258695d9-06e0-4146-b103-da6ba7ebc6a7",
-                            Date = "4/20/2020",
+                            Id = "226fc3e4-e05c-4c0f-8e3a-7c2fa161659c",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 3,
@@ -1104,8 +1104,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "8047c2e8-1775-4c6e-af7a-238088f985c4",
-                            Date = "4/20/2020",
+                            Id = "1231290b-da63-4e85-9116-b032ddc515f7",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 3,
@@ -1113,8 +1113,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "6a374f61-58dc-408d-b446-de935cbee7e2",
-                            Date = "4/20/2020",
+                            Id = "0e9f70a7-6644-4428-a3a5-0da93c3f7a78",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 4,
@@ -1122,8 +1122,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "62b496a7-b7b8-4a7c-8ab0-186d9a66ab3a",
-                            Date = "4/20/2020",
+                            Id = "b3e0ab0b-fc01-4f6d-bdeb-5dfb168dce23",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 4,
@@ -1131,8 +1131,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "80123f49-640f-4a68-b34b-cc198fea3e0a",
-                            Date = "4/20/2020",
+                            Id = "0a92a1a1-27fd-4d84-9bad-93bd9172eff8",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 4,
@@ -1140,8 +1140,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "3d894efd-1318-4a30-92cc-8f15938970b0",
-                            Date = "4/20/2020",
+                            Id = "57800c88-d239-4f89-bac3-908c83f04350",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 4,
@@ -1149,8 +1149,8 @@ namespace Cinema.WebApi.Migrations.Ticket
                         },
                         new
                         {
-                            Id = "bd506271-2769-4f57-8231-cfe2c97de672",
-                            Date = "4/20/2020",
+                            Id = "26e157fb-effd-4a94-aaf8-c2fb16e39319",
+                            Date = "4/24/2020",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 4,
