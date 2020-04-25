@@ -75,13 +75,13 @@ namespace Cinema.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseRouting();
+
             app.UseAuthentication();
 
             app.UseAuthorization();
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();       
+            app.UseHttpsRedirection();           
 
             app.UseCors(Constants.CorsPolicy);
 
