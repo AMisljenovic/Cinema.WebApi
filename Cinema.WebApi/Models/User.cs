@@ -14,13 +14,13 @@ namespace Cinema.WebApi.Models
         [MinLength(2), MaxLength(40)]
         public string Surname { get; set; }
         [Required]
-        [StringLength(25)]
+        [StringLength(100)]
         public string Email { get; set; }
         [Required]
-        [MinLength(4), MaxLength(20)]
+        [MinLength(4), MaxLength(30)]
         public string Username { get; set; }
         [Required]
-        [MinLength(4), MaxLength(20)]
+        [MinLength(4), MaxLength(30)]
         public string Password { get; set; }
         public string Role { get; set; }
     }
