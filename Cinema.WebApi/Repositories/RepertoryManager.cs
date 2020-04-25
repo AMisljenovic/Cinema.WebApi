@@ -43,7 +43,16 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<Repertory> GetById(string id)
         {
-            return await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.Id == id);
+            var repertory = await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.Id == id);
+            if (repertory != null && (DateTime.Parse(repertory.Date) < DateTime.Now.Date))
+            {
+                repertory.Date = DateTime.Parse(repertory.Date).AddDays(7).ToShortDateString();
+                _repertoryContext.Repertoires.Update(repertory);
+
+                await _repertoryContext.SaveChangesAsync();
+            }
+
+            return repertory;
         }
 
         public async Task Update(Repertory entity)

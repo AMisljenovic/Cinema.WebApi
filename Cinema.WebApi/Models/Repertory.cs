@@ -20,6 +20,8 @@ namespace Cinema.WebApi.Models
         [Range(1, 7)]
         public int Day { get; set; }
         [Required]
+        public string Date { get; set; }
+        [Required]
         [StringLength(10)]
         public int Price { get; set; }
     }

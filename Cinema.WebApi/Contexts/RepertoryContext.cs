@@ -23,7 +23,7 @@ namespace Cinema.WebApi.Contexts
             var repertoryPrice = 350;
 
             var random = new Random((int)DateTime.Now.Ticks);
-
+            var date = DateTime.UtcNow;
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
             {
                 for (int y = 0; y < 7; y++)
@@ -37,7 +37,8 @@ namespace Cinema.WebApi.Contexts
                         MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(0,8)}:00",
                         Day = y + 1,
-                        Price = repertoryPrice
+                        Price = repertoryPrice,
+                        Date = date.Date.AddDays(y).ToShortDateString()
                     });
 
                     repertoires.Add(new Repertory
@@ -47,7 +48,8 @@ namespace Cinema.WebApi.Contexts
                         MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(9, 15)}:30",
                         Day = y + 1,
-                        Price = repertoryPrice
+                        Price = repertoryPrice,
+                        Date = date.Date.AddDays(y).ToShortDateString()
                     });
 
                     repertoires.Add(new Repertory
@@ -57,7 +59,8 @@ namespace Cinema.WebApi.Contexts
                         MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(16, 23)}:45",
                         Day = y + 1,
-                        Price = repertoryPrice
+                        Price = repertoryPrice,
+                        Date = date.Date.AddDays(y).ToShortDateString()
                     });
                 }
             }
