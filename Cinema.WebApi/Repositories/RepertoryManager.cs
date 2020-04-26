@@ -39,11 +39,12 @@ namespace Cinema.WebApi.Models.Repositories
         public async Task<IEnumerable<Repertory>> GetByMovie(string movieId)
         {
             var reperoitres = await _repertoryContext.Repertoires.Where(t => t.MoveId == movieId).ToListAsync();
-            foreach (var repertory in reperoitres)
+
+            for (int i = 0; i < reperoitres.Count; i++)
             {
-                if (DateTime.Parse(repertory.Date) < DateTime.Now.Date)
+                while (DateTime.Parse(reperoitres[i].Date) < DateTime.UtcNow.Date)
                 {
-                    repertory.Date = DateTime.Parse(repertory.Date).AddDays(7).ToShortDateString();
+                    reperoitres[i].Date = DateTime.Parse(reperoitres[i].Date).Date.AddDays(7).ToShortDateString();
                 }
             }
 
@@ -55,16 +56,7 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<Repertory> GetById(string id)
         {
-            var repertory = await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.Id == id);
-            if (repertory != null && (DateTime.Parse(repertory.Date) < DateTime.Now.Date))
-            {
-                repertory.Date = DateTime.Parse(repertory.Date).AddDays(7).ToShortDateString();
-                _repertoryContext.Repertoires.Update(repertory);
-
-                await _repertoryContext.SaveChangesAsync();
-            }
-
-            return repertory;
+            return await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task Update(Repertory entity)
