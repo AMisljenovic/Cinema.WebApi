@@ -38,7 +38,19 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<IEnumerable<Repertory>> GetByMovie(string movieId)
         {
-            return await _repertoryContext.Repertoires.Where(t => t.MoveId == movieId).ToListAsync();
+            var reperoitres = await _repertoryContext.Repertoires.Where(t => t.MoveId == movieId).ToListAsync();
+            foreach (var repertory in reperoitres)
+            {
+                if (DateTime.Parse(repertory.Date) < DateTime.Now.Date)
+                {
+                    repertory.Date = DateTime.Parse(repertory.Date).AddDays(7).ToShortDateString();
+                }
+            }
+
+            _repertoryContext.Repertoires.UpdateRange(reperoitres);
+            await _repertoryContext.SaveChangesAsync();
+
+            return reperoitres;
         }
 
         public async Task<Repertory> GetById(string id)

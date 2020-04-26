@@ -20,15 +20,21 @@ namespace Cinema.WebApi.Contexts
             base.OnModelCreating(modelBuilder);
 
             var repertoires = new List<Repertory>();
-            var repertoryPrice = 350;
+            int repertoryPrice;
 
             var random = new Random((int)DateTime.Now.Ticks);
             var date = DateTime.UtcNow;
+            var dayOfWeek = date.DayOfWeek == DayOfWeek.Sunday ? 6 : (int)date.DayOfWeek;
+
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
             {
                 for (int y = 0; y < 7; y++)
                 {
                     repertoryPrice = y == 1 ? 200 : 350;
+                    var daysToAdd = (y + dayOfWeek + 1) % 7;
+
+                    var day = (y + dayOfWeek + 1) % 7;
+                    day = day == 0 ? 7 : day;
 
                     repertoires.Add(new Repertory
                     {
@@ -36,9 +42,9 @@ namespace Cinema.WebApi.Contexts
                         HallId = Constants.HallIds[i],
                         MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(0,8)}:00",
-                        Day = y + 1,
+                        Day = day,
                         Price = repertoryPrice,
-                        Date = date.Date.AddDays(y).ToShortDateString()
+                        Date = date.Date.AddDays(daysToAdd).ToShortDateString()
                     });
 
                     repertoires.Add(new Repertory
@@ -47,9 +53,9 @@ namespace Cinema.WebApi.Contexts
                         HallId = Constants.HallIds[i],
                         MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(9, 15)}:30",
-                        Day = y + 1,
+                        Day = day,
                         Price = repertoryPrice,
-                        Date = date.Date.AddDays(y).ToShortDateString()
+                        Date = date.Date.AddDays(daysToAdd).ToShortDateString()
                     });
 
                     repertoires.Add(new Repertory
@@ -58,9 +64,9 @@ namespace Cinema.WebApi.Contexts
                         HallId = Constants.HallIds[i],
                         MoveId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(16, 23)}:45",
-                        Day = y + 1,
+                        Day = day,
                         Price = repertoryPrice,
-                        Date = date.Date.AddDays(y).ToShortDateString()
+                        Date = date.Date.AddDays(daysToAdd).ToShortDateString()
                     });
                 }
             }

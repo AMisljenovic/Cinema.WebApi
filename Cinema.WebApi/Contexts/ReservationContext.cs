@@ -22,10 +22,14 @@ namespace Cinema.WebApi.Contexts
             var reservations = new List<Reservation>();
 
             var date = DateTime.UtcNow;
+            var dayOfWeek = date.DayOfWeek == DayOfWeek.Sunday ? 6 : (int)date.DayOfWeek;
+
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
             {
                 for (int y = 0; y < 7; y++)
                 {
+                    var daysToAdd = (y + dayOfWeek + 1) % 7;
+
                     if (i != 0)
                     {
                         reservations.Add(new Reservation
@@ -35,7 +39,7 @@ namespace Cinema.WebApi.Contexts
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = y % 4,
                             SeatRow = (y + 1) % 4,
-                            Date = date.AddDays(i).ToShortDateString()
+                            Date = date.AddDays(daysToAdd).ToShortDateString()
                         }); ;
                     }
                     
@@ -48,7 +52,7 @@ namespace Cinema.WebApi.Contexts
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = (y + 2) % 4,
                             SeatRow = (y + 3) % 4,
-                            Date = date.AddDays(i).ToShortDateString()
+                            Date = date.AddDays(daysToAdd).ToShortDateString()
                         },
                         new Reservation
                         {
@@ -57,7 +61,7 @@ namespace Cinema.WebApi.Contexts
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = (y + 1) % 4,
                             SeatRow = y % 4,
-                            Date = date.AddDays(i).ToShortDateString()
+                            Date = date.AddDays(daysToAdd).ToShortDateString()
                         }
                     });
                 }              

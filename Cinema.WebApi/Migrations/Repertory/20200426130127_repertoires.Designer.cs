@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cinema.WebApi.Migrations.Repertory
 {
     [DbContext(typeof(RepertoryContext))]
-    [Migration("20200424174333_repertoires")]
+    [Migration("20200426130127_repertoires")]
     partial class repertoires
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,10 @@ namespace Cinema.WebApi.Migrations.Repertory
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Day")
                         .HasColumnType("int");
@@ -54,61 +58,8 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "18c4b1be-0ef2-403e-a670-fe010a670db1",
-                            Day = 1,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "5:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "9eb6b139-02cc-4be2-b1cf-5d8145f5cfa3",
-                            Day = 1,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "11:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "d464a27a-e837-4ea1-8881-77323dae42eb",
-                            Day = 1,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "17:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "4dfd11e5-391a-47be-902c-99620a9eabce",
-                            Day = 2,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "2:00",
-                            Price = 200
-                        },
-                        new
-                        {
-                            Id = "c785db64-dedb-42cd-8f7a-57ade4bc38db",
-                            Day = 2,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "10:30",
-                            Price = 200
-                        },
-                        new
-                        {
-                            Id = "12c891d0-3a9c-40b0-93a1-e56ce23c15dd",
-                            Day = 2,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "16:45",
-                            Price = 200
-                        },
-                        new
-                        {
-                            Id = "1c6173eb-e01b-4a87-8f1c-18f0fb6f4a54",
-                            Day = 3,
+                            Date = "4/26/2020",
+                            Day = 7,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
                             PlayTime = "1:00",
@@ -116,7 +67,98 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
+                            Id = "9eb6b139-02cc-4be2-b1cf-5d8145f5cfa3",
+                            Date = "4/26/2020",
+                            Day = 7,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "9:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "d464a27a-e837-4ea1-8881-77323dae42eb",
+                            Date = "4/26/2020",
+                            Day = 7,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "16:45",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "4dfd11e5-391a-47be-902c-99620a9eabce",
+                            Date = "4/27/2020",
+                            Day = 1,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "3:00",
+                            Price = 200
+                        },
+                        new
+                        {
+                            Id = "c785db64-dedb-42cd-8f7a-57ade4bc38db",
+                            Date = "4/27/2020",
+                            Day = 1,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "9:30",
+                            Price = 200
+                        },
+                        new
+                        {
+                            Id = "12c891d0-3a9c-40b0-93a1-e56ce23c15dd",
+                            Date = "4/27/2020",
+                            Day = 1,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "17:45",
+                            Price = 200
+                        },
+                        new
+                        {
+                            Id = "1c6173eb-e01b-4a87-8f1c-18f0fb6f4a54",
+                            Date = "4/28/2020",
+                            Day = 2,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "3:00",
+                            Price = 350
+                        },
+                        new
+                        {
                             Id = "e9c1a622-520c-4d6e-9447-12fd2523d40c",
+                            Date = "4/28/2020",
+                            Day = 2,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "10:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "fd8e5615-28bc-4996-8651-0ff52f15362d",
+                            Date = "4/28/2020",
+                            Day = 2,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "17:45",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "9e798f75-e7db-4a9a-a21b-d49cbba34b01",
+                            Date = "4/29/2020",
+                            Day = 3,
+                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
+                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
+                            PlayTime = "3:00",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "3dd1e68e-667c-42b3-bea0-29ffcc30a0e8",
+                            Date = "4/29/2020",
                             Day = 3,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
@@ -125,35 +167,9 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "fd8e5615-28bc-4996-8651-0ff52f15362d",
-                            Day = 3,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "20:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "9e798f75-e7db-4a9a-a21b-d49cbba34b01",
-                            Day = 4,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "0:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "3dd1e68e-667c-42b3-bea0-29ffcc30a0e8",
-                            Day = 4,
-                            HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
-                            MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "14:30",
-                            Price = 350
-                        },
-                        new
-                        {
                             Id = "bcf9d20a-decc-4bb1-ac1e-81a053135c94",
-                            Day = 4,
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
                             PlayTime = "16:45",
@@ -162,16 +178,18 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "b25e331b-eb1f-4e56-8edb-a848c019eba0",
-                            Day = 5,
+                            Date = "4/30/2020",
+                            Day = 4,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "1:00",
+                            PlayTime = "7:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "2a8d4b29-f39b-4812-a219-3f7661842098",
-                            Day = 5,
+                            Date = "4/30/2020",
+                            Day = 4,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
                             PlayTime = "12:30",
@@ -180,115 +198,128 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "f288ec62-9915-412a-8e2f-a7555e60bc49",
-                            Day = 5,
+                            Date = "4/30/2020",
+                            Day = 4,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "17:45",
+                            PlayTime = "19:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "907b2948-5efc-48b5-9cfb-3358e376d30e",
-                            Day = 6,
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "0:00",
+                            PlayTime = "4:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "d98821de-b8fd-4945-8c06-c912d2cb940a",
-                            Day = 6,
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "14:30",
+                            PlayTime = "13:30",
                             Price = 350
                         },
                         new
                         {
                             Id = "533a5c82-b0ce-4e4e-afb9-cb23a7940a05",
-                            Day = 6,
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "21:45",
+                            PlayTime = "22:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "8076031b-7b62-4185-9b15-4ac4466b3437",
-                            Day = 7,
+                            Date = "5/2/2020",
+                            Day = 6,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "2:00",
+                            PlayTime = "6:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "66fd7189-cf10-44cc-a4e5-0f16aa07bfb9",
-                            Day = 7,
+                            Date = "5/2/2020",
+                            Day = 6,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "14:30",
+                            PlayTime = "12:30",
                             Price = 350
                         },
                         new
                         {
                             Id = "b6b2c675-d629-4f0f-ae26-d0a9a23983e1",
-                            Day = 7,
+                            Date = "5/2/2020",
+                            Day = 6,
                             HallId = "b43eba05-74e4-45ea-bf32-0ca5b8f85003",
                             MoveId = "31446c42-fa95-4f38-8b8a-c5830649ca32",
-                            PlayTime = "20:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "4f537a29-4171-4a9e-a3db-9acc950863e2",
-                            Day = 1,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "5:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "d2f88961-adf9-4089-9198-17e5b4b99c3b",
-                            Day = 1,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "14:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "870a16fa-a719-4491-b09a-b06ad652a1d7",
-                            Day = 1,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "16:45",
                             Price = 350
                         },
                         new
                         {
-                            Id = "5f37e508-8156-4d8e-9859-d52933a64b12",
-                            Day = 2,
+                            Id = "4f537a29-4171-4a9e-a3db-9acc950863e2",
+                            Date = "4/26/2020",
+                            Day = 7,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "1:00",
+                            PlayTime = "6:00",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "d2f88961-adf9-4089-9198-17e5b4b99c3b",
+                            Date = "4/26/2020",
+                            Day = 7,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "9:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "870a16fa-a719-4491-b09a-b06ad652a1d7",
+                            Date = "4/26/2020",
+                            Day = 7,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "22:45",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "5f37e508-8156-4d8e-9859-d52933a64b12",
+                            Date = "4/27/2020",
+                            Day = 1,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "7:00",
                             Price = 200
                         },
                         new
                         {
                             Id = "94fa00b6-628c-4a42-a4ca-5e3398dbdbc0",
-                            Day = 2,
+                            Date = "4/27/2020",
+                            Day = 1,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "10:30",
+                            PlayTime = "12:30",
                             Price = 200
                         },
                         new
                         {
                             Id = "40e5a01f-34d0-446f-a954-6057150ec540",
-                            Day = 2,
+                            Date = "4/27/2020",
+                            Day = 1,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "17:45",
@@ -297,16 +328,18 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "334fb052-927e-43ae-b032-e18de7dd81ce",
-                            Day = 3,
+                            Date = "4/28/2020",
+                            Day = 2,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "3:00",
+                            PlayTime = "0:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "f1a264a5-045c-4107-9ef6-8ca65d7df47c",
-                            Day = 3,
+                            Date = "4/28/2020",
+                            Day = 2,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "13:30",
@@ -315,43 +348,48 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "a658c6b0-20fd-43b7-a603-52bee735a01a",
-                            Day = 3,
+                            Date = "4/28/2020",
+                            Day = 2,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "21:45",
+                            PlayTime = "17:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "37b06319-09db-4b97-8f78-98f51f1d8e32",
-                            Day = 4,
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "4:00",
+                            PlayTime = "2:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "db2ea23f-e7ce-423e-9bc2-257b2c061d04",
-                            Day = 4,
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "11:30",
+                            PlayTime = "9:30",
                             Price = 350
                         },
                         new
                         {
                             Id = "b9df548d-dde8-4c9d-9124-420e43072641",
-                            Day = 4,
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "22:45",
+                            PlayTime = "19:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "5bc15682-2eaa-4baf-86ea-e03db1efe9f1",
-                            Day = 5,
+                            Date = "4/30/2020",
+                            Day = 4,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "2:00",
@@ -360,61 +398,38 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "2727ab7e-65a3-437a-a403-c121c87a32bf",
-                            Day = 5,
+                            Date = "4/30/2020",
+                            Day = 4,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "10:30",
+                            PlayTime = "12:30",
                             Price = 350
                         },
                         new
                         {
                             Id = "e67e8d98-37a8-4310-b51c-d2b2f4c5210f",
-                            Day = 5,
+                            Date = "4/30/2020",
+                            Day = 4,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "19:45",
+                            PlayTime = "16:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "f0a03776-87cf-47b5-9a6c-679d0906d87e",
-                            Day = 6,
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "7:00",
+                            PlayTime = "6:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "b7b94c44-7346-4448-9030-5883e77047c6",
-                            Day = 6,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "11:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "8e25c8bb-a4a4-4df7-ab04-e8e2f6452a26",
-                            Day = 6,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "20:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "ad3fe353-dca7-4fcd-bc8c-9badbaf1e811",
-                            Day = 7,
-                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
-                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
-                            PlayTime = "4:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "2a1fccf7-7603-4ba5-b4be-044ed500ea75",
-                            Day = 7,
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "13:30",
@@ -422,8 +437,9 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "a82ed5c0-e84a-481a-9c6d-78263c07e6ca",
-                            Day = 7,
+                            Id = "8e25c8bb-a4a4-4df7-ab04-e8e2f6452a26",
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
                             MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
                             PlayTime = "17:45",
@@ -431,17 +447,49 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
+                            Id = "ad3fe353-dca7-4fcd-bc8c-9badbaf1e811",
+                            Date = "5/2/2020",
+                            Day = 6,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "5:00",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "2a1fccf7-7603-4ba5-b4be-044ed500ea75",
+                            Date = "5/2/2020",
+                            Day = 6,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "12:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "a82ed5c0-e84a-481a-9c6d-78263c07e6ca",
+                            Date = "5/2/2020",
+                            Day = 6,
+                            HallId = "d0cdd288-de39-4a5d-9c7b-aac041e49414",
+                            MoveId = "59c58d93-e15b-4d2c-94a2-03e82b82d7c2",
+                            PlayTime = "21:45",
+                            Price = 350
+                        },
+                        new
+                        {
                             Id = "34e641ec-9bea-4383-8e8b-f949aa764e21",
-                            Day = 1,
+                            Date = "4/26/2020",
+                            Day = 7,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "3:00",
+                            PlayTime = "0:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "750b85d6-9ea1-4b66-942c-4e09f432530b",
-                            Day = 1,
+                            Date = "4/26/2020",
+                            Day = 7,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "14:30",
@@ -450,34 +498,38 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "00b4ebea-8f60-43c9-b1ff-091053e4f744",
-                            Day = 1,
+                            Date = "4/26/2020",
+                            Day = 7,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "19:45",
+                            PlayTime = "17:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "14705128-16f3-4e28-8f2b-63465d15a49c",
-                            Day = 2,
+                            Date = "4/27/2020",
+                            Day = 1,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "5:00",
+                            PlayTime = "7:00",
                             Price = 200
                         },
                         new
                         {
                             Id = "e0d1c58d-1db0-4705-b3cb-94e6c861737c",
-                            Day = 2,
+                            Date = "4/27/2020",
+                            Day = 1,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "10:30",
+                            PlayTime = "14:30",
                             Price = 200
                         },
                         new
                         {
                             Id = "b728d7fe-fa8f-4b97-be85-72a3c2990648",
-                            Day = 2,
+                            Date = "4/27/2020",
+                            Day = 1,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "18:45",
@@ -486,34 +538,38 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "8040c6f9-f275-4752-9363-6d12069cd828",
-                            Day = 3,
+                            Date = "4/28/2020",
+                            Day = 2,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "2:00",
+                            PlayTime = "5:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "ef8b3693-e048-4782-9c25-22456b5230b7",
-                            Day = 3,
+                            Date = "4/28/2020",
+                            Day = 2,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "11:30",
+                            PlayTime = "14:30",
                             Price = 350
                         },
                         new
                         {
                             Id = "b8429be8-5561-434d-91a8-731a94dbd95f",
-                            Day = 3,
+                            Date = "4/28/2020",
+                            Day = 2,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "18:45",
+                            PlayTime = "20:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "0b1177fe-0733-42e8-a8c5-35ad8039a14e",
-                            Day = 4,
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "1:00",
@@ -522,70 +578,48 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "f563fb50-26da-4a57-9bcd-b3836614835a",
-                            Day = 4,
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "14:30",
+                            PlayTime = "13:30",
                             Price = 350
                         },
                         new
                         {
                             Id = "8411a5b7-699f-45d4-ab67-ee3a17338424",
-                            Day = 4,
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "20:45",
+                            PlayTime = "18:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "18f8b880-1231-4028-9eb6-998e94b62b9b",
-                            Day = 5,
+                            Date = "4/30/2020",
+                            Day = 4,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "6:00",
+                            PlayTime = "7:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "73e61eb8-e1ef-400f-a6b8-b2e07725dfb2",
-                            Day = 5,
+                            Date = "4/30/2020",
+                            Day = 4,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "14:30",
+                            PlayTime = "11:30",
                             Price = 350
                         },
                         new
                         {
                             Id = "524ce530-f997-44da-b118-2c88be728248",
-                            Day = 5,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "19:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "1367d782-f24e-4985-978d-825515f40bee",
-                            Day = 6,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "0:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "5417a7e6-e108-48ff-b831-6578c3680a71",
-                            Day = 6,
-                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
-                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "9:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "c80f93cc-c780-436d-800a-f3ba02aabcdc",
-                            Day = 6,
+                            Date = "4/30/2020",
+                            Day = 4,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "16:45",
@@ -593,116 +627,69 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "ef0f138d-b306-4983-a873-1222342b4368",
-                            Day = 7,
+                            Id = "1367d782-f24e-4985-978d-825515f40bee",
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "6:00",
+                            PlayTime = "1:00",
                             Price = 350
                         },
                         new
                         {
-                            Id = "87950de7-b4a3-430b-add8-57cb2f696aa6",
-                            Day = 7,
+                            Id = "5417a7e6-e108-48ff-b831-6578c3680a71",
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "13:30",
+                            PlayTime = "11:30",
                             Price = 350
                         },
                         new
                         {
-                            Id = "86d5fad3-0481-4497-9dab-b97a7da4c13c",
-                            Day = 7,
+                            Id = "c80f93cc-c780-436d-800a-f3ba02aabcdc",
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
                             MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
-                            PlayTime = "21:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "2ce9ef7b-77f0-49e8-8277-fe90927f3ce7",
-                            Day = 1,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "7:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "8ad3aba2-5caa-40ca-afdb-d62f9253ed01",
-                            Day = 1,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "12:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "4f8eb2ca-3a70-4920-8de0-5033ed304451",
-                            Day = 1,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
                             PlayTime = "19:45",
                             Price = 350
                         },
                         new
                         {
-                            Id = "1dd5a479-a903-426e-9880-4eeef60b69f8",
-                            Day = 2,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "1:00",
-                            Price = 200
+                            Id = "ef0f138d-b306-4983-a873-1222342b4368",
+                            Date = "5/2/2020",
+                            Day = 6,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "0:00",
+                            Price = 350
                         },
                         new
                         {
-                            Id = "f6f1670a-4eba-4d98-85f6-d4c1d37a7dec",
-                            Day = 2,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "13:30",
-                            Price = 200
+                            Id = "87950de7-b4a3-430b-add8-57cb2f696aa6",
+                            Date = "5/2/2020",
+                            Day = 6,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
+                            PlayTime = "10:30",
+                            Price = 350
                         },
                         new
                         {
-                            Id = "f6a55375-3743-4528-8ac4-8ba93e9ba017",
-                            Day = 2,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            Id = "86d5fad3-0481-4497-9dab-b97a7da4c13c",
+                            Date = "5/2/2020",
+                            Day = 6,
+                            HallId = "5019e093-32fa-42a0-bf18-dfd3724cc853",
+                            MoveId = "164ca3af-4b7f-454f-bd07-9b8d6c3736cc",
                             PlayTime = "18:45",
-                            Price = 200
-                        },
-                        new
-                        {
-                            Id = "17738e0f-d311-4003-b6c2-7a8bfe733e20",
-                            Day = 3,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "6:00",
                             Price = 350
                         },
                         new
                         {
-                            Id = "067273f1-2931-4cf5-9f0f-0893fa7ec83e",
-                            Day = 3,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "9:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "2339db48-b2bc-481d-9d78-ebb9e32f433d",
-                            Day = 3,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "20:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "661ac04f-8289-4eec-9530-c648264eb9a4",
-                            Day = 4,
+                            Id = "2ce9ef7b-77f0-49e8-8277-fe90927f3ce7",
+                            Date = "4/26/2020",
+                            Day = 7,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
                             PlayTime = "0:00",
@@ -710,88 +697,8 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "f7c4ec9d-e923-4d28-8918-ac842efc24e5",
-                            Day = 4,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "13:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "fa858d18-c031-4a4d-8700-7b46f21109f4",
-                            Day = 4,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "17:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "1bbd4048-bbf7-4269-a4a1-bf0510fd18db",
-                            Day = 5,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "3:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "149d67fb-796f-489b-bbe2-993073b66bc6",
-                            Day = 5,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "10:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "23fc35c2-cd81-45be-bf32-b2cb1da3bc34",
-                            Day = 5,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "22:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "2128363b-df77-4459-85aa-2beaf899ec4c",
-                            Day = 6,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "5:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "a9c0be59-ab64-4b33-8f03-26bd93aab48e",
-                            Day = 6,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "12:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "a7dd1624-9980-48f4-b73a-56660e673c89",
-                            Day = 6,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "22:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "c6163527-6edf-43e2-a07b-f4889a37f70e",
-                            Day = 7,
-                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
-                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "7:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "f56de32e-a8d4-495b-99dc-a3867d7408f0",
+                            Id = "8ad3aba2-5caa-40ca-afdb-d62f9253ed01",
+                            Date = "4/26/2020",
                             Day = 7,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
@@ -800,53 +707,239 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "7ed80a87-eb47-4249-8ac1-917a0800496c",
+                            Id = "4f8eb2ca-3a70-4920-8de0-5033ed304451",
+                            Date = "4/26/2020",
                             Day = 7,
                             HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
                             MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
-                            PlayTime = "18:45",
+                            PlayTime = "17:45",
                             Price = 350
                         },
                         new
                         {
-                            Id = "eacf5f01-e97f-412e-9ae0-a627b999bdeb",
+                            Id = "1dd5a479-a903-426e-9880-4eeef60b69f8",
+                            Date = "4/27/2020",
                             Day = 1,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "4:00",
+                            Price = 200
+                        },
+                        new
+                        {
+                            Id = "f6f1670a-4eba-4d98-85f6-d4c1d37a7dec",
+                            Date = "4/27/2020",
+                            Day = 1,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "12:30",
+                            Price = 200
+                        },
+                        new
+                        {
+                            Id = "f6a55375-3743-4528-8ac4-8ba93e9ba017",
+                            Date = "4/27/2020",
+                            Day = 1,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "16:45",
+                            Price = 200
+                        },
+                        new
+                        {
+                            Id = "17738e0f-d311-4003-b6c2-7a8bfe733e20",
+                            Date = "4/28/2020",
+                            Day = 2,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "4:00",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "067273f1-2931-4cf5-9f0f-0893fa7ec83e",
+                            Date = "4/28/2020",
+                            Day = 2,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "13:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "2339db48-b2bc-481d-9d78-ebb9e32f433d",
+                            Date = "4/28/2020",
+                            Day = 2,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "16:45",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "661ac04f-8289-4eec-9530-c648264eb9a4",
+                            Date = "4/29/2020",
+                            Day = 3,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "5:00",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "f7c4ec9d-e923-4d28-8918-ac842efc24e5",
+                            Date = "4/29/2020",
+                            Day = 3,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "10:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "fa858d18-c031-4a4d-8700-7b46f21109f4",
+                            Date = "4/29/2020",
+                            Day = 3,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "16:45",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "1bbd4048-bbf7-4269-a4a1-bf0510fd18db",
+                            Date = "4/30/2020",
+                            Day = 4,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
                             PlayTime = "2:00",
                             Price = 350
                         },
                         new
                         {
-                            Id = "9fff2c90-0b6f-4974-864c-8f54a86edb4b",
-                            Day = 1,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            Id = "149d67fb-796f-489b-bbe2-993073b66bc6",
+                            Date = "4/30/2020",
+                            Day = 4,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "13:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "23fc35c2-cd81-45be-bf32-b2cb1da3bc34",
+                            Date = "4/30/2020",
+                            Day = 4,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "16:45",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "2128363b-df77-4459-85aa-2beaf899ec4c",
+                            Date = "5/1/2020",
+                            Day = 5,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "6:00",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "a9c0be59-ab64-4b33-8f03-26bd93aab48e",
+                            Date = "5/1/2020",
+                            Day = 5,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "14:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "a7dd1624-9980-48f4-b73a-56660e673c89",
+                            Date = "5/1/2020",
+                            Day = 5,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "20:45",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "c6163527-6edf-43e2-a07b-f4889a37f70e",
+                            Date = "5/2/2020",
+                            Day = 6,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "6:00",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "f56de32e-a8d4-495b-99dc-a3867d7408f0",
+                            Date = "5/2/2020",
+                            Day = 6,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
                             PlayTime = "11:30",
                             Price = 350
                         },
                         new
                         {
-                            Id = "a840daac-d9a9-4c16-a48a-043e43247034",
-                            Day = 1,
+                            Id = "7ed80a87-eb47-4249-8ac1-917a0800496c",
+                            Date = "5/2/2020",
+                            Day = 6,
+                            HallId = "ed5e3547-bf44-437c-8f9f-a94036ae860c",
+                            MoveId = "13e6d16d-e8a9-4112-a3d0-fda72a846b17",
+                            PlayTime = "21:45",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "eacf5f01-e97f-412e-9ae0-a627b999bdeb",
+                            Date = "4/26/2020",
+                            Day = 7,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "19:45",
+                            PlayTime = "3:00",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "9fff2c90-0b6f-4974-864c-8f54a86edb4b",
+                            Date = "4/26/2020",
+                            Day = 7,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "9:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "a840daac-d9a9-4c16-a48a-043e43247034",
+                            Date = "4/26/2020",
+                            Day = 7,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "18:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "e4ed83ca-81a4-4ea0-a7ef-5e4062faa9fa",
-                            Day = 2,
+                            Date = "4/27/2020",
+                            Day = 1,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "2:00",
+                            PlayTime = "1:00",
                             Price = 200
                         },
                         new
                         {
                             Id = "29fe55f5-1a1f-40ad-8db4-9b6731040db2",
-                            Day = 2,
+                            Date = "4/27/2020",
+                            Day = 1,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "11:30",
@@ -855,7 +948,8 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "c6a09e5f-f947-4c64-9b18-16aac2afe1b7",
-                            Day = 2,
+                            Date = "4/27/2020",
+                            Day = 1,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "17:45",
@@ -864,7 +958,8 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "7fe64e0c-3586-4164-a6b5-e336b032bd4a",
-                            Day = 3,
+                            Date = "4/28/2020",
+                            Day = 2,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "7:00",
@@ -873,16 +968,18 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "ad23b7ab-3357-4f0d-a134-25d7ed235ef6",
-                            Day = 3,
+                            Date = "4/28/2020",
+                            Day = 2,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "14:30",
+                            PlayTime = "13:30",
                             Price = 350
                         },
                         new
                         {
                             Id = "a1a5cd9b-768c-44c3-9da7-c159e933da5b",
-                            Day = 3,
+                            Date = "4/28/2020",
+                            Day = 2,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "17:45",
@@ -891,43 +988,18 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "7b0d2ec2-e0ad-4efc-ba04-8d9453fd6353",
-                            Day = 4,
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "4:00",
+                            PlayTime = "5:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "f974f0ce-ad88-4ca0-8e1e-a0f235ebe2fd",
-                            Day = 4,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "13:30",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "4b0c1825-74c9-4b7c-be7e-42a25038e481",
-                            Day = 4,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "16:45",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "a36ce8fb-2240-4440-8fb9-2e09c1a21dba",
-                            Day = 5,
-                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
-                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "3:00",
-                            Price = 350
-                        },
-                        new
-                        {
-                            Id = "d859c610-740e-4955-878b-06fe614a1998",
-                            Day = 5,
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "12:30",
@@ -935,17 +1007,49 @@ namespace Cinema.WebApi.Migrations.Repertory
                         },
                         new
                         {
-                            Id = "4282c7e6-4904-4a11-83a4-bf5278775272",
-                            Day = 5,
+                            Id = "4b0c1825-74c9-4b7c-be7e-42a25038e481",
+                            Date = "4/29/2020",
+                            Day = 3,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "19:45",
+                            PlayTime = "17:45",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "a36ce8fb-2240-4440-8fb9-2e09c1a21dba",
+                            Date = "4/30/2020",
+                            Day = 4,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "2:00",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "d859c610-740e-4955-878b-06fe614a1998",
+                            Date = "4/30/2020",
+                            Day = 4,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "14:30",
+                            Price = 350
+                        },
+                        new
+                        {
+                            Id = "4282c7e6-4904-4a11-83a4-bf5278775272",
+                            Date = "4/30/2020",
+                            Day = 4,
+                            HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
+                            MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
+                            PlayTime = "21:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "646458e6-6060-4dcc-9118-b14ce4c1fe28",
-                            Day = 6,
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "7:00",
@@ -954,7 +1058,8 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "a1c414ac-30c6-44fa-84fe-8ed9bba25611",
-                            Day = 6,
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "11:30",
@@ -963,34 +1068,38 @@ namespace Cinema.WebApi.Migrations.Repertory
                         new
                         {
                             Id = "8cf9c962-93ad-429c-9347-6fb6022a1f37",
-                            Day = 6,
+                            Date = "5/1/2020",
+                            Day = 5,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "19:45",
+                            PlayTime = "18:45",
                             Price = 350
                         },
                         new
                         {
                             Id = "0002ce82-5bf2-4b33-9d69-6c4c3f09f36a",
-                            Day = 7,
+                            Date = "5/2/2020",
+                            Day = 6,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "7:00",
+                            PlayTime = "2:00",
                             Price = 350
                         },
                         new
                         {
                             Id = "43161eb5-a4a4-455f-b402-fb7d7c73b98a",
-                            Day = 7,
+                            Date = "5/2/2020",
+                            Day = 6,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
-                            PlayTime = "12:30",
+                            PlayTime = "9:30",
                             Price = 350
                         },
                         new
                         {
                             Id = "921112c1-f48f-4d06-9ae8-81b8c663fa2a",
-                            Day = 7,
+                            Date = "5/2/2020",
+                            Day = 6,
                             HallId = "01a2f471-b69d-4e68-9924-96e32351ab8d",
                             MoveId = "1df1dac8-0b73-486e-b1a0-ded9d9d0849c",
                             PlayTime = "17:45",
