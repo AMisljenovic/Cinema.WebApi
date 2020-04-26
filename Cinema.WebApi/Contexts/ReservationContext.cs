@@ -21,7 +21,7 @@ namespace Cinema.WebApi.Contexts
 
             var reservations = new List<Reservation>();
 
-            var date = DateTime.UtcNow;
+            var date = DateTime.Now;
             var dayOfWeek = date.DayOfWeek == DayOfWeek.Sunday ? 6 : (int)date.DayOfWeek;
 
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)

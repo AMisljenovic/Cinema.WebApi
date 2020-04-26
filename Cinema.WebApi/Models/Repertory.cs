@@ -5,12 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Cinema.WebApi.Models
 {
     public class Repertory
-
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
         [Required]
-        public string MoveId { get; set; }
+        public string MovieId { get; set; }
         [Required]
         public string HallId { get; set; }
         [Required]

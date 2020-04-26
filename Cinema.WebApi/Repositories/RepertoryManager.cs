@@ -19,7 +19,7 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<Repertory> Get(string movieId, string hallId)
         {
-            return await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.MoveId == movieId && t.HallId == hallId);
+            return await _repertoryContext.Repertoires.FirstOrDefaultAsync(t => t.MovieId == movieId && t.HallId == hallId);
         }
 
         public async Task<IEnumerable<Repertory>> GetAll()
@@ -38,11 +38,11 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<IEnumerable<Repertory>> GetByMovie(string movieId)
         {
-            var reperoitres = await _repertoryContext.Repertoires.Where(t => t.MoveId == movieId).ToListAsync();
+            var reperoitres = await _repertoryContext.Repertoires.Where(t => t.MovieId == movieId).ToListAsync();
 
             for (int i = 0; i < reperoitres.Count; i++)
             {
-                while (DateTime.Parse(reperoitres[i].Date) < DateTime.UtcNow.Date)
+                while (DateTime.Parse(reperoitres[i].Date) < DateTime.Now.Date)
                 {
                     reperoitres[i].Date = DateTime.Parse(reperoitres[i].Date).Date.AddDays(7).ToShortDateString();
                 }
@@ -61,12 +61,12 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task Update(Repertory entity)
         {
-            var dbEntity = _repertoryContext.Repertoires.FirstOrDefault(ticket => ticket.MoveId == entity.MoveId&& ticket.HallId == entity.HallId);
+            var dbEntity = _repertoryContext.Repertoires.FirstOrDefault(ticket => ticket.MovieId == entity.MovieId&& ticket.HallId == entity.HallId);
 
             if (dbEntity != null)
             {
                 dbEntity.HallId = entity.HallId;
-                dbEntity.MoveId = entity.MoveId;
+                dbEntity.MovieId = entity.MovieId;
                 dbEntity.PlayTime = entity.PlayTime;
                 dbEntity.Day = entity.Day;
 
@@ -77,7 +77,7 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task Delete(string movieId, string hallId)
         {
-            var ticket = _repertoryContext.Repertoires.FirstOrDefault(t => t.MoveId == movieId && t.HallId == hallId);
+            var ticket = _repertoryContext.Repertoires.FirstOrDefault(t => t.MovieId == movieId && t.HallId == hallId);
             if (ticket != null)
             {
                 _repertoryContext.Repertoires.Remove(ticket);

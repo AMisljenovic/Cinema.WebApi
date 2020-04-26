@@ -49,7 +49,7 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<string> GetByRepertory(string repertoryId)
         {
-            var dateNow = DateTime.UtcNow;
+            var dateNow = DateTime.Now;
             var reservations = new List<Reservation>();
 
             await _reservationContext.Reservations
@@ -74,7 +74,7 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<string> GetByRepertoryAndUser(string repertoryId, string userId)
         {
-            var dateNow = DateTime.UtcNow;
+            var dateNow = DateTime.Now;
             var reservations = new List<Reservation>();
 
             await _reservationContext.Reservations
@@ -99,7 +99,7 @@ namespace Cinema.WebApi.Models.Repositories
 
         public async Task<IEnumerable<UserReservationResponse>> GetByUser(string userId)
         {
-            var dateNow = DateTime.UtcNow;
+            var dateNow = DateTime.Now;
             var reservations = new List<UserReservationResponse>();
 
             await _reservationContext.Reservations
@@ -109,7 +109,7 @@ namespace Cinema.WebApi.Models.Repositories
                      if (res.UserId == userId && (dateNow.Date <= reservationDate.Date))
                      {
                          var repertory = _repertoryContext.Repertoires.First(rep => rep.Id == res.RepertoryId);
-                         var movie = _movieContext.Movies.First(m => m.Id == repertory.MoveId);
+                         var movie = _movieContext.Movies.First(m => m.Id == repertory.MovieId);
 
                          reservations.Add(new UserReservationResponse
                          {

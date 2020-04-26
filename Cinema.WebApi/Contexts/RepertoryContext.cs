@@ -23,7 +23,7 @@ namespace Cinema.WebApi.Contexts
             int repertoryPrice;
 
             var random = new Random((int)DateTime.Now.Ticks);
-            var date = DateTime.UtcNow;
+            var date = DateTime.Now;
             var dayOfWeek = date.DayOfWeek == DayOfWeek.Sunday ? 6 : (int)date.DayOfWeek;
 
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
@@ -40,7 +40,7 @@ namespace Cinema.WebApi.Contexts
                     {
                         Id = Constants.RepertoryIds[i,y, 0],
                         HallId = Constants.HallIds[i],
-                        MoveId = Constants.PlayingMovieIds[i],
+                        MovieId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(0,8)}:00",
                         Day = day,
                         Price = repertoryPrice,
@@ -51,7 +51,7 @@ namespace Cinema.WebApi.Contexts
                     {
                         Id = Constants.RepertoryIds[i, y, 1],
                         HallId = Constants.HallIds[i],
-                        MoveId = Constants.PlayingMovieIds[i],
+                        MovieId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(9, 15)}:30",
                         Day = day,
                         Price = repertoryPrice,
@@ -62,7 +62,7 @@ namespace Cinema.WebApi.Contexts
                     {
                         Id = Constants.RepertoryIds[i, y, 2],
                         HallId = Constants.HallIds[i],
-                        MoveId = Constants.PlayingMovieIds[i],
+                        MovieId = Constants.PlayingMovieIds[i],
                         PlayTime = $"{random.Next(16, 23)}:45",
                         Day = day,
                         Price = repertoryPrice,
