@@ -22,13 +22,14 @@ namespace Cinema.WebApi.Contexts
             var reservations = new List<Reservation>();
 
             var date = DateTime.Now;
-            var dayOfWeek = date.DayOfWeek == DayOfWeek.Sunday ? 6 : (int)date.DayOfWeek;
+            var dayOfWeek = date.DayOfWeek == DayOfWeek.Sunday ? 7 : (int)date.DayOfWeek;
 
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
             {
                 for (int y = 0; y < 7; y++)
                 {
-                    var daysToAdd = (y + dayOfWeek + 1) % 7;
+                    var offest = date.DayOfWeek == DayOfWeek.Sunday ? dayOfWeek : dayOfWeek - 1;
+                    var daysToAdd = (y + offest) % 7;
 
                     if (i != 0)
                     {

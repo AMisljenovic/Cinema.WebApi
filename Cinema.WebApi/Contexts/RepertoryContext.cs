@@ -24,16 +24,18 @@ namespace Cinema.WebApi.Contexts
 
             var random = new Random((int)DateTime.Now.Ticks);
             var date = DateTime.Now;
-            var dayOfWeek = date.DayOfWeek == DayOfWeek.Sunday ? 6 : (int)date.DayOfWeek;
+            var dayOfWeek = date.DayOfWeek == DayOfWeek.Sunday ? 7 : (int)date.DayOfWeek;
 
             for (int i = 0; i < Constants.PlayingMovieIds.Length; i++)
             {
                 for (int y = 0; y < 7; y++)
                 {
                     repertoryPrice = y == 1 ? 200 : 350;
-                    var daysToAdd = (y + dayOfWeek + 1) % 7;
 
-                    var day = (y + dayOfWeek + 1) % 7;
+                    var offest = date.DayOfWeek == DayOfWeek.Sunday ? dayOfWeek : dayOfWeek - 1;
+                    var daysToAdd = (y + offest) % 7;
+
+                    var day = (y + dayOfWeek) % 7;
                     day = day == 0 ? 7 : day;
 
                     repertoires.Add(new Repertory
