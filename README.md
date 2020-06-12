@@ -1,6 +1,6 @@
 # Cinema.WebApi
 
-**Make sure you have Visual Studio 2019 or Visual Studio 2017**.
+**Make sure you have installed on your machine Visual Studio 2019 or Visual Studio 2017**.
 
 ## Development Server
 
