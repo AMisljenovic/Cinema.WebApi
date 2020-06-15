@@ -33,14 +33,21 @@ namespace Cinema.WebApi.Models.Repositories
             var dateNow = DateTime.Now;
             for (int i = 0; i < 7; i++)
             {
-                var date = dateNow.Date.AddDays(-i).ToShortDateString();
+                var date = dateNow.Date.AddDays(-i);
+                var totalReservations = 0;
 
-                var reservations = _reservationContext.Reservations.Where(res => res.Date == date).Count();
+                foreach (var reservation in _reservationContext.Reservations)
+                {
+                    if (date == DateTime.Parse(reservation.Date))
+                    {
+                        totalReservations++;
+                    }
+                }
 
                 response.Add(new ChartDataResponse
                 {
-                    Date = date,
-                    ReservationsMade = reservations
+                    Date = date.ToShortDateString(),
+                    ReservationsMade = totalReservations
                 });
             }
 
