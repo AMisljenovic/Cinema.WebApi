@@ -19,8 +19,12 @@ namespace Cinema.WebApi.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Reservation>()
+                .HasIndex(p => new { p.RepertoryId, p.SeatColumn, p.SeatRow, p.Date, p.PlayTime }).IsUnique();
+
             var reservations = new List<Reservation>();
 
+            var random = new Random((int)DateTime.Now.Ticks);
             var date = DateTime.Now;
             var dayOfWeek = date.DayOfWeek == DayOfWeek.Sunday ? 7 : (int)date.DayOfWeek;
 
@@ -40,7 +44,8 @@ namespace Cinema.WebApi.Contexts
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = y % 4,
                             SeatRow = (y + 1) % 4,
-                            Date = date.AddDays(daysToAdd).ToShortDateString()
+                            Date = date.AddDays(daysToAdd).ToShortDateString(),
+                            PlayTime = $"{random.Next(0, 8)}:00",
                         }); ;
                     }
                     
@@ -53,7 +58,8 @@ namespace Cinema.WebApi.Contexts
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = (y + 2) % 4,
                             SeatRow = (y + 3) % 4,
-                            Date = date.AddDays(daysToAdd).ToShortDateString()
+                            Date = date.AddDays(daysToAdd).ToShortDateString(),
+                            PlayTime = $"{random.Next(9, 15)}:30",
                         },
                         new Reservation
                         {
@@ -62,7 +68,8 @@ namespace Cinema.WebApi.Contexts
                             UserId = Constants.UserIds[y % 2],
                             SeatColumn = (y + 1) % 4,
                             SeatRow = y % 4,
-                            Date = date.AddDays(daysToAdd).ToShortDateString()
+                            Date = date.AddDays(daysToAdd).ToShortDateString(),
+                            PlayTime = $"{random.Next(16, 23)}:45",
                         }
                     });
                 }              
@@ -79,7 +86,8 @@ namespace Cinema.WebApi.Contexts
                         UserId = Constants.UserIds[1],
                         SeatColumn = y,
                         SeatRow = i,
-                        Date = date.ToShortDateString()
+                        Date = date.ToShortDateString(),
+                        PlayTime = $"{random.Next(0, 8)}:00",
                     });
                 }
             }
