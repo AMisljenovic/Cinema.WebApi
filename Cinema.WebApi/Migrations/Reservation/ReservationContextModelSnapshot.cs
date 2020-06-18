@@ -26,11 +26,16 @@ namespace Cinema.WebApi.Migrations.Reservation
 
                     b.Property<string>("Date")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PlayTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<string>("RepertoryId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("SeatColumn")
                         .HasColumnType("int");
@@ -44,13 +49,17 @@ namespace Cinema.WebApi.Migrations.Reservation
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RepertoryId", "SeatColumn", "SeatRow", "Date", "PlayTime")
+                        .IsUnique();
+
                     b.ToTable("Reservations");
 
                     b.HasData(
                         new
                         {
-                            Id = "1dd9da29-e823-4107-a964-75ad59e5d36d",
-                            Date = "15-Jun-20",
+                            Id = "93daecbb-4d96-4f80-af17-ec17e7dfba33",
+                            Date = "21-Jun-20",
+                            PlayTime = "9:30",
                             RepertoryId = "9eb6b139-02cc-4be2-b1cf-5d8145f5cfa3",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -58,8 +67,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "a7b8e263-812a-4e17-8d28-775c436e0efe",
-                            Date = "15-Jun-20",
+                            Id = "c30ecdda-6182-47bf-be1d-84dcfe4e7d6a",
+                            Date = "21-Jun-20",
+                            PlayTime = "21:45",
                             RepertoryId = "d464a27a-e837-4ea1-8881-77323dae42eb",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -67,8 +77,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "164d9b11-d9f9-463e-a9ee-d140ecfaf5f4",
-                            Date = "16-Jun-20",
+                            Id = "e8105d5b-e3cf-4771-b9fc-2b1da99f4fc0",
+                            Date = "22-Jun-20",
+                            PlayTime = "9:30",
                             RepertoryId = "c785db64-dedb-42cd-8f7a-57ade4bc38db",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -76,8 +87,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "bad0fb87-3a1d-45c5-88d3-d43a6e5ba842",
-                            Date = "16-Jun-20",
+                            Id = "af89a445-df9f-48b6-8045-24ad47176c6e",
+                            Date = "22-Jun-20",
+                            PlayTime = "16:45",
                             RepertoryId = "12c891d0-3a9c-40b0-93a1-e56ce23c15dd",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -85,8 +97,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "46864ac6-7214-4a7a-8f83-18f797e0ba29",
-                            Date = "17-Jun-20",
+                            Id = "59d08206-a22d-4c24-927c-9b3b66553890",
+                            Date = "23-Jun-20",
+                            PlayTime = "10:30",
                             RepertoryId = "e9c1a622-520c-4d6e-9447-12fd2523d40c",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -94,8 +107,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "be3d0db5-7ce6-4fe8-b66d-7c2a02f60347",
-                            Date = "17-Jun-20",
+                            Id = "9b60b82f-cb8a-455a-9b6d-820368c01676",
+                            Date = "23-Jun-20",
+                            PlayTime = "20:45",
                             RepertoryId = "fd8e5615-28bc-4996-8651-0ff52f15362d",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -103,8 +117,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "49a40c41-b9ca-4a16-97aa-c5ebf972c7cd",
-                            Date = "18-Jun-20",
+                            Id = "e7844e95-89cc-44e6-91f5-ff9dc4fc1feb",
+                            Date = "24-Jun-20",
+                            PlayTime = "14:30",
                             RepertoryId = "3dd1e68e-667c-42b3-bea0-29ffcc30a0e8",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -112,8 +127,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "164d9bf8-df92-4626-9434-f9ac6bd46d92",
-                            Date = "18-Jun-20",
+                            Id = "47063bb1-b7f8-425e-9492-48dddd199ae6",
+                            Date = "24-Jun-20",
+                            PlayTime = "22:45",
                             RepertoryId = "bcf9d20a-decc-4bb1-ac1e-81a053135c94",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -121,8 +137,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "9ca78588-3ac7-4cca-9616-ddf3e86c9cd2",
-                            Date = "19-Jun-20",
+                            Id = "a9082471-7f7e-47a6-bd3b-f94f9215870f",
+                            Date = "18-Jun-20",
+                            PlayTime = "11:30",
                             RepertoryId = "2a8d4b29-f39b-4812-a219-3f7661842098",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -130,8 +147,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "8971e68a-8d3b-47f4-8534-bce232dcbafe",
-                            Date = "19-Jun-20",
+                            Id = "19573143-73c0-4c0a-a6f6-fdf03712386b",
+                            Date = "18-Jun-20",
+                            PlayTime = "20:45",
                             RepertoryId = "f288ec62-9915-412a-8e2f-a7555e60bc49",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -139,8 +157,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "9b5ff158-62fa-45ad-8c4b-04356581ff67",
-                            Date = "20-Jun-20",
+                            Id = "308bb888-fdf5-47bd-9ec0-3d0daa61b306",
+                            Date = "19-Jun-20",
+                            PlayTime = "14:30",
                             RepertoryId = "d98821de-b8fd-4945-8c06-c912d2cb940a",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -148,8 +167,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "7caa4503-c4cf-4004-85f0-abefc329417c",
-                            Date = "20-Jun-20",
+                            Id = "75f792a0-c158-42d1-ae23-922334e39d70",
+                            Date = "19-Jun-20",
+                            PlayTime = "21:45",
                             RepertoryId = "533a5c82-b0ce-4e4e-afb9-cb23a7940a05",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -157,8 +177,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "3e5bfabc-0468-4241-b0d6-3b0a224c6ca1",
-                            Date = "21-Jun-20",
+                            Id = "02897beb-0b08-4942-812e-963fc56715be",
+                            Date = "20-Jun-20",
+                            PlayTime = "13:30",
                             RepertoryId = "66fd7189-cf10-44cc-a4e5-0f16aa07bfb9",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -166,8 +187,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "0510383b-33eb-47be-9f13-2280de26bf4c",
-                            Date = "21-Jun-20",
+                            Id = "249f266a-d563-446c-8d1f-45843bc2200b",
+                            Date = "20-Jun-20",
+                            PlayTime = "22:45",
                             RepertoryId = "b6b2c675-d629-4f0f-ae26-d0a9a23983e1",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -175,8 +197,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "35e7d7a8-c669-4703-8a6a-1e3ee2622c5a",
-                            Date = "15-Jun-20",
+                            Id = "cd1fdd51-906c-483d-9e57-a50ed19c4679",
+                            Date = "21-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "4f537a29-4171-4a9e-a3db-9acc950863e2",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -184,8 +207,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "76c3adfb-aaf9-4fa4-90e5-be8f626520cf",
-                            Date = "15-Jun-20",
+                            Id = "d751435c-d1a1-43cb-ac88-c6eeb4a5b7c5",
+                            Date = "21-Jun-20",
+                            PlayTime = "14:30",
                             RepertoryId = "d2f88961-adf9-4089-9198-17e5b4b99c3b",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -193,8 +217,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "ad2aad0e-edea-43dc-abd7-7bbbcfea4603",
-                            Date = "15-Jun-20",
+                            Id = "efed0277-b35b-44fb-85e9-d968d90702d2",
+                            Date = "21-Jun-20",
+                            PlayTime = "18:45",
                             RepertoryId = "870a16fa-a719-4491-b09a-b06ad652a1d7",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -202,8 +227,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "80cb2dd0-bcc0-41f0-87fc-73249c37c29a",
-                            Date = "16-Jun-20",
+                            Id = "2fb72f6f-0584-4257-a5d7-dc66922a5956",
+                            Date = "22-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "5f37e508-8156-4d8e-9859-d52933a64b12",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -211,8 +237,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "8492127f-c9b5-4aa5-bb21-4915b6c6799f",
-                            Date = "16-Jun-20",
+                            Id = "1f169426-42e6-47ad-b0bd-68efb82e004d",
+                            Date = "22-Jun-20",
+                            PlayTime = "12:30",
                             RepertoryId = "94fa00b6-628c-4a42-a4ca-5e3398dbdbc0",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -220,8 +247,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "e69ec709-8ca0-49a8-a754-379227157f61",
-                            Date = "16-Jun-20",
+                            Id = "9896da41-b562-4a9f-9fc8-ca13c459930b",
+                            Date = "22-Jun-20",
+                            PlayTime = "18:45",
                             RepertoryId = "40e5a01f-34d0-446f-a954-6057150ec540",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -229,8 +257,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "70f02011-3464-4c61-8951-4015a68e0f44",
-                            Date = "17-Jun-20",
+                            Id = "f982db60-053f-4fcc-b55a-7a9974f683d5",
+                            Date = "23-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "334fb052-927e-43ae-b032-e18de7dd81ce",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -238,8 +267,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "d9f4c3d2-58dc-4e09-a39d-f452889056da",
-                            Date = "17-Jun-20",
+                            Id = "afeb565e-f343-46c4-b7d0-7c9be3f20bde",
+                            Date = "23-Jun-20",
+                            PlayTime = "12:30",
                             RepertoryId = "f1a264a5-045c-4107-9ef6-8ca65d7df47c",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -247,8 +277,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "ae05f619-8328-4647-a128-fbe4f9da179a",
-                            Date = "17-Jun-20",
+                            Id = "b67aa509-5696-455e-a11b-1f0a97b8c0a8",
+                            Date = "23-Jun-20",
+                            PlayTime = "17:45",
                             RepertoryId = "a658c6b0-20fd-43b7-a603-52bee735a01a",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -256,8 +287,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "1e219f02-bc78-405e-a1d4-35b3507e0f14",
-                            Date = "18-Jun-20",
+                            Id = "5154cc70-2696-4743-98c9-64b577383f43",
+                            Date = "24-Jun-20",
+                            PlayTime = "7:00",
                             RepertoryId = "37b06319-09db-4b97-8f78-98f51f1d8e32",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -265,8 +297,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "89297970-96d0-4785-b84f-8ed2ad8fc833",
-                            Date = "18-Jun-20",
+                            Id = "7896ebe9-268b-48d9-bdd5-2a7cf6108712",
+                            Date = "24-Jun-20",
+                            PlayTime = "10:30",
                             RepertoryId = "db2ea23f-e7ce-423e-9bc2-257b2c061d04",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -274,8 +307,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "a5f0d4e9-0011-4db2-a3e3-46b1d7ab846a",
-                            Date = "18-Jun-20",
+                            Id = "6bdca5a8-7b94-4364-805e-9960c1f1e479",
+                            Date = "24-Jun-20",
+                            PlayTime = "16:45",
                             RepertoryId = "b9df548d-dde8-4c9d-9124-420e43072641",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -283,8 +317,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "dddd3f46-4534-430b-a4f5-8e797b20fa6f",
-                            Date = "19-Jun-20",
+                            Id = "84efbf16-82c0-4c5a-a67d-8c4249e2cd3d",
+                            Date = "18-Jun-20",
+                            PlayTime = "7:00",
                             RepertoryId = "5bc15682-2eaa-4baf-86ea-e03db1efe9f1",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -292,8 +327,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "3ec5b5e5-7b72-4a7a-be14-687d96c90326",
-                            Date = "19-Jun-20",
+                            Id = "e8bfb942-0413-4077-8a56-dc9e5585f0da",
+                            Date = "18-Jun-20",
+                            PlayTime = "11:30",
                             RepertoryId = "2727ab7e-65a3-437a-a403-c121c87a32bf",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -301,8 +337,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "0a29f49c-4275-45c0-9af4-6f3efe1f13d6",
-                            Date = "19-Jun-20",
+                            Id = "a6f591e7-78d3-4a21-89e6-6b412e58c7d1",
+                            Date = "18-Jun-20",
+                            PlayTime = "21:45",
                             RepertoryId = "e67e8d98-37a8-4310-b51c-d2b2f4c5210f",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -310,8 +347,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "a7e24496-bbef-4134-aee3-6e55f1b0ae4b",
-                            Date = "20-Jun-20",
+                            Id = "23078a97-4a7a-4749-a892-ea3b89b6055c",
+                            Date = "19-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "f0a03776-87cf-47b5-9a6c-679d0906d87e",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -319,8 +357,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "bc4f7524-ff3d-45e4-9ddc-dc32123bfa94",
-                            Date = "20-Jun-20",
+                            Id = "b29325b0-b123-4575-b7fc-a8e5370f7e8a",
+                            Date = "19-Jun-20",
+                            PlayTime = "14:30",
                             RepertoryId = "b7b94c44-7346-4448-9030-5883e77047c6",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -328,8 +367,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "0dc024fc-8ba2-4dfc-baea-caf5249c21a2",
-                            Date = "20-Jun-20",
+                            Id = "43d27260-5e50-4124-9654-3d12eb21430d",
+                            Date = "19-Jun-20",
+                            PlayTime = "19:45",
                             RepertoryId = "8e25c8bb-a4a4-4df7-ab04-e8e2f6452a26",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -337,8 +377,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "fdd3263a-fe71-4814-8e0f-75b782fdc7f1",
-                            Date = "21-Jun-20",
+                            Id = "6fb79a85-f44d-41fd-a076-ec1028a71e80",
+                            Date = "20-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "ad3fe353-dca7-4fcd-bc8c-9badbaf1e811",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -346,8 +387,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "e79a4804-3ecd-4f78-9f21-87c5d50c9d46",
-                            Date = "21-Jun-20",
+                            Id = "8138b35c-d4e9-40b6-9dff-189b7a3735c9",
+                            Date = "20-Jun-20",
+                            PlayTime = "11:30",
                             RepertoryId = "2a1fccf7-7603-4ba5-b4be-044ed500ea75",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -355,8 +397,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "72312ae2-b91d-4eac-bce8-5d23a2d5fca7",
-                            Date = "21-Jun-20",
+                            Id = "d02d576b-394b-48f7-8de4-c9f2006b6e4d",
+                            Date = "20-Jun-20",
+                            PlayTime = "19:45",
                             RepertoryId = "a82ed5c0-e84a-481a-9c6d-78263c07e6ca",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -364,8 +407,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "ac41bc4b-83d3-4f21-a6fc-109ab270f483",
-                            Date = "15-Jun-20",
+                            Id = "f99506ee-e1c6-4160-9e56-b79be3abff25",
+                            Date = "21-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "34e641ec-9bea-4383-8e8b-f949aa764e21",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -373,8 +417,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "4f83bbe2-2324-461f-b484-e8f03cac1425",
-                            Date = "15-Jun-20",
+                            Id = "20b6612b-3381-4a4a-990f-41392f406b5e",
+                            Date = "21-Jun-20",
+                            PlayTime = "14:30",
                             RepertoryId = "750b85d6-9ea1-4b66-942c-4e09f432530b",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -382,8 +427,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "e26abee8-08cb-4948-a2b9-dbb0d00355e3",
-                            Date = "15-Jun-20",
+                            Id = "64952b34-a3d5-4560-bf71-96af75fb24bc",
+                            Date = "21-Jun-20",
+                            PlayTime = "16:45",
                             RepertoryId = "00b4ebea-8f60-43c9-b1ff-091053e4f744",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -391,8 +437,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "e5b838ab-9d8c-4cec-94ae-3aaa22d4d822",
-                            Date = "16-Jun-20",
+                            Id = "01847531-58a9-48af-b87f-6e8707a0fcfa",
+                            Date = "22-Jun-20",
+                            PlayTime = "3:00",
                             RepertoryId = "14705128-16f3-4e28-8f2b-63465d15a49c",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -400,8 +447,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "d43d1f12-e383-4e50-8532-5b4bc115b74a",
-                            Date = "16-Jun-20",
+                            Id = "349f6963-83b4-48bf-b495-313354ece32d",
+                            Date = "22-Jun-20",
+                            PlayTime = "12:30",
                             RepertoryId = "e0d1c58d-1db0-4705-b3cb-94e6c861737c",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -409,8 +457,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "9262e594-c03d-49c5-824c-7be82065ef12",
-                            Date = "16-Jun-20",
+                            Id = "cbd3ac55-1efc-41ba-a02b-ca195b88aeff",
+                            Date = "22-Jun-20",
+                            PlayTime = "16:45",
                             RepertoryId = "b728d7fe-fa8f-4b97-be85-72a3c2990648",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -418,8 +467,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "e0577116-0b44-4359-bc28-e594fad80f34",
-                            Date = "17-Jun-20",
+                            Id = "0f3bbc92-705b-43bf-af99-aa6bdc1d1ffc",
+                            Date = "23-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "8040c6f9-f275-4752-9363-6d12069cd828",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -427,8 +477,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "e11c0315-0a97-4175-be31-551a52d10f5f",
-                            Date = "17-Jun-20",
+                            Id = "3d4aa63e-c2b6-403a-8337-bb6444498fb3",
+                            Date = "23-Jun-20",
+                            PlayTime = "13:30",
                             RepertoryId = "ef8b3693-e048-4782-9c25-22456b5230b7",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -436,8 +487,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "4ed64c76-c82f-42b8-8b81-8d999aa0b828",
-                            Date = "17-Jun-20",
+                            Id = "34c31300-f44f-4f7a-b1cf-0e9a0455ee08",
+                            Date = "23-Jun-20",
+                            PlayTime = "22:45",
                             RepertoryId = "b8429be8-5561-434d-91a8-731a94dbd95f",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -445,8 +497,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "14e92b97-880d-4724-a660-355ccba32f00",
-                            Date = "18-Jun-20",
+                            Id = "40c3dfb6-1cda-4c02-89c8-3bd912d591ed",
+                            Date = "24-Jun-20",
+                            PlayTime = "6:00",
                             RepertoryId = "0b1177fe-0733-42e8-a8c5-35ad8039a14e",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -454,8 +507,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "bbde8513-111e-4e5c-b6ef-0a46362ce758",
-                            Date = "18-Jun-20",
+                            Id = "55c841e1-b204-4503-a2d0-21446fdb073a",
+                            Date = "24-Jun-20",
+                            PlayTime = "10:30",
                             RepertoryId = "f563fb50-26da-4a57-9bcd-b3836614835a",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -463,8 +517,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "1b08b5b6-d657-4ff4-8933-bbe8dec316c9",
-                            Date = "18-Jun-20",
+                            Id = "25cb1776-2b87-4fd2-b2f1-bbeb80ec290c",
+                            Date = "24-Jun-20",
+                            PlayTime = "20:45",
                             RepertoryId = "8411a5b7-699f-45d4-ab67-ee3a17338424",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -472,8 +527,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "02333d29-5fe4-4810-a682-bed2cb8cfcd1",
-                            Date = "19-Jun-20",
+                            Id = "1aa53f06-e8b2-40f2-bbe5-7fa6b23bb378",
+                            Date = "18-Jun-20",
+                            PlayTime = "4:00",
                             RepertoryId = "18f8b880-1231-4028-9eb6-998e94b62b9b",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -481,8 +537,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "8005bbe4-22ab-4c7e-9409-833300f75fae",
-                            Date = "19-Jun-20",
+                            Id = "8d5d8abe-83f8-4239-8c6f-66c70318f620",
+                            Date = "18-Jun-20",
+                            PlayTime = "13:30",
                             RepertoryId = "73e61eb8-e1ef-400f-a6b8-b2e07725dfb2",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -490,8 +547,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "191c55b0-08ad-425d-977f-c54548a17d8e",
-                            Date = "19-Jun-20",
+                            Id = "f704b331-ef31-4624-a934-37bd41e083bd",
+                            Date = "18-Jun-20",
+                            PlayTime = "20:45",
                             RepertoryId = "524ce530-f997-44da-b118-2c88be728248",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -499,8 +557,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "586b4e87-40ea-4703-a7ec-8b9798fea257",
-                            Date = "20-Jun-20",
+                            Id = "bd632325-a02c-41a2-a87a-806c80ddb210",
+                            Date = "19-Jun-20",
+                            PlayTime = "3:00",
                             RepertoryId = "1367d782-f24e-4985-978d-825515f40bee",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -508,8 +567,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "c3532562-04c1-4c73-a57f-5a4aa5b28e9a",
-                            Date = "20-Jun-20",
+                            Id = "ec59fa10-f80e-47fb-b43a-ed21a846b5f7",
+                            Date = "19-Jun-20",
+                            PlayTime = "9:30",
                             RepertoryId = "5417a7e6-e108-48ff-b831-6578c3680a71",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -517,8 +577,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "c2e15eed-a7af-4bb5-af30-818266d2789c",
-                            Date = "20-Jun-20",
+                            Id = "8e2f3b49-7924-40a7-887c-44394e36e4ad",
+                            Date = "19-Jun-20",
+                            PlayTime = "18:45",
                             RepertoryId = "c80f93cc-c780-436d-800a-f3ba02aabcdc",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -526,8 +587,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "ef1e1f0f-e131-4b67-bb51-379390c9ffdd",
-                            Date = "21-Jun-20",
+                            Id = "078a46a2-904c-4c25-adab-691ac801cd4b",
+                            Date = "20-Jun-20",
+                            PlayTime = "4:00",
                             RepertoryId = "ef0f138d-b306-4983-a873-1222342b4368",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -535,8 +597,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "92225f84-d069-4e16-9af0-a241e5322a6f",
-                            Date = "21-Jun-20",
+                            Id = "7808a060-ebee-49bf-a70d-b8078829ba98",
+                            Date = "20-Jun-20",
+                            PlayTime = "14:30",
                             RepertoryId = "87950de7-b4a3-430b-add8-57cb2f696aa6",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -544,8 +607,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "eae18538-66da-4ca6-b9d3-a6eb1bf1bf24",
-                            Date = "21-Jun-20",
+                            Id = "916bb435-b008-4a93-96e0-232503e81bda",
+                            Date = "20-Jun-20",
+                            PlayTime = "19:45",
                             RepertoryId = "86d5fad3-0481-4497-9dab-b97a7da4c13c",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -553,8 +617,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "153713bf-e554-438b-bbf8-299c3e567239",
-                            Date = "15-Jun-20",
+                            Id = "5d30139d-c159-479b-8297-b4fce6705726",
+                            Date = "21-Jun-20",
+                            PlayTime = "3:00",
                             RepertoryId = "2ce9ef7b-77f0-49e8-8277-fe90927f3ce7",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -562,8 +627,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "5791d889-ac80-4471-a55e-4ac1fd5d28f2",
-                            Date = "15-Jun-20",
+                            Id = "273e1126-bbf8-45d7-9772-1d6567c70793",
+                            Date = "21-Jun-20",
+                            PlayTime = "9:30",
                             RepertoryId = "8ad3aba2-5caa-40ca-afdb-d62f9253ed01",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -571,8 +637,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "65afd7d6-4c8a-4137-962b-f110a55806a9",
-                            Date = "15-Jun-20",
+                            Id = "efea93c6-2ec6-4de8-95fe-64588a75b57c",
+                            Date = "21-Jun-20",
+                            PlayTime = "22:45",
                             RepertoryId = "4f8eb2ca-3a70-4920-8de0-5033ed304451",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -580,8 +647,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "984f0461-1eae-43cc-b9ee-e34e2829faae",
-                            Date = "16-Jun-20",
+                            Id = "2d92c05c-1e81-43ea-bd8e-5f1b57583af1",
+                            Date = "22-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "1dd5a479-a903-426e-9880-4eeef60b69f8",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -589,8 +657,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "3e9aaf84-3161-4987-88ac-c4373636a7ce",
-                            Date = "16-Jun-20",
+                            Id = "a64a5b35-ebd5-46ce-b3b8-076d8f5136ad",
+                            Date = "22-Jun-20",
+                            PlayTime = "13:30",
                             RepertoryId = "f6f1670a-4eba-4d98-85f6-d4c1d37a7dec",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -598,8 +667,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "b6ef870f-d219-4f77-9186-4f7f27fb8801",
-                            Date = "16-Jun-20",
+                            Id = "aacb40d6-39df-4bbf-a055-2198a0b3ceb4",
+                            Date = "22-Jun-20",
+                            PlayTime = "19:45",
                             RepertoryId = "f6a55375-3743-4528-8ac4-8ba93e9ba017",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -607,8 +677,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "5f911d00-0868-4847-934b-cbd328e5484e",
-                            Date = "17-Jun-20",
+                            Id = "55173ba9-2b39-4d0b-9b4d-17c347d1331c",
+                            Date = "23-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "17738e0f-d311-4003-b6c2-7a8bfe733e20",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -616,8 +687,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "d8c1b69e-05d8-4bfb-9b14-8a973765149d",
-                            Date = "17-Jun-20",
+                            Id = "b2dc91e5-7803-4fc5-971d-fd39486ecadd",
+                            Date = "23-Jun-20",
+                            PlayTime = "9:30",
                             RepertoryId = "067273f1-2931-4cf5-9f0f-0893fa7ec83e",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -625,8 +697,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "d3ba3ff2-211b-46a7-a6e1-55d60e521c0b",
-                            Date = "17-Jun-20",
+                            Id = "a63d0a00-52df-477a-8ace-ce4708320798",
+                            Date = "23-Jun-20",
+                            PlayTime = "21:45",
                             RepertoryId = "2339db48-b2bc-481d-9d78-ebb9e32f433d",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -634,8 +707,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "50c0d4fd-d911-4b66-93df-2da92035c5e9",
-                            Date = "18-Jun-20",
+                            Id = "4c49a65c-5c1d-43c4-a6a1-73331f11f10d",
+                            Date = "24-Jun-20",
+                            PlayTime = "3:00",
                             RepertoryId = "661ac04f-8289-4eec-9530-c648264eb9a4",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -643,8 +717,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "94152823-76ee-4dc7-a6fb-a5a78819cec3",
-                            Date = "18-Jun-20",
+                            Id = "78b71410-7a14-4ed5-9fec-b95d6e0eb909",
+                            Date = "24-Jun-20",
+                            PlayTime = "13:30",
                             RepertoryId = "f7c4ec9d-e923-4d28-8918-ac842efc24e5",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -652,8 +727,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "f75113be-b327-48a0-857f-de5258bcd331",
-                            Date = "18-Jun-20",
+                            Id = "570858aa-1965-4283-b16c-ea6ed7b173e7",
+                            Date = "24-Jun-20",
+                            PlayTime = "17:45",
                             RepertoryId = "fa858d18-c031-4a4d-8700-7b46f21109f4",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -661,8 +737,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "c7203b35-ff7a-4fc6-bdfc-a00eaa0634be",
-                            Date = "19-Jun-20",
+                            Id = "638f1432-3148-4b05-b58a-aaca15c09fbd",
+                            Date = "18-Jun-20",
+                            PlayTime = "3:00",
                             RepertoryId = "1bbd4048-bbf7-4269-a4a1-bf0510fd18db",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -670,8 +747,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "febaa01c-7f7e-4075-9f7e-3ab45b36da3b",
-                            Date = "19-Jun-20",
+                            Id = "1b424fad-6dfe-41c4-a3f4-c64d6cec4790",
+                            Date = "18-Jun-20",
+                            PlayTime = "9:30",
                             RepertoryId = "149d67fb-796f-489b-bbe2-993073b66bc6",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -679,8 +757,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "e3db246f-ced5-4a00-b717-b13ca8576582",
-                            Date = "19-Jun-20",
+                            Id = "6042395c-3987-40d5-9c33-e3b83cafaca3",
+                            Date = "18-Jun-20",
+                            PlayTime = "22:45",
                             RepertoryId = "23fc35c2-cd81-45be-bf32-b2cb1da3bc34",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -688,8 +767,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "56b2db22-a31f-4e30-97fc-76ee067074a3",
-                            Date = "20-Jun-20",
+                            Id = "014fd308-525f-443c-b761-5edf13fd828b",
+                            Date = "19-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "2128363b-df77-4459-85aa-2beaf899ec4c",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -697,8 +777,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "e8359e41-84ea-4250-b277-d7cd9c62d671",
-                            Date = "20-Jun-20",
+                            Id = "921d3260-eb2d-47fe-85ce-d3c5d775fcf4",
+                            Date = "19-Jun-20",
+                            PlayTime = "14:30",
                             RepertoryId = "a9c0be59-ab64-4b33-8f03-26bd93aab48e",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -706,8 +787,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "bd085376-084a-4d45-92b8-daeb455fe6c7",
-                            Date = "20-Jun-20",
+                            Id = "9ed2d266-862b-4d30-b396-98455d8bdb3c",
+                            Date = "19-Jun-20",
+                            PlayTime = "16:45",
                             RepertoryId = "a7dd1624-9980-48f4-b73a-56660e673c89",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -715,8 +797,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "8e102bfb-5c97-4c9f-8487-0a3e74b3a3f0",
-                            Date = "21-Jun-20",
+                            Id = "29945117-9667-4b47-b8b0-2b9234b72faa",
+                            Date = "20-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "c6163527-6edf-43e2-a07b-f4889a37f70e",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -724,8 +807,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "13defacf-19f4-48a4-ae5c-1083491b91e9",
-                            Date = "21-Jun-20",
+                            Id = "d8b0f6ef-3ba6-4574-b990-ff38987e1b64",
+                            Date = "20-Jun-20",
+                            PlayTime = "14:30",
                             RepertoryId = "f56de32e-a8d4-495b-99dc-a3867d7408f0",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -733,8 +817,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "bdebfbe7-58f0-4357-8849-605991bbef61",
-                            Date = "21-Jun-20",
+                            Id = "69b6603c-ec40-4a61-b577-159311f1964e",
+                            Date = "20-Jun-20",
+                            PlayTime = "22:45",
                             RepertoryId = "7ed80a87-eb47-4249-8ac1-917a0800496c",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -742,8 +827,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "ccb1fc6d-4e77-4e9c-9948-9aa106f4e36a",
-                            Date = "15-Jun-20",
+                            Id = "45197098-1d8c-4963-b839-f0ecbe0aa4cd",
+                            Date = "21-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "eacf5f01-e97f-412e-9ae0-a627b999bdeb",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -751,8 +837,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "0c592852-7f97-4306-9791-73547785822b",
-                            Date = "15-Jun-20",
+                            Id = "180ddf41-2f6c-42f3-b629-c22dcb837234",
+                            Date = "21-Jun-20",
+                            PlayTime = "9:30",
                             RepertoryId = "9fff2c90-0b6f-4974-864c-8f54a86edb4b",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -760,8 +847,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "1132a489-fac0-457f-b8ae-c4cab7dd446b",
-                            Date = "15-Jun-20",
+                            Id = "f06a5d18-eb39-4aae-a507-3b4408987ebf",
+                            Date = "21-Jun-20",
+                            PlayTime = "22:45",
                             RepertoryId = "a840daac-d9a9-4c16-a48a-043e43247034",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -769,8 +857,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "7ab39107-94fe-46d8-952a-893e9b407034",
-                            Date = "16-Jun-20",
+                            Id = "71fede29-4885-4a64-bb17-3a651b3e5f20",
+                            Date = "22-Jun-20",
+                            PlayTime = "3:00",
                             RepertoryId = "e4ed83ca-81a4-4ea0-a7ef-5e4062faa9fa",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -778,8 +867,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "5d6c1f7e-618d-4dd1-8f77-598914d91252",
-                            Date = "16-Jun-20",
+                            Id = "de613f9d-2155-4eee-b8e3-a7c4db81e703",
+                            Date = "22-Jun-20",
+                            PlayTime = "11:30",
                             RepertoryId = "29fe55f5-1a1f-40ad-8db4-9b6731040db2",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -787,8 +877,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "7f4223a4-d03e-4734-b515-efb99f7fc119",
-                            Date = "16-Jun-20",
+                            Id = "a978ac5a-ee63-4e37-904a-005400456635",
+                            Date = "22-Jun-20",
+                            PlayTime = "20:45",
                             RepertoryId = "c6a09e5f-f947-4c64-9b18-16aac2afe1b7",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -796,8 +887,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "5bbd5ce5-2e41-4ac5-bc19-0bb7a7e38cba",
-                            Date = "17-Jun-20",
+                            Id = "b9a2291e-2f2c-4d38-b9e1-4533652871c3",
+                            Date = "23-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "7fe64e0c-3586-4164-a6b5-e336b032bd4a",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -805,8 +897,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "a36e70c0-387c-4602-89d8-1453562eddef",
-                            Date = "17-Jun-20",
+                            Id = "5b434629-5d12-4499-876b-70c6dab7ab61",
+                            Date = "23-Jun-20",
+                            PlayTime = "14:30",
                             RepertoryId = "ad23b7ab-3357-4f0d-a134-25d7ed235ef6",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -814,8 +907,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "a860bff7-5f87-4e67-ac54-8ee24564d615",
-                            Date = "17-Jun-20",
+                            Id = "4700586a-881a-4faf-a1a5-337f71c8b6d5",
+                            Date = "23-Jun-20",
+                            PlayTime = "21:45",
                             RepertoryId = "a1a5cd9b-768c-44c3-9da7-c159e933da5b",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -823,8 +917,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "609ac1e1-b1be-41ec-90e6-0bf008efe785",
-                            Date = "18-Jun-20",
+                            Id = "87a465c9-5ad3-4e11-90e4-b2ade4d66557",
+                            Date = "24-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "7b0d2ec2-e0ad-4efc-ba04-8d9453fd6353",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -832,8 +927,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "3e97bf87-8f69-4fa5-a453-dad96b39e061",
-                            Date = "18-Jun-20",
+                            Id = "74642d97-d034-4efe-9da1-124c9b6c7b4c",
+                            Date = "24-Jun-20",
+                            PlayTime = "11:30",
                             RepertoryId = "f974f0ce-ad88-4ca0-8e1e-a0f235ebe2fd",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -841,8 +937,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "d5dac069-c2fe-4460-881f-a4b06863e005",
-                            Date = "18-Jun-20",
+                            Id = "8ff4c7dd-f14a-4ce7-ae47-1a89f053f262",
+                            Date = "24-Jun-20",
+                            PlayTime = "19:45",
                             RepertoryId = "4b0c1825-74c9-4b7c-be7e-42a25038e481",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -850,8 +947,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "5ede1c6e-65e4-4649-baa1-b0ff59797e83",
-                            Date = "19-Jun-20",
+                            Id = "a5e6c241-88ef-4e55-97f4-43845246d2f9",
+                            Date = "18-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "a36ce8fb-2240-4440-8fb9-2e09c1a21dba",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -859,8 +957,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "4704fb9b-78b7-407b-81cb-9b8a06d3eb47",
-                            Date = "19-Jun-20",
+                            Id = "32a38324-7c15-4c6a-bc3a-97bbd180ca1d",
+                            Date = "18-Jun-20",
+                            PlayTime = "13:30",
                             RepertoryId = "d859c610-740e-4955-878b-06fe614a1998",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -868,8 +967,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "68922fcb-f663-475e-ab16-e7621f7b629e",
-                            Date = "19-Jun-20",
+                            Id = "8ff4a700-b5d5-4cbe-bede-55c0e705998d",
+                            Date = "18-Jun-20",
+                            PlayTime = "22:45",
                             RepertoryId = "4282c7e6-4904-4a11-83a4-bf5278775272",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -877,8 +977,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "f834c4cb-5677-43f8-8d17-493fc1cd17c9",
-                            Date = "20-Jun-20",
+                            Id = "3be405fa-ed92-4c1b-8869-bafca7ed87a3",
+                            Date = "19-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "646458e6-6060-4dcc-9118-b14ce4c1fe28",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -886,8 +987,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "255a182e-4623-4edc-bd9b-05247c67ea7a",
-                            Date = "20-Jun-20",
+                            Id = "7faea543-e156-4688-a996-a254f157b39e",
+                            Date = "19-Jun-20",
+                            PlayTime = "10:30",
                             RepertoryId = "a1c414ac-30c6-44fa-84fe-8ed9bba25611",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -895,8 +997,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "620d7315-1678-4ff9-9754-f000b7e19ef4",
-                            Date = "20-Jun-20",
+                            Id = "aa89cc37-f61f-490a-a79d-a2da991430b1",
+                            Date = "19-Jun-20",
+                            PlayTime = "22:45",
                             RepertoryId = "8cf9c962-93ad-429c-9347-6fb6022a1f37",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -904,8 +1007,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "de01645d-8b7c-4dea-95b8-325f200dbfc3",
-                            Date = "21-Jun-20",
+                            Id = "14a4841f-780b-4767-a421-f8cee46628e9",
+                            Date = "20-Jun-20",
+                            PlayTime = "4:00",
                             RepertoryId = "0002ce82-5bf2-4b33-9d69-6c4c3f09f36a",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -913,8 +1017,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "9e4c6ff7-1e4e-4e1d-ae0d-bb1e263096ef",
-                            Date = "21-Jun-20",
+                            Id = "4801784d-28d9-457f-a4f7-987a53e4d4d1",
+                            Date = "20-Jun-20",
+                            PlayTime = "9:30",
                             RepertoryId = "43161eb5-a4a4-455f-b402-fb7d7c73b98a",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -922,8 +1027,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "f9f0fe3a-7bf6-4ea7-a407-456a4a78f439",
-                            Date = "21-Jun-20",
+                            Id = "e7a65865-20c5-460c-94e7-41ef047b5cbc",
+                            Date = "20-Jun-20",
+                            PlayTime = "21:45",
                             RepertoryId = "921112c1-f48f-4d06-9ae8-81b8c663fa2a",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -931,8 +1037,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "878999b9-9ee3-4532-a25a-8eb1881e17c5",
-                            Date = "15-Jun-20",
+                            Id = "8b2fed32-37b2-4d10-88f3-3f0088182036",
+                            Date = "18-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 0,
@@ -940,8 +1047,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "01d960d2-c6a1-4000-8b31-3ee04d1e08a1",
-                            Date = "15-Jun-20",
+                            Id = "867e971b-3071-46b3-844e-e8e942664dcb",
+                            Date = "18-Jun-20",
+                            PlayTime = "3:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 0,
@@ -949,8 +1057,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "1d0ed685-f4aa-4293-a562-28dbe0419042",
-                            Date = "15-Jun-20",
+                            Id = "b39be881-dba3-480a-a433-b94c54214259",
+                            Date = "18-Jun-20",
+                            PlayTime = "4:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 0,
@@ -958,8 +1067,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "d5eb1426-9af5-4742-ac11-2872ee122615",
-                            Date = "15-Jun-20",
+                            Id = "af1c330e-95b9-41c5-b0d8-ef7bdd265f2b",
+                            Date = "18-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 0,
@@ -967,8 +1077,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "0d6f4aec-ae50-4f54-ac77-a8e564d4ab11",
-                            Date = "15-Jun-20",
+                            Id = "679c463b-293d-4a02-9a1b-8d07997e71b5",
+                            Date = "18-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 0,
@@ -976,8 +1087,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "0ca2e0f7-a409-4f37-bf58-b26d52684419",
-                            Date = "15-Jun-20",
+                            Id = "5effc7bb-93e0-4f70-9d92-ce8c90886829",
+                            Date = "18-Jun-20",
+                            PlayTime = "5:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 1,
@@ -985,8 +1097,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "b0a29120-b073-47b4-8a7a-f41b222cd917",
-                            Date = "15-Jun-20",
+                            Id = "12abf993-20af-4b00-8f46-38a57e74fa2b",
+                            Date = "18-Jun-20",
+                            PlayTime = "5:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 1,
@@ -994,8 +1107,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "b8199a2c-da63-449a-a9a6-c4b2fe9108bc",
-                            Date = "15-Jun-20",
+                            Id = "7f80b2ac-d93d-4f42-b9fa-59aec29e69d5",
+                            Date = "18-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 1,
@@ -1003,8 +1117,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "dc480cec-fa4d-440d-9ade-5e43fdc0836b",
-                            Date = "15-Jun-20",
+                            Id = "7fb4f576-4941-4dc8-9a43-36cc27708cf1",
+                            Date = "18-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 1,
@@ -1012,8 +1127,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "eef8fcec-dd71-48eb-8131-dc637325119e",
-                            Date = "15-Jun-20",
+                            Id = "56c2c6c1-bcd4-46cf-b087-8a59fdd269b7",
+                            Date = "18-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 1,
@@ -1021,8 +1137,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "280de44d-0591-45d2-95b2-9332f7f666c0",
-                            Date = "15-Jun-20",
+                            Id = "6ffd2e06-9331-4779-ab22-28f0b4989c51",
+                            Date = "18-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 2,
@@ -1030,8 +1147,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "1d79ad5f-e7ad-4cbb-beb9-b3cc4020dffc",
-                            Date = "15-Jun-20",
+                            Id = "63ae4b76-e8a7-4f61-aa22-aac692fed17b",
+                            Date = "18-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 2,
@@ -1039,8 +1157,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "7755b705-38c4-42de-92a9-a4723f8b7107",
-                            Date = "15-Jun-20",
+                            Id = "f8de561b-8f3e-4e40-a9d0-db311be0c13a",
+                            Date = "18-Jun-20",
+                            PlayTime = "4:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 2,
@@ -1048,8 +1167,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "26205d02-c565-49ff-8b9a-812602c6bfc8",
-                            Date = "15-Jun-20",
+                            Id = "6cca94aa-05b3-4fb1-a53a-cf65f580a2e7",
+                            Date = "18-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 2,
@@ -1057,8 +1177,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "c17a2a5c-2458-4a80-a041-76d694297278",
-                            Date = "15-Jun-20",
+                            Id = "8b74d61d-199f-41d7-9e51-25fd95a45d75",
+                            Date = "18-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 2,
@@ -1066,8 +1187,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "95897e8d-d78b-410c-bbd4-a32977a75fb6",
-                            Date = "15-Jun-20",
+                            Id = "81286a49-2737-4bd1-b67d-e0b2197b28bc",
+                            Date = "18-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 3,
@@ -1075,8 +1197,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "f8eaf822-e458-4f2d-8acc-ae86182b01d1",
-                            Date = "15-Jun-20",
+                            Id = "4ac957f1-c531-4301-9729-d463657e8ce8",
+                            Date = "18-Jun-20",
+                            PlayTime = "5:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 3,
@@ -1084,8 +1207,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "5349311d-5469-4dd4-b423-7531aeafdfe1",
-                            Date = "15-Jun-20",
+                            Id = "df00d7e3-791a-4d60-b782-133cdbfd1189",
+                            Date = "18-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 3,
@@ -1093,8 +1217,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "28bb315e-d8ef-4dd1-95f7-896ac8384154",
-                            Date = "15-Jun-20",
+                            Id = "8773b48b-66dc-4175-8247-90c620252369",
+                            Date = "18-Jun-20",
+                            PlayTime = "7:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 3,
@@ -1102,8 +1227,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "5d5666d3-0708-4c2e-817c-342af652ef41",
-                            Date = "15-Jun-20",
+                            Id = "783f26ba-4f55-41ea-bde2-ea7a07af890b",
+                            Date = "18-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 3,
@@ -1111,8 +1237,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "c8f8f86f-f325-47a0-8063-bad8912a7610",
-                            Date = "15-Jun-20",
+                            Id = "7c4120c2-663a-48f3-9b58-095480e01ebd",
+                            Date = "18-Jun-20",
+                            PlayTime = "1:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 0,
                             SeatRow = 4,
@@ -1120,8 +1247,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "359927c7-0475-4654-b05f-bf6a2dd5c2f0",
-                            Date = "15-Jun-20",
+                            Id = "949c4ab6-52e3-4546-88a9-2b9fb79e914d",
+                            Date = "18-Jun-20",
+                            PlayTime = "0:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 1,
                             SeatRow = 4,
@@ -1129,8 +1257,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "81a92d0c-cef4-4506-a792-f181a091afb1",
-                            Date = "15-Jun-20",
+                            Id = "d012d627-e79b-428b-a1c2-e9c7327f85f1",
+                            Date = "18-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 2,
                             SeatRow = 4,
@@ -1138,8 +1267,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "933dbb16-d3a3-4d7e-96dc-572c8c4748fb",
-                            Date = "15-Jun-20",
+                            Id = "6f754279-7c67-4a33-afb9-9420fe3435e3",
+                            Date = "18-Jun-20",
+                            PlayTime = "2:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 3,
                             SeatRow = 4,
@@ -1147,8 +1277,9 @@ namespace Cinema.WebApi.Migrations.Reservation
                         },
                         new
                         {
-                            Id = "070c8616-29c7-4406-b2bf-eef3dd81eeaa",
-                            Date = "15-Jun-20",
+                            Id = "12176f16-fbcc-4cb3-90d7-3715b5995545",
+                            Date = "18-Jun-20",
+                            PlayTime = "5:00",
                             RepertoryId = "18c4b1be-0ef2-403e-a670-fe010a670db1",
                             SeatColumn = 4,
                             SeatRow = 4,

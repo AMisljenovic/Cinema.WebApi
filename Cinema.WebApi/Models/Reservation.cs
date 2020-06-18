@@ -20,5 +20,8 @@ namespace Cinema.WebApi.Models
         public int SeatColumn { get; set; }
         [Required]
         public string Date { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string PlayTime { get; set; }
     }
 }

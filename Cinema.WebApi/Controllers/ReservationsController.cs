@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.WebApi.Controllers
 {
@@ -72,8 +74,15 @@ namespace Cinema.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(List<Reservation> tickets)
         {
-            await _dataRepository.Add(tickets);
-
+            try
+            {
+                await _dataRepository.Add(tickets);
+            }
+            catch (DbUpdateException)
+            {
+                return BadRequest("Seats are already reserved, please refresh page and select available.");
+            }
+            
             return Ok();
         }
 
