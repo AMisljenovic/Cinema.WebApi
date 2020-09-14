@@ -22,6 +22,8 @@ namespace Cinema.WebApi.Models
         [Required]
         [MinLength(4), MaxLength(30)]
         public string Password { get; set; }
+        [Required]
+        [MaxLength(30)]
         public string Role { get; set; }
     }
 

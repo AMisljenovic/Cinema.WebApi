@@ -35,9 +35,6 @@ namespace Cinema.WebApi.Models
         [StringLength(600)]
         public string Plot { get; set; }
         [Required]
-        [StringLength(600)]
-        public string Poster { get; set; }
-        [Required]
         public bool Playing { get; set; }
     }
 }

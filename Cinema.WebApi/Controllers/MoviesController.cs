@@ -36,8 +36,8 @@ namespace Cinema.WebApi.Controllers
             return Ok( await _dataRepository.Get(id));
         }
 
-        // POST: api/Movies
         [HttpPost]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Post([FromBody] Movie value)
         {
             await _dataRepository.Add(value);
@@ -45,8 +45,8 @@ namespace Cinema.WebApi.Controllers
             return Ok();
         }
 
-        // PUT: api/Movies
         [HttpPut]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Put([FromBody] Movie value)
         {
             await _dataRepository.Update(value);
@@ -54,7 +54,6 @@ namespace Cinema.WebApi.Controllers
             return Ok();
         }
 
-        // DELETE: api/Movies/5
         [HttpDelete("{id}")]
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Administrator")]
         public async Task<IActionResult> Delete(string id)
